@@ -213,6 +213,34 @@ pvdb = {
               'count' : splits[0]*splits[1]+1,
              },
 
+    'CAM-acqCal' : {
+        'type' : 'int', #usage as boolean
+        'value' : 0,  
+        'scan' : 1,
+    },
+    
+    'CalA' : { #Correction Array
+        'type' : 'float', #usage as boolean array
+        'prec' : 5,
+        'count' : splits[0]*splits[1], #28
+#        'value' : CalA.flatten(),
+    },
+    'useCalA': {
+        'type' : 'int', #usage as boolean
+        'value' : 0,
+    },
+    'CalA-Version' : {
+        'type' : 'string',
+    },
+    
+    'Cal-EXPT' : {
+        'type' : 'int',    
+        'unit' : 'us',
+    },
+    
+    'Cal-Time' : {
+        'type' : 'string',
+    },
     
     'CAM-acqBitMask' : {
         'type' : 'int', #usage as boolean
@@ -265,19 +293,7 @@ pvdb = {
     },
     
     
-    'CalA' : { #Correction Array
-        'type' : 'float', #usage as boolean array
-        'prec' : 5,
-        'count' : splits[0]*splits[1], #28
-#        'value' : CalA.flatten(),
-    },
-    'useCalA': {
-        'type' : 'int', #usage as boolean
-        'value' : 0,
-    },
-    'CalA_Version' : {
-        'type' : 'string',
-    },
+    
 
     'SatA' : {
         'type' : 'int', 
@@ -350,7 +366,15 @@ for i in range(splits[0]*splits[1]):
                                }
     for limit in PVlimits:
         LOSSdir['LOSS'+str(i+1)+'_'+limit] = {} #create LOSS1_high PV...
-    
+
+        
+CalAdir = {} 
+for i in range(splits[0]*splits[1]):
+    CalAdir['CalA'+str(i+1)] = {'type' : 'float',
+#                                'value' : CalA.flatten()[i],
+                                  'prec' : 2,
+                               }        
+
 DarkAdir = {} 
 #DarkA_flatten = DarkA.flatten()
 for i in range(splits[0]*splits[1]):
@@ -374,6 +398,7 @@ for i in range(splits[0]*splits[1]):
 
 pvdb.update(LEDdir)  # To add two dictionary  
 pvdb.update(LOSSdir) 
+pvdb.update(CalAdir)
 pvdb.update(DarkAdir)
 pvdb.update(DarkA_BMdir)
 pvdb.update(SatAdir)
@@ -559,7 +584,7 @@ class iocDriver(Driver):
         self.setParam('Dark-EXPT', self.dark_json['Exposure Time'])
         self.setParam('Dark-Time',self.dark_json['Time'])
         self.setParam('CalA', self.CalA.flatten())
-        self.setParam('CalA_Version', self.CalA_Version)
+        self.setParam('CalA-Version', self.CalA_Version)
         self.setParam('EdgeLoss0',self.EdgeLoss0)
         for i in range(splits[0]*splits[1]):
             self.setParam('DarkA'+str(i+1), self.DarkA.flatten()[i])
@@ -738,6 +763,19 @@ class iocDriver(Driver):
                 self.Dark_thread.start()     
             else:
                 logging.warning('can not acquire Dark, when Camara is measuring.')
+                #print('can not acquire Dark when Camera not connected or measuring.') 
+                return False
+            
+        elif reason == 'CAM-acqCal': # can only be changed, when camera not measuring
+            if val == True and self.getParam('CAM-isMeasuring') == False:
+                status = True #writes the PV -> sets the value to True
+                self.setParam('CAM-isMeasuring', True)
+                self.updatePVs()
+                # acquire Dark Thread
+                self.Cal_thread = threading.Thread(target = self.acqCal, daemon = True)
+                self.Cal_thread.start()     
+            else:
+                logging.warning('can not acquire Cal, when Camara is measuring.')
                 #print('can not acquire Dark when Camera not connected or measuring.') 
                 return False
                 
@@ -1181,7 +1219,7 @@ class iocDriver(Driver):
         self.setParam('EdgeLoss0', self.EdgeLoss0)
                             
         # Slice it
-        self.DarkI= DarkI[self.y_start:self.y_end,self.x_start:self.x_end]
+        self.DarkI= self.SliceIMG(DarkI)
         
         # Calculate DarkA
         self.DarkA = f.split_sum(self.DarkI, splits)
@@ -1238,6 +1276,122 @@ class iocDriver(Driver):
         #print('acqDarkA finished')
         logging.info('acqDark finished')
         return None #end of function
+    
+    
+    def acqCal(self, j=100):
+        
+        #LEDs of
+        
+        self.StartGrabbing()
+        
+        width = self.getParam('CAM-WIDTH')
+        height = self.getParam('CAM-HEIGHT')
+        Isum = np.zeros(width*height).reshape(height, width)
+        for i in range(j):
+            time.sleep(0.05)
+            grabResult = self.camera.RetrieveResult(5000,pylon.TimeoutHandling_Return)
+            if grabResult.GrabSucceeded():
+                img = grabResult.Array
+                # sum it up
+                Isum += img                    
+        DarkI = Isum/j
+        grabResult.Release()
+                            
+        # Slice it
+        DarkIs = self.SliceIMG(DarkI)
+        #Calculate DarkA with BitMask
+        DarkI_BM = DarkIs*self.BitMask
+        DarkA_BM = f.split_sum(DarkI_BM, splits)
+        print('DarkA_BM from acqCal \n', DarkA_BM)
+        
+        #LEDs on 
+        Isum = np.zeros(width*height).reshape(height, width)
+        for i in range(j):
+            grabResult = self.camera.RetrieveResult(5000,pylon.TimeoutHandling_Return)
+            if grabResult.GrabSucceeded():
+                img = grabResult.Array
+                # sum it up
+                Isum += img                    
+        CalI = Isum/j
+        
+        grabResult.Release()
+        
+        self.camera.StopGrabbing()
+        
+        #DarkI correction
+        #CalI = CalI-DarkI
+        # Slice it
+        self.CalI = self.SliceIMG(CalI)
+        #Calculate CalA with BitMask
+        self.CalI = self.CalI*self.BitMask
+        CalA = f.split_sum(self.CalI, splits)
+        CalA = CalA - DarkA_BM
+        print('CalA with subtracted dark and Bitmask \n', CalA)
+        
+        #find out which channel is connected
+        channels = np.zeros(splits[0]*splits[1])
+        for i in range(splits[0]*splits[1])
+            if CalA.flatten[i] > DarkA_BM.flatten[i]
+                channels[i] = 1 #channel is connected
+        print('Connected channels', channels)       
+        #CalA normalize connected channels
+        self.CalA = f.norm_A(CalA)
+        
+        
+                
+        
+        
+        #save DarkI for Flatfield
+        time_txt = time.strftime("%Y-%m-%d_%H-%M-%S_%Z", time.localtime())
+        expt_ms = str(self.getParam('CAM-EXPT')/1000) + 'ms'
+            #save with Time and Date -> Archiv
+        with open(os.path.join(CWD,'../Calibration_Data/Flatfield/' + time_txt + '_DarkI_' + expt_ms + '.npy'), 'wb') as file:
+            np.save(file, DarkI)
+            #save as _last_ for reopening
+        with open(os.path.join(CWD,'../Calibration_Data/Flatfield/_last_DarkI.npy'), 'wb') as file:
+            np.save(file, DarkI)
+                                  
+        #save CalI
+            #save with Time and Date -> Archiv
+        with open(os.path.join(CWD,'../Calibration_Data/Flatfield/' + time_txt + '_CalI_' + expt_ms + '.npy'), 'wb') as file:
+            np.save(file, CalI)
+            #save as _last_ for reopening
+        with open(os.path.join(CWD,'../Calibration_Data/Flatfield/_last_CalI.npy'), 'wb') as file:
+            np.save(file, CalI)
+
+        # save a Dictionary with all the Data to a .json file
+        dark_json = {'Time': time_txt, 
+                     'Timestamp' : time.time(),
+                     'Exposure Time': self.getParam('CAM-EXPT'),
+                     'BitMask': self.getParam('BitMask-Time') ,
+                     'Sensor Bit Depth': self.getParam('CAM-SenBitD'), 
+                     'Pixelformat': self.getParam('CAM-Pformat'), 
+                     'Gain': self.getParam('CAM-GAIN'),
+                     'Img Size': (self.getParam('CAM-WIDTH'), self.getParam('CAM-HEIGHT')),
+                     'Slice Parameters(y_start,y_end, x_start, x_end):': (self.y_start,self.y_end,self.x_start,self.x_end)}
+        #print('dark_json:', dark_json)
+        with open(os.path.join(CWD,'../Calibration_Data/Flatfield/_last_Flatfield_parameters.json'), 'w') as file:
+            json.dump(dark_json, file)
+        with open(os.path.join(CWD,'../Calibration_Data/Flatfield/' + time_txt + '_Flatfield_parameters.json'), 'w') as file:
+            json.dump(dark_json, file)
+                            
+        #set CalA
+        for j in range(splits[0]*splits[1]):
+            self.setParam('CalA'+str(j+1), self.CalA.flatten()[j])
+
+        #self.setParam('CalI', self.DarkI.flatten())
+        self.setParam('Cal-EXPT', int(self.getParam('CAM-EXPT')))
+        self.setParam('Cal-Time', time_txt)
+        self.setParam('CalA-Version', 'without LED Calibration from GUI')
+        self.setParam('CAM-acqCal', False)
+        self.setParam('CAM-isMeasuring', False)#resets the isMeasuring so Camera is ready for other Grabbing
+        self.updatePVs()
+        
+        #print('acqDarkA finished')
+        logging.info('acqCal finished')
+        return None #end of function
+    
+    
         
     def StartGrabbing(self):
         self.camera.StartGrabbing(pylon.GrabStrategy_LatestImageOnly)#test other grabStrategies
