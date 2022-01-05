@@ -275,6 +275,9 @@ pvdb = {
         'type' : 'int', #usage as boolean
         'value' : 0,
     },
+    'CalA_Version' : {
+        'type' : 'string',
+    },
 
     'SatA' : {
         'type' : 'int', 
@@ -485,7 +488,7 @@ class iocDriver(Driver):
 
         try:
             #open CalA
-            CalA_Version = 'FAKTOR_V3_SQRT.npy'
+            self.CalA_Version = 'FAKTOR_V3_SQRT.npy'
             with open(os.path.join(CWD,'../Calibration_Data/'+CalA_Version), 'rb') as file:
                 self.CalA = np.load(file)
             #print(CalA)
@@ -556,6 +559,7 @@ class iocDriver(Driver):
         self.setParam('Dark-EXPT', self.dark_json['Exposure Time'])
         self.setParam('Dark-Time',self.dark_json['Time'])
         self.setParam('CalA', self.CalA.flatten())
+        self.setParam('CalA_Version', self.CalA_Version)
         self.setParam('EdgeLoss0',self.EdgeLoss0)
         for i in range(splits[0]*splits[1]):
             self.setParam('DarkA'+str(i+1), self.DarkA.flatten()[i])
@@ -1029,6 +1033,7 @@ class iocDriver(Driver):
                 val = arr.flatten()
                 par = np.array([int(self.getParam('useBitMask')),int(self.getParam('useDark')),int(self.getParam('useCalA'))])
                 sav = np.concatenate((t1, val, par), axis=None)
+                sav = np.expand_dims(sav, axis = 0) #to save it on one column in .csv
                 
                 #save to csv File
                 if self.getParam('save') == True:
@@ -1042,12 +1047,12 @@ class iocDriver(Driver):
                                 np.savetxt(file, [LABEL], delimiter = ',', fmt = '%s')      
                                 
                     with open(os.path.join(CWD,'../Data/EPICS_GUI/'+self.time_sav+'_Data.csv'), 'ab') as file:
-                        np.savetxt(file, sav_arr,delimiter = ',')
+                        np.savetxt(file, sav,delimiter = ',')
 
                 #save to LOSS variables
                 self.setParam('LOSS', sav)
                 for j in range(splits[0]*splits[1]):
-                    self.setParam('LOSS'+str(j+1), sav[j+1])
+                    self.setParam('LOSS'+str(j+1), val[j])
                 self.updatePVs()
        
                 #global stop_measurement
