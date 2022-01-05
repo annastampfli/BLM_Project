@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>992</width>
+    <height>575</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="caCamera" name="cacamera">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>20</y>
+     <width>481</width>
+     <height>491</height>
+    </rect>
+   </property>
+   <property name="channelData" stdset="0">
+    <string notr="true">ARIDI-BLM01:CAM-IMAGE</string>
+   </property>
+   <property name="channelWidth" stdset="0">
+    <string notr="true">ARIDI-BLM01:CAM-IMAGEx</string>
+   </property>
+   <property name="channelHeight" stdset="0">
+    <string notr="true">ARIDI-BLM01:CAM-IMAGEy</string>
+   </property>
+   <property name="minLevel">
+    <string notr="true">0</string>
+   </property>
+   <property name="maxLevel">
+    <string notr="true"/>
+   </property>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>caCamera</class>
+   <extends>QWidget</extends>
+   <header>caCamera</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

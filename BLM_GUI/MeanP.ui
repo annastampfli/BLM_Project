@@ -1,0 +1,1321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>405</width>
+    <height>1275</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QTabWidget" name="tabWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>30</y>
+     <width>411</width>
+     <height>1241</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="tab_7">
+    <attribute name="title">
+     <string>30 sec</string>
+    </attribute>
+    <widget class="caStripPlot" name="castripplot_16">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>405</width>
+       <height>233</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-BLM02:MeanP;ARIDI-BLM02:EdgeLoss</string>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="YaxisLimitsMax_1">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_2">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_2">
+      <color>
+       <red>255</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_3">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_3">
+      <color>
+       <red>247</red>
+       <green>150</green>
+       <blue>70</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_4">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_4">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_5">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_5">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_6">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_17">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>240</y>
+       <width>405</width>
+       <height>233</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-BLM02:CAM-EXPT</string>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="YaxisLimitsMax_1">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_2">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_2">
+      <color>
+       <red>255</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_3">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_3">
+      <color>
+       <red>247</red>
+       <green>150</green>
+       <blue>70</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_4">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_4">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_5">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_5">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_6">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_18">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>480</y>
+       <width>405</width>
+       <height>233</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-BLM02:CAM-GAIN</string>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="YaxisLimitsMax_1">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_2">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_2">
+      <color>
+       <red>255</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_3">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_3">
+      <color>
+       <red>247</red>
+       <green>150</green>
+       <blue>70</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_4">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_4">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_5">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_5">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_6">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_25">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>720</y>
+       <width>405</width>
+       <height>233</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-BLM02:EdgeLossN</string>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="YaxisLimitsMax_1">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_2">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_2">
+      <color>
+       <red>255</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_3">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_3">
+      <color>
+       <red>247</red>
+       <green>150</green>
+       <blue>70</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_4">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_4">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_5">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_5">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_6">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_30">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>960</y>
+       <width>405</width>
+       <height>233</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-BLM02:CAM-Temp</string>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="YaxisLimitsMax_1">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_2">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_2">
+      <color>
+       <red>255</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_3">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_3">
+      <color>
+       <red>247</red>
+       <green>150</green>
+       <blue>70</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_4">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_4">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_5">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_5">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_6">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_3">
+    <attribute name="title">
+     <string>5 min</string>
+    </attribute>
+    <widget class="caStripPlot" name="castripplot_19">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>405</width>
+       <height>233</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-BLM02:MeanP;ARIDI-BLM02:EdgeLoss</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="YaxisLimitsMax_1">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_2">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_2">
+      <color>
+       <red>255</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_3">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_3">
+      <color>
+       <red>247</red>
+       <green>150</green>
+       <blue>70</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_4">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_4">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_5">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_5">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_6">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_20">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>240</y>
+       <width>405</width>
+       <height>233</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-BLM02:CAM-EXPT</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="YaxisLimitsMax_1">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_2">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_2">
+      <color>
+       <red>255</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_3">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_3">
+      <color>
+       <red>247</red>
+       <green>150</green>
+       <blue>70</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_4">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_4">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_5">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_5">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_6">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_21">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>480</y>
+       <width>405</width>
+       <height>233</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-BLM02:CAM-GAIN</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="YaxisLimitsMax_1">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_2">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_2">
+      <color>
+       <red>255</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_3">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_3">
+      <color>
+       <red>247</red>
+       <green>150</green>
+       <blue>70</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_4">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_4">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_5">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_5">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_6">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_26">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>720</y>
+       <width>405</width>
+       <height>233</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-BLM02:EdgeLossN</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="YaxisLimitsMax_1">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_2">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_2">
+      <color>
+       <red>255</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_3">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_3">
+      <color>
+       <red>247</red>
+       <green>150</green>
+       <blue>70</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_4">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_4">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_5">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_5">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_6">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_29">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>960</y>
+       <width>405</width>
+       <height>233</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-BLM02:CAM-Temp</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="YaxisLimitsMax_1">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_2">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_2">
+      <color>
+       <red>255</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_3">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_3">
+      <color>
+       <red>247</red>
+       <green>150</green>
+       <blue>70</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_4">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_4">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_5">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_5">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_6">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_4">
+    <attribute name="title">
+     <string>1 h</string>
+    </attribute>
+    <widget class="caStripPlot" name="castripplot_24">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>405</width>
+       <height>233</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-BLM02:MeanP;ARIDI-BLM02:EdgeLoss</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="YaxisLimitsMax_1">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_2">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_2">
+      <color>
+       <red>255</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_3">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_3">
+      <color>
+       <red>247</red>
+       <green>150</green>
+       <blue>70</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_4">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_4">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_5">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_5">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_6">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_23">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>480</y>
+       <width>405</width>
+       <height>233</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-BLM02:CAM-GAIN</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="YaxisLimitsMax_1">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_2">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_2">
+      <color>
+       <red>255</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_3">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_3">
+      <color>
+       <red>247</red>
+       <green>150</green>
+       <blue>70</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_4">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_4">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_5">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_5">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_6">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_22">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>240</y>
+       <width>405</width>
+       <height>233</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-BLM02:CAM-EXPT</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="YaxisLimitsMax_1">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_2">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_2">
+      <color>
+       <red>255</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_3">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_3">
+      <color>
+       <red>247</red>
+       <green>150</green>
+       <blue>70</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_4">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_4">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_5">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_5">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_6">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_27">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>720</y>
+       <width>405</width>
+       <height>241</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-BLM02:EdgeLossN</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="YaxisLimitsMax_1">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_2">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_2">
+      <color>
+       <red>255</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_3">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_3">
+      <color>
+       <red>247</red>
+       <green>150</green>
+       <blue>70</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_4">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_4">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_5">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_5">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_6">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_28">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>960</y>
+       <width>405</width>
+       <height>241</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-BLM02:CAM-Temp</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="YaxisLimitsMax_1">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_2">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_2">
+      <color>
+       <red>255</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_3">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_3">
+      <color>
+       <red>247</red>
+       <green>150</green>
+       <blue>70</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_4">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_4">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_5">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_5">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_6">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="caLineEdit" name="calineedit">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>10</y>
+     <width>100</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM02:EdgeLoss0</string>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>0</y>
+     <width>161</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>EdgeLoss0 (Dark)</string>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QwtPlot</class>
+   <extends>QFrame</extends>
+   <header>qwt_plot.h</header>
+  </customwidget>
+  <customwidget>
+   <class>caLabel</class>
+   <extends>QLabel</extends>
+   <header>caLabel</header>
+  </customwidget>
+  <customwidget>
+   <class>caLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>caLineEdit</header>
+  </customwidget>
+  <customwidget>
+   <class>caStripPlot</class>
+   <extends>QwtPlot</extends>
+   <header>caStripPlot</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

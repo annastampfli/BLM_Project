@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>855</width>
+    <height>669</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="caToggleButton" name="catogglebutton_8">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>50</y>
+     <width>161</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>acquire new Dark</string>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:CAM-acqDark</string>
+   </property>
+   <property name="fontScaleMode" stdset="0">
+    <enum>caToggleButton::None</enum>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_2">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>160</y>
+     <width>191</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Exposure Time</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="caTable" name="catable">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>40</y>
+     <width>151</width>
+     <height>611</height>
+    </rect>
+   </property>
+   <property name="rowCount">
+    <number>28</number>
+   </property>
+   <property name="columnCount">
+    <number>0</number>
+   </property>
+   <property name="channels" stdset="0">
+    <string>ARIDI-BLM01:DarkA1;ARIDI-BLM01:DarkA2;ARIDI-BLM01:DarkA3;ARIDI-BLM01:DarkA4;ARIDI-BLM01:DarkA5;ARIDI-BLM01:DarkA6;ARIDI-BLM01:DarkA7;ARIDI-BLM01:DarkA8;ARIDI-BLM01:DarkA9;ARIDI-BLM01:DarkA10;ARIDI-BLM01:DarkA11;ARIDI-BLM01:DarkA12;ARIDI-BLM01:DarkA13;ARIDI-BLM01:DarkA14;ARIDI-BLM01:DarkA15;ARIDI-BLM01:DarkA16;ARIDI-BLM01:DarkA17;ARIDI-BLM01:DarkA18;ARIDI-BLM01:DarkA19;ARIDI-BLM01:DarkA20;ARIDI-BLM01:DarkA21;ARIDI-BLM01:DarkA22;ARIDI-BLM01:DarkA23;ARIDI-BLM01:DarkA24;ARIDI-BLM01:DarkA25;ARIDI-BLM01:DarkA26;ARIDI-BLM01:DarkA27;ARIDI-BLM01:DarkA28</string>
+   </property>
+   <property name="columnSizes">
+    <string notr="true">0</string>
+   </property>
+   <attribute name="horizontalHeaderCascadingSectionResizes">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>100</number>
+   </attribute>
+   <attribute name="horizontalHeaderStretchLastSection">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="verticalHeaderVisible">
+    <bool>true</bool>
+   </attribute>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+  </widget>
+  <widget class="caLineEdit" name="calineedit_4">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>163</y>
+     <width>100</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:Dark-EXPT</string>
+   </property>
+   <property name="unitsEnabled">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="caCamera" name="cacamera">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>270</y>
+     <width>531</width>
+     <height>301</height>
+    </rect>
+   </property>
+   <property name="channelData" stdset="0">
+    <string notr="true">ARIDI-BLM01:DarkI</string>
+   </property>
+   <property name="channelWidth" stdset="0">
+    <string notr="true">ARIDI-BLM01:CAM-IMAGEx</string>
+   </property>
+   <property name="channelHeight" stdset="0">
+    <string notr="true">ARIDI-BLM01:CAM-IMAGEy</string>
+   </property>
+   <property name="minLevel">
+    <string notr="true">0</string>
+   </property>
+  </widget>
+  <widget class="caLineEdit" name="calineedit_5">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>130</y>
+     <width>251</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:Dark-Time</string>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_3">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>100</y>
+     <width>251</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Parameters of current Dark</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_4">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>230</y>
+     <width>251</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>sliced Dark Image </string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_12">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>20</y>
+     <width>491</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <italic>true</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>run, when Camera connected, but not measuring</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="caTable" name="catable_2">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>40</y>
+     <width>151</width>
+     <height>611</height>
+    </rect>
+   </property>
+   <property name="rowCount">
+    <number>28</number>
+   </property>
+   <property name="columnCount">
+    <number>0</number>
+   </property>
+   <property name="channels" stdset="0">
+    <string>ARIDI-BLM01:DarkA_BM1;ARIDI-BLM01:DarkA_BM2;ARIDI-BLM01:DarkA_BM3;ARIDI-BLM01:DarkA_BM4;ARIDI-BLM01:DarkA_BM5;ARIDI-BLM01:DarkA_BM6;ARIDI-BLM01:DarkA_BM7;ARIDI-BLM01:DarkA_BM8;ARIDI-BLM01:DarkA_BM9;ARIDI-BLM01:DarkA_BM10;ARIDI-BLM01:DarkA_BM11;ARIDI-BLM01:DarkA_BM12;ARIDI-BLM01:DarkA_BM13;ARIDI-BLM01:DarkA_BM14;ARIDI-BLM01:DarkA_BM15;ARIDI-BLM01:DarkA_BM16;ARIDI-BLM01:DarkA_BM17;ARIDI-BLM01:DarkA_BM18;ARIDI-BLM01:DarkA_BM19;ARIDI-BLM01:DarkA_BM20;ARIDI-BLM01:DarkA_BM21;ARIDI-BLM01:DarkA_BM22;ARIDI-BLM01:DarkA_BM23;ARIDI-BLM01:DarkA_BM24;ARIDI-BLM01:DarkA_BM25;ARIDI-BLM01:DarkA_BM26;ARIDI-BLM01:DarkA_BM27;ARIDI-BLM01:DarkA_BM28</string>
+   </property>
+   <property name="columnSizes">
+    <string notr="true">0</string>
+   </property>
+   <attribute name="horizontalHeaderCascadingSectionResizes">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>100</number>
+   </attribute>
+   <attribute name="horizontalHeaderStretchLastSection">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="verticalHeaderVisible">
+    <bool>true</bool>
+   </attribute>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+  </widget>
+  <widget class="caLabel" name="calabel_5">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>10</y>
+     <width>101</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>DarkA</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_6">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>10</y>
+     <width>171</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>DarkA with BitMask</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_3">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>45</y>
+     <width>30</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:CAM-acqDark</string>
+   </property>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>caToggleButton</class>
+   <extends>QCheckBox</extends>
+   <header>caToggleButton</header>
+  </customwidget>
+  <customwidget>
+   <class>caLabel</class>
+   <extends>QLabel</extends>
+   <header>caLabel</header>
+  </customwidget>
+  <customwidget>
+   <class>caLed</class>
+   <extends>QWidget</extends>
+   <header>caLed</header>
+  </customwidget>
+  <customwidget>
+   <class>caLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>caLineEdit</header>
+  </customwidget>
+  <customwidget>
+   <class>caTable</class>
+   <extends>QTableWidget</extends>
+   <header>caTable</header>
+  </customwidget>
+  <customwidget>
+   <class>caCamera</class>
+   <extends>QWidget</extends>
+   <header>caCamera</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

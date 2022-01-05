@@ -1,0 +1,3282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>Anna</author>
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1144</width>
+    <height>1015</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>true</bool>
+  </property>
+  <widget class="caTable" name="catable">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>50</y>
+     <width>131</width>
+     <height>611</height>
+    </rect>
+   </property>
+   <property name="channels" stdset="0">
+    <string>ARIDI-BLM01:LOSS1;ARIDI-BLM01:LOSS2;ARIDI-BLM01:LOSS3;ARIDI-BLM01:LOSS4;ARIDI-BLM01:LOSS5;ARIDI-BLM01:LOSS6;ARIDI-BLM01:LOSS7;ARIDI-BLM01:LOSS8;ARIDI-BLM01:LOSS9;ARIDI-BLM01:LOSS10;ARIDI-BLM01:LOSS11;ARIDI-BLM01:LOSS12;ARIDI-BLM01:LOSS13;ARIDI-BLM01:LOSS14;ARIDI-BLM01:LOSS15;ARIDI-BLM01:LOSS16;ARIDI-BLM01:LOSS17;ARIDI-BLM01:LOSS18;ARIDI-BLM01:LOSS19;ARIDI-BLM01:LOSS20;ARIDI-BLM01:LOSS21;ARIDI-BLM01:LOSS22;ARIDI-BLM01:LOSS23;ARIDI-BLM01:LOSS24;ARIDI-BLM01:LOSS25;ARIDI-BLM01:LOSS26;ARIDI-BLM01:LOSS27;ARIDI-BLM01:LOSS28</string>
+   </property>
+   <property name="columnSizes">
+    <string notr="true">7x4</string>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_7">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>68</y>
+     <width>31</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LEDall</string>
+   </property>
+  </widget>
+  <widget class="caToggleButton" name="catogglebutton_7">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>70</y>
+     <width>92</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="mouseTracking">
+    <bool>true</bool>
+   </property>
+   <property name="acceptDrops">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>LED all</string>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LEDall</string>
+   </property>
+   <property name="fontScaleMode" stdset="0">
+    <enum>caToggleButton::None</enum>
+   </property>
+  </widget>
+  <widget class="caToggleButton" name="catogglebutton_3">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>40</y>
+     <width>131</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>measure</string>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:CAM-measure</string>
+   </property>
+   <property name="fontScaleMode" stdset="0">
+    <enum>caToggleButton::None</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_3">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>6</y>
+     <width>30</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:isConnected</string>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_4">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>35</y>
+     <width>30</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:CAM-isMeasuring</string>
+   </property>
+  </widget>
+  <widget class="caToggleButton" name="catogglebutton_4">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>10</y>
+     <width>161</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>connect Camera</string>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:connect</string>
+   </property>
+   <property name="fontScaleMode" stdset="0">
+    <enum>caToggleButton::None</enum>
+   </property>
+  </widget>
+  <widget class="QTabWidget" name="tabWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>710</x>
+     <y>0</y>
+     <width>431</width>
+     <height>1011</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>2</number>
+   </property>
+   <widget class="QWidget" name="tab_7">
+    <attribute name="title">
+     <string>30 sec</string>
+    </attribute>
+    <widget class="caStripPlot" name="castripplot_12">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>250</y>
+       <width>405</width>
+       <height>233</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-BLM01:LOSS5;ARIDI-BLM01:LOSS6;ARIDI-BLM01:LOSS7</string>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="YaxisLimitsMax_1">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_2">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_2">
+      <color>
+       <red>0</red>
+       <green>32</green>
+       <blue>96</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_3">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_3">
+      <color>
+       <red>112</red>
+       <green>48</green>
+       <blue>160</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_4">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_4">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_5">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_5">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_6">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_13">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>405</width>
+       <height>233</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-BLM01:LOSS1;ARIDI-BLM01:LOSS2;ARIDI-BLM01:LOSS3;ARIDI-BLM01:LOSS4</string>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="YaxisLimitsMax_1">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>255</red>
+       <green>192</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_2">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_2">
+      <color>
+       <red>146</red>
+       <green>208</green>
+       <blue>80</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_3">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_3">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>80</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_4">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_4">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_5">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_5">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_6">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_11">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>490</y>
+       <width>405</width>
+       <height>233</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-BLM01:LOSS8;ARIDI-BLM01:LOSS9;ARIDI-BLM01:LOSS10</string>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="YaxisLimitsMax_1">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>192</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_2">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_2">
+      <color>
+       <red>255</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_3">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_3">
+      <color>
+       <red>247</red>
+       <green>150</green>
+       <blue>70</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_4">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_4">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_5">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_5">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_6">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_14">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>740</y>
+       <width>405</width>
+       <height>233</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-PCT:CURRENT</string>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="YaxisLimitsMax_1">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_2">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_2">
+      <color>
+       <red>255</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_3">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_3">
+      <color>
+       <red>247</red>
+       <green>150</green>
+       <blue>70</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_4">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_4">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_5">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_5">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_6">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_3">
+    <attribute name="title">
+     <string>5 min</string>
+    </attribute>
+    <widget class="caStripPlot" name="castripplot_8">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>405</width>
+       <height>233</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-BLM01:LOSS1;ARIDI-BLM01:LOSS2;ARIDI-BLM01:LOSS3;ARIDI-BLM01:LOSS4</string>
+     </property>
+     <property name="period">
+      <double>360.000000000000000</double>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="YaxisLimitsMax_1">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>255</red>
+       <green>192</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_2">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_2">
+      <color>
+       <red>146</red>
+       <green>208</green>
+       <blue>80</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_3">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_3">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>80</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_4">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_4">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_5">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_5">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_6">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>250</y>
+       <width>405</width>
+       <height>233</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-BLM01:LOSS5;ARIDI-BLM01:LOSS6;ARIDI-BLM01:LOSS7</string>
+     </property>
+     <property name="period">
+      <double>360.000000000000000</double>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="YaxisLimitsMax_1">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_2">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_2">
+      <color>
+       <red>0</red>
+       <green>32</green>
+       <blue>96</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_3">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_3">
+      <color>
+       <red>112</red>
+       <green>48</green>
+       <blue>160</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_4">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_4">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_5">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_5">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_6">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_3">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>490</y>
+       <width>405</width>
+       <height>233</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-BLM01:LOSS8;ARIDI-BLM01:LOSS9;ARIDI-BLM01:LOSS10</string>
+     </property>
+     <property name="period">
+      <double>360.000000000000000</double>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="YaxisLimitsMax_1">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>192</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_2">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_2">
+      <color>
+       <red>255</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_3">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_3">
+      <color>
+       <red>247</red>
+       <green>150</green>
+       <blue>70</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_4">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_4">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_5">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_5">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_6">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_15">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>740</y>
+       <width>405</width>
+       <height>233</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-PCT:CURRENT</string>
+     </property>
+     <property name="period">
+      <double>360.000000000000000</double>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="YaxisLimitsMax_1">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_2">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_2">
+      <color>
+       <red>255</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_3">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_3">
+      <color>
+       <red>247</red>
+       <green>150</green>
+       <blue>70</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_4">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_4">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_5">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_5">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_6">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_4">
+    <attribute name="title">
+     <string>1 h</string>
+    </attribute>
+    <widget class="caStripPlot" name="castripplot_5">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>405</width>
+       <height>233</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-BLM01:LOSS1;ARIDI-BLM01:LOSS2;ARIDI-BLM01:LOSS3;ARIDI-BLM01:LOSS4</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="YaxisLimitsMax_1">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>255</red>
+       <green>192</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_2">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_2">
+      <color>
+       <red>146</red>
+       <green>208</green>
+       <blue>80</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_3">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_3">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>80</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_4">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_4">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_5">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_5">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_6">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_6">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>250</y>
+       <width>405</width>
+       <height>233</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-BLM01:LOSS5;ARIDI-BLM01:LOSS6;ARIDI-BLM01:LOSS7</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="YaxisLimitsMax_1">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_2">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_2">
+      <color>
+       <red>0</red>
+       <green>32</green>
+       <blue>96</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_3">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_3">
+      <color>
+       <red>112</red>
+       <green>48</green>
+       <blue>160</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_4">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_4">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_5">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_5">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_6">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_7">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>490</y>
+       <width>405</width>
+       <height>233</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-BLM01:LOSS8;ARIDI-BLM01:LOSS9;ARIDI-BLM01:LOSS10</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="YaxisLimitsMax_1">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>192</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_2">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_2">
+      <color>
+       <red>255</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_3">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_3">
+      <color>
+       <red>247</red>
+       <green>150</green>
+       <blue>70</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_4">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_4">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_5">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_5">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_6">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_34">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>740</y>
+       <width>405</width>
+       <height>233</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-PCT:CURRENT</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="YaxisLimitsMax_1">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_2">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_2">
+      <color>
+       <red>255</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_3">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_3">
+      <color>
+       <red>247</red>
+       <green>150</green>
+       <blue>70</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_4">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_4">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_5">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="color_5">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="YaxisLimitsMax_6">
+      <double>100000000.000000000000000</double>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>140</y>
+     <width>511</width>
+     <height>381</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="tab_2">
+    <attribute name="title">
+     <string>Camera Image</string>
+    </attribute>
+    <widget class="caCamera" name="cacamera">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>521</width>
+       <height>291</height>
+      </rect>
+     </property>
+     <property name="channelData" stdset="0">
+      <string notr="true">ARIDI-BLM01:CAM-IMAGE</string>
+     </property>
+     <property name="channelWidth" stdset="0">
+      <string notr="true">ARIDI-BLM01:CAM-IMAGEx</string>
+     </property>
+     <property name="channelHeight" stdset="0">
+      <string notr="true">ARIDI-BLM01:CAM-IMAGEy</string>
+     </property>
+     <property name="minLevel">
+      <string notr="true">0</string>
+     </property>
+    </widget>
+    <widget class="caLabel" name="calabel_11">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>361</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>sliced mirrored Image (right Nr.1 left Nr.7)</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="fontScaleMode">
+      <enum>ESimpleLabel::None</enum>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_6">
+    <attribute name="title">
+     <string>PRO Camera Settings</string>
+    </attribute>
+    <widget class="caNumeric" name="canumeric_9">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>190</y>
+       <width>91</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="integerDigits" stdset="0">
+      <number>1</number>
+     </property>
+     <property name="decimalDigits" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:CAM-GAMMA</string>
+     </property>
+     <property name="colorMode">
+      <enum>caNumeric::Static</enum>
+     </property>
+     <property name="precisionMode">
+      <enum>caNumeric::User</enum>
+     </property>
+     <property name="fixedFormat">
+      <bool>true</bool>
+     </property>
+     <property name="maxValue">
+      <double>4.000000000000000</double>
+     </property>
+     <property name="minValue">
+      <double>0.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="caLabel" name="calabel_6">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>150</y>
+       <width>91</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Gain </string>
+     </property>
+     <property name="scaledContents">
+      <bool>false</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="fontScaleMode">
+      <enum>ESimpleLabel::None</enum>
+     </property>
+    </widget>
+    <widget class="caLineEdit" name="calineedit_9">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>200</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:CAM-GAMMA</string>
+     </property>
+    </widget>
+    <widget class="caToggleButton" name="catogglebutton_9">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>250</y>
+       <width>281</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Enable Acquisition Frame Rate</string>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:CAM-EacqFR</string>
+     </property>
+     <property name="fontScaleMode" stdset="0">
+      <enum>caToggleButton::None</enum>
+     </property>
+    </widget>
+    <widget class="caLed" name="caled_9">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>250</y>
+       <width>31</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:CAM-EacqFR</string>
+     </property>
+    </widget>
+    <widget class="caMenu" name="camenu_2">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>80</y>
+       <width>101</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="editable">
+      <bool>false</bool>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:CAM-Pformat</string>
+     </property>
+     <property name="channelMask" stdset="0">
+      <string notr="true"/>
+     </property>
+     <property name="labelDisplay">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="caNumeric" name="canumeric_6">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>140</y>
+       <width>91</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="decimalDigits" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="digitsFontScaleEnabled">
+      <bool>false</bool>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:CAM-GAIN</string>
+     </property>
+     <property name="precisionMode">
+      <enum>caNumeric::User</enum>
+     </property>
+     <property name="fixedFormat">
+      <bool>true</bool>
+     </property>
+     <property name="maxValue">
+      <double>48.000000000000000</double>
+     </property>
+     <property name="minValue">
+      <double>0.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="caLabel" name="calabel_7">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>200</y>
+       <width>81</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="text">
+      <string>Gamma</string>
+     </property>
+     <property name="textFormat">
+      <enum>Qt::AutoText</enum>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="fontScaleMode">
+      <enum>ESimpleLabel::None</enum>
+     </property>
+    </widget>
+    <widget class="caLineEdit" name="calineedit_4">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>110</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:CAM-SenBitD</string>
+     </property>
+     <property name="framePresent" stdset="0">
+      <bool>false</bool>
+     </property>
+     <property name="unitsEnabled">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="caLabel" name="calabel_5">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>320</y>
+       <width>241</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>resulting Frame Rate </string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="fontScaleMode">
+      <enum>ESimpleLabel::None</enum>
+     </property>
+    </widget>
+    <widget class="caNumeric" name="canumeric_3">
+     <property name="geometry">
+      <rect>
+       <x>370</x>
+       <y>280</y>
+       <width>121</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="integerDigits" stdset="0">
+      <number>7</number>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:CAM-acqFR</string>
+     </property>
+     <property name="precisionMode">
+      <enum>caNumeric::User</enum>
+     </property>
+     <property name="fixedFormat">
+      <bool>true</bool>
+     </property>
+     <property name="maxValue">
+      <double>1000000.000000000000000</double>
+     </property>
+     <property name="minValue">
+      <double>0.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="caLabel" name="calabel_2">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>110</y>
+       <width>161</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Sensor Bit Depth</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="fontScaleMode">
+      <enum>ESimpleLabel::None</enum>
+     </property>
+    </widget>
+    <widget class="caLineEdit" name="calineedit_6">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>290</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:CAM-acqFR</string>
+     </property>
+     <property name="framePresent" stdset="0">
+      <bool>false</bool>
+     </property>
+     <property name="unitsEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caLineEdit" name="calineedit_5">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>80</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:CAM-Pformat</string>
+     </property>
+     <property name="framePresent" stdset="0">
+      <bool>false</bool>
+     </property>
+     <property name="unitsEnabled">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="caLineEdit" name="calineedit_7">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>320</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:CAM-FR</string>
+     </property>
+     <property name="framePresent" stdset="0">
+      <bool>false</bool>
+     </property>
+     <property name="unitsEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caLabel" name="calabel_4">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>290</y>
+       <width>241</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="text">
+      <string>Acquisition Frame Rate</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="fontScaleMode">
+      <enum>ESimpleLabel::None</enum>
+     </property>
+    </widget>
+    <widget class="caMenu" name="camenu_3">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>110</y>
+       <width>101</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="editable">
+      <bool>false</bool>
+     </property>
+     <property name="frame">
+      <bool>true</bool>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:CAM-SenBitD</string>
+     </property>
+     <property name="channelMask" stdset="0">
+      <string notr="true"/>
+     </property>
+     <property name="labelDisplay">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="caLabel" name="calabel">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>80</y>
+       <width>111</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Pixel Format</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="fontScaleMode">
+      <enum>ESimpleLabel::None</enum>
+     </property>
+    </widget>
+    <widget class="caLineEdit" name="calineedit_8">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>150</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:CAM-GAIN</string>
+     </property>
+     <property name="unitsEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caNumeric" name="canumeric_4">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>30</y>
+       <width>111</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="integerDigits" stdset="0">
+      <number>8</number>
+     </property>
+     <property name="decimalDigits" stdset="0">
+      <number>0</number>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:CAM-EXPT</string>
+     </property>
+     <property name="limitsMode">
+      <enum>caNumeric::User</enum>
+     </property>
+     <property name="maxValue">
+      <double>20000000.000000000000000</double>
+     </property>
+     <property name="minValue">
+      <double>0.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="caLineEdit" name="calineedit_13">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>40</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:CAM-EXPT</string>
+     </property>
+     <property name="unitsEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caLabel" name="calabel_9">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>0</y>
+       <width>491</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <italic>true</italic>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>change, when Camera connected, but not measuring</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="fontScaleMode">
+      <enum>ESimpleLabel::None</enum>
+     </property>
+    </widget>
+    <widget class="caLabel" name="calabel_10">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>40</y>
+       <width>171</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Exposure Time</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="fontScaleMode">
+      <enum>ESimpleLabel::None</enum>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab">
+    <attribute name="title">
+     <string>LED</string>
+    </attribute>
+    <widget class="caLed" name="caled_5">
+     <property name="geometry">
+      <rect>
+       <x>29</x>
+       <y>11</y>
+       <width>31</width>
+       <height>34</height>
+      </rect>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:LED_1</string>
+     </property>
+    </widget>
+    <widget class="caLed" name="caled_6">
+     <property name="geometry">
+      <rect>
+       <x>27</x>
+       <y>70</y>
+       <width>31</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:LED_3</string>
+     </property>
+    </widget>
+    <widget class="caToggleButton" name="catogglebutton_5">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>10</y>
+       <width>80</width>
+       <height>34</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>LED1</string>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:LED_1</string>
+     </property>
+     <property name="fontScaleMode" stdset="0">
+      <enum>caToggleButton::None</enum>
+     </property>
+    </widget>
+    <widget class="caToggleButton" name="catogglebutton_6">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>70</y>
+       <width>81</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>LED3</string>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:LED_3</string>
+     </property>
+     <property name="fontScaleMode" stdset="0">
+      <enum>caToggleButton::None</enum>
+     </property>
+    </widget>
+    <widget class="caLed" name="caled_10">
+     <property name="geometry">
+      <rect>
+       <x>28</x>
+       <y>40</y>
+       <width>31</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:LED_2</string>
+     </property>
+    </widget>
+    <widget class="caLed" name="caled_11">
+     <property name="geometry">
+      <rect>
+       <x>28</x>
+       <y>100</y>
+       <width>31</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:LED_4</string>
+     </property>
+    </widget>
+    <widget class="caToggleButton" name="catogglebutton_10">
+     <property name="geometry">
+      <rect>
+       <x>61</x>
+       <y>50</y>
+       <width>74</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>LED2</string>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:LED_2</string>
+     </property>
+     <property name="fontScaleMode" stdset="0">
+      <enum>caToggleButton::None</enum>
+     </property>
+    </widget>
+    <widget class="caToggleButton" name="catogglebutton_11">
+     <property name="geometry">
+      <rect>
+       <x>61</x>
+       <y>100</y>
+       <width>81</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>LED4</string>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:LED_4</string>
+     </property>
+     <property name="fontScaleMode" stdset="0">
+      <enum>caToggleButton::None</enum>
+     </property>
+    </widget>
+    <widget class="caToggleButton" name="catogglebutton_21">
+     <property name="geometry">
+      <rect>
+       <x>62</x>
+       <y>220</y>
+       <width>81</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>LED8</string>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:LED_8</string>
+     </property>
+     <property name="fontScaleMode" stdset="0">
+      <enum>caToggleButton::None</enum>
+     </property>
+    </widget>
+    <widget class="caLed" name="caled_17">
+     <property name="geometry">
+      <rect>
+       <x>29</x>
+       <y>190</y>
+       <width>31</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:LED_7</string>
+     </property>
+    </widget>
+    <widget class="caToggleButton" name="catogglebutton_22">
+     <property name="geometry">
+      <rect>
+       <x>62</x>
+       <y>160</y>
+       <width>81</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>LED6</string>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:LED_6</string>
+     </property>
+     <property name="fontScaleMode" stdset="0">
+      <enum>caToggleButton::None</enum>
+     </property>
+    </widget>
+    <widget class="caLed" name="caled_18">
+     <property name="geometry">
+      <rect>
+       <x>28</x>
+       <y>130</y>
+       <width>31</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:LED_5</string>
+     </property>
+    </widget>
+    <widget class="caToggleButton" name="catogglebutton_23">
+     <property name="geometry">
+      <rect>
+       <x>62</x>
+       <y>190</y>
+       <width>81</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>LED7</string>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:LED_7</string>
+     </property>
+     <property name="fontScaleMode" stdset="0">
+      <enum>caToggleButton::None</enum>
+     </property>
+    </widget>
+    <widget class="caLed" name="caled_19">
+     <property name="geometry">
+      <rect>
+       <x>29</x>
+       <y>220</y>
+       <width>31</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:LED_8</string>
+     </property>
+    </widget>
+    <widget class="caLed" name="caled_20">
+     <property name="geometry">
+      <rect>
+       <x>29</x>
+       <y>160</y>
+       <width>31</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:LED_6</string>
+     </property>
+    </widget>
+    <widget class="caToggleButton" name="catogglebutton_24">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>130</y>
+       <width>81</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>LED5</string>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:LED_5</string>
+     </property>
+     <property name="fontScaleMode" stdset="0">
+      <enum>caToggleButton::None</enum>
+     </property>
+    </widget>
+    <widget class="caLed" name="caled_21">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>280</y>
+       <width>31</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:LED_10</string>
+     </property>
+    </widget>
+    <widget class="caLed" name="caled_22">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>250</y>
+       <width>31</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:LED_9</string>
+     </property>
+    </widget>
+    <widget class="caToggleButton" name="catogglebutton_25">
+     <property name="geometry">
+      <rect>
+       <x>63</x>
+       <y>280</y>
+       <width>81</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>LED10</string>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:LED_10</string>
+     </property>
+     <property name="fontScaleMode" stdset="0">
+      <enum>caToggleButton::None</enum>
+     </property>
+    </widget>
+    <widget class="caToggleButton" name="catogglebutton_26">
+     <property name="geometry">
+      <rect>
+       <x>63</x>
+       <y>250</y>
+       <width>81</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>LED9</string>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:LED_9</string>
+     </property>
+     <property name="fontScaleMode" stdset="0">
+      <enum>caToggleButton::None</enum>
+     </property>
+    </widget>
+    <widget class="caLed" name="caled_23">
+     <property name="geometry">
+      <rect>
+       <x>161</x>
+       <y>11</y>
+       <width>31</width>
+       <height>34</height>
+      </rect>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:LED_11</string>
+     </property>
+    </widget>
+    <widget class="caLed" name="caled_27">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>100</y>
+       <width>31</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:LED_14</string>
+     </property>
+    </widget>
+    <widget class="caToggleButton" name="catogglebutton_30">
+     <property name="geometry">
+      <rect>
+       <x>191</x>
+       <y>100</y>
+       <width>81</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>LED14</string>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:LED_14</string>
+     </property>
+     <property name="fontScaleMode" stdset="0">
+      <enum>caToggleButton::None</enum>
+     </property>
+    </widget>
+    <widget class="caToggleButton" name="catogglebutton_31">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>70</y>
+       <width>81</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>LED13</string>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:LED_13</string>
+     </property>
+     <property name="fontScaleMode" stdset="0">
+      <enum>caToggleButton::None</enum>
+     </property>
+    </widget>
+    <widget class="caLed" name="caled_29">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>40</y>
+       <width>31</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:LED_12</string>
+     </property>
+    </widget>
+    <widget class="caToggleButton" name="catogglebutton_33">
+     <property name="geometry">
+      <rect>
+       <x>191</x>
+       <y>50</y>
+       <width>74</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>LED12</string>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:LED_12</string>
+     </property>
+     <property name="fontScaleMode" stdset="0">
+      <enum>caToggleButton::None</enum>
+     </property>
+    </widget>
+    <widget class="caLed" name="caled_31">
+     <property name="geometry">
+      <rect>
+       <x>159</x>
+       <y>70</y>
+       <width>31</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:LED_13</string>
+     </property>
+    </widget>
+    <widget class="caToggleButton" name="catogglebutton_36">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>10</y>
+       <width>80</width>
+       <height>34</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>LED11</string>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:LED_11</string>
+     </property>
+     <property name="fontScaleMode" stdset="0">
+      <enum>caToggleButton::None</enum>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_5">
+    <attribute name="title">
+     <string>Measurement</string>
+    </attribute>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>220</y>
+       <width>361</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string> if Time &lt;= Exposure Time: every Image is analyzed</string>
+     </property>
+    </widget>
+    <widget class="caLineEdit" name="calineedit_12">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>180</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string/>
+     </property>
+     <property name="statusTip">
+      <string/>
+     </property>
+     <property name="whatsThis">
+      <string/>
+     </property>
+     <property name="accessibleName">
+      <string/>
+     </property>
+     <property name="accessibleDescription">
+      <string/>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="placeholderText">
+      <string/>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:Meas-time</string>
+     </property>
+     <property name="unitsEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caLabel" name="calabel_12">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>180</y>
+       <width>211</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="text">
+      <string>Measurement Time</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="fontScaleMode">
+      <enum>ESimpleLabel::None</enum>
+     </property>
+    </widget>
+    <widget class="caLabel" name="calabel_13">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>250</y>
+       <width>231</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="text">
+      <string>Measurement Delay [sec]</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="fontScaleMode">
+      <enum>ESimpleLabel::None</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>270</y>
+       <width>161</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>(added to the Time)</string>
+     </property>
+    </widget>
+    <widget class="caNumeric" name="canumeric_10">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>250</y>
+       <width>100</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="decimalDigits" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:Meas-delay</string>
+     </property>
+     <property name="fixedFormat">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>200</y>
+       <width>151</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>(for Image Processing) </string>
+     </property>
+    </widget>
+    <widget class="caToggleButton" name="catogglebutton_14">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>110</y>
+       <width>211</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>save to csv</string>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:save</string>
+     </property>
+     <property name="fontScaleMode" stdset="0">
+      <enum>caToggleButton::None</enum>
+     </property>
+    </widget>
+    <widget class="caToggleButton" name="catogglebutton_12">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>10</y>
+       <width>161</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>use BitMask</string>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:useBitMask</string>
+     </property>
+     <property name="fontScaleMode" stdset="0">
+      <enum>caToggleButton::None</enum>
+     </property>
+    </widget>
+    <widget class="caToggleButton" name="catogglebutton_13">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>50</y>
+       <width>141</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>subtract Dark</string>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:useDark</string>
+     </property>
+     <property name="fontScaleMode" stdset="0">
+      <enum>caToggleButton::None</enum>
+     </property>
+    </widget>
+    <widget class="caLineEdit" name="calineedit_11">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>140</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:CAM-EXPT</string>
+     </property>
+     <property name="unitsEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caLabel" name="calabel_3">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>140</y>
+       <width>171</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Exposure Time</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="fontScaleMode">
+      <enum>ESimpleLabel::None</enum>
+     </property>
+    </widget>
+    <widget class="caRelatedDisplay" name="carelateddisplay">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>20</y>
+       <width>170</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="label">
+      <string notr="true">Testlabel</string>
+     </property>
+     <property name="labels">
+      <string>acquire Bit Mask</string>
+     </property>
+     <property name="files">
+      <string>BitMask.ui</string>
+     </property>
+     <property name="args">
+      <string/>
+     </property>
+     <property name="fontScaleMode" stdset="0">
+      <enum>EPushButton::None</enum>
+     </property>
+    </widget>
+    <widget class="caRelatedDisplay" name="carelateddisplay_2">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>60</y>
+       <width>170</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="label">
+      <string notr="true">Testlabel</string>
+     </property>
+     <property name="labels">
+      <string>acquire Dark</string>
+     </property>
+     <property name="files">
+      <string>Dark.ui</string>
+     </property>
+     <property name="args">
+      <string/>
+     </property>
+     <property name="fontScaleMode" stdset="0">
+      <enum>EPushButton::None</enum>
+     </property>
+    </widget>
+    <widget class="caToggleButton" name="catogglebutton_15">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>80</y>
+       <width>211</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>use Calibration Faktor</string>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">ARIDI-BLM01:useCalA</string>
+     </property>
+     <property name="fontScaleMode" stdset="0">
+      <enum>caToggleButton::None</enum>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="caLabel" name="calabel_8">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>20</y>
+     <width>131</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>LOSS</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>79</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LOSS1</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Alarm</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_2">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>99</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LOSS2</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Alarm</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_8">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>119</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LOSS3</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Alarm</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_12">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>139</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LOSS4</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Alarm</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_13">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>159</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LOSS5</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Alarm</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_14">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>179</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LOSS6</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Alarm</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_15">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>199</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LOSS7</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Alarm</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_16">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>219</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LOSS8</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Alarm</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_24">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>239</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LOSS9</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Alarm</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_25">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>259</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LOSS10</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Alarm</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_26">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>279</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LOSS11</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Alarm</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_28">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>299</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LOSS12</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Alarm</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_30">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>319</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LOSS13</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Alarm</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_32">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>339</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LOSS14</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Alarm</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_33">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>359</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LOSS15</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Alarm</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_34">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>379</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LOSS16</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Alarm</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_35">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>399</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LOSS17</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Alarm</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_36">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>419</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LOSS18</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Alarm</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_37">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>439</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LOSS19</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Alarm</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_38">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>459</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LOSS20</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Alarm</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_39">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>479</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LOSS21</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Alarm</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_40">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>499</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LOSS22</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Alarm</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_41">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>519</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LOSS23</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Alarm</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_42">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>539</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LOSS24</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Alarm</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_43">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>559</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LOSS25</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Alarm</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_44">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>579</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LOSS26</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Alarm</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_45">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>599</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LOSS27</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Alarm</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_46">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>620</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">ARIDI-BLM01:LOSS28</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Alarm</enum>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_14">
+   <property name="geometry">
+    <rect>
+     <x>496</x>
+     <y>39</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+   <property name="text">
+    <string>Warning</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_15">
+   <property name="geometry">
+    <rect>
+     <x>484</x>
+     <y>59</y>
+     <width>81</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+   <property name="text">
+    <string>&amp; Alarms</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="9"/>
+ <customwidgets>
+  <customwidget>
+   <class>QwtPlot</class>
+   <extends>QFrame</extends>
+   <header>qwt_plot.h</header>
+  </customwidget>
+  <customwidget>
+   <class>caNumeric</class>
+   <extends>QFrame</extends>
+   <header>caNumeric</header>
+  </customwidget>
+  <customwidget>
+   <class>caMenu</class>
+   <extends>QComboBox</extends>
+   <header>caMenu</header>
+  </customwidget>
+  <customwidget>
+   <class>caRelatedDisplay</class>
+   <extends>QWidget</extends>
+   <header>caRelatedDisplay</header>
+  </customwidget>
+  <customwidget>
+   <class>caToggleButton</class>
+   <extends>QCheckBox</extends>
+   <header>caToggleButton</header>
+  </customwidget>
+  <customwidget>
+   <class>caLabel</class>
+   <extends>QLabel</extends>
+   <header>caLabel</header>
+  </customwidget>
+  <customwidget>
+   <class>caLed</class>
+   <extends>QWidget</extends>
+   <header>caLed</header>
+  </customwidget>
+  <customwidget>
+   <class>caLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>caLineEdit</header>
+  </customwidget>
+  <customwidget>
+   <class>caStripPlot</class>
+   <extends>QwtPlot</extends>
+   <header>caStripPlot</header>
+  </customwidget>
+  <customwidget>
+   <class>caTable</class>
+   <extends>QTableWidget</extends>
+   <header>caTable</header>
+  </customwidget>
+  <customwidget>
+   <class>caCamera</class>
+   <extends>QWidget</extends>
+   <header>caCamera</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>catogglebutton_4</tabstop>
+  <tabstop>catogglebutton_7</tabstop>
+  <tabstop>catogglebutton_3</tabstop>
+  <tabstop>camenu_2</tabstop>
+  <tabstop>camenu_3</tabstop>
+  <tabstop>catogglebutton_9</tabstop>
+  <tabstop>canumeric_3</tabstop>
+  <tabstop>tabWidget_2</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>catogglebutton_12</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+ <designerdata>
+  <property name="gridDeltaX">
+   <number>10</number>
+  </property>
+  <property name="gridDeltaY">
+   <number>10</number>
+  </property>
+  <property name="gridSnapX">
+   <bool>true</bool>
+  </property>
+  <property name="gridSnapY">
+   <bool>true</bool>
+  </property>
+  <property name="gridVisible">
+   <bool>true</bool>
+  </property>
+ </designerdata>
+</ui>

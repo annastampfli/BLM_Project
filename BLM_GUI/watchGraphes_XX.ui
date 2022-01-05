@@ -1,0 +1,5603 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1674</width>
+    <height>803</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1671</width>
+     <height>801</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="tab">
+    <attribute name="title">
+     <string>30 sec</string>
+    </attribute>
+    <widget class="caStripPlot" name="castripplot_97">
+     <property name="geometry">
+      <rect>
+       <x>1160</x>
+       <y>150</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS13</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_98">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS1</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>255</red>
+       <green>192</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_99">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>600</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-PCT:TAU-HOUR</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_100">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>10</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS2</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>146</red>
+       <green>208</green>
+       <blue>80</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_101">
+     <property name="geometry">
+      <rect>
+       <x>700</x>
+       <y>430</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS25</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_102">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>150</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS8</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>192</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_103">
+     <property name="geometry">
+      <rect>
+       <x>930</x>
+       <y>430</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS26</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_104">
+     <property name="geometry">
+      <rect>
+       <x>1390</x>
+       <y>430</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS28</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_105">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>10</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS3</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>80</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_106">
+     <property name="geometry">
+      <rect>
+       <x>700</x>
+       <y>150</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS11</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>255</red>
+       <green>85</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_107">
+     <property name="geometry">
+      <rect>
+       <x>700</x>
+       <y>290</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS18</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_108">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>430</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS22</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_109">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>290</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS16</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_110">
+     <property name="geometry">
+      <rect>
+       <x>930</x>
+       <y>150</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS12</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_111">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>290</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS17</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_112">
+     <property name="geometry">
+      <rect>
+       <x>1390</x>
+       <y>290</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS21</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_113">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>600</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-PCT:CURRENT</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_114">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>600</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ABRDI-ICT-1:Q-CHRG</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_115">
+     <property name="geometry">
+      <rect>
+       <x>1160</x>
+       <y>430</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS27</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_116">
+     <property name="geometry">
+      <rect>
+       <x>1390</x>
+       <y>10</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS7</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>112</red>
+       <green>48</green>
+       <blue>160</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_117">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>430</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS24</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_118">
+     <property name="geometry">
+      <rect>
+       <x>1160</x>
+       <y>290</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS20</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_119">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>290</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS15</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_120">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>430</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS23</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_121">
+     <property name="geometry">
+      <rect>
+       <x>850</x>
+       <y>600</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ALIDI-ICT-1:AVG-CHRG</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_122">
+     <property name="geometry">
+      <rect>
+       <x>1390</x>
+       <y>150</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS14</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_123">
+     <property name="geometry">
+      <rect>
+       <x>930</x>
+       <y>290</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS19</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_124">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>150</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS9</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>255</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_125">
+     <property name="geometry">
+      <rect>
+       <x>1160</x>
+       <y>10</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS6</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>32</green>
+       <blue>96</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_126">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>150</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS10</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>247</red>
+       <green>150</green>
+       <blue>70</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_127">
+     <property name="geometry">
+      <rect>
+       <x>930</x>
+       <y>10</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS5</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_128">
+     <property name="geometry">
+      <rect>
+       <x>700</x>
+       <y>10</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS4</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_129">
+     <property name="geometry">
+      <rect>
+       <x>1130</x>
+       <y>600</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>X04SA-ID-GAP:READ</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <zorder>castripplot_98</zorder>
+    <zorder>castripplot_99</zorder>
+    <zorder>castripplot_100</zorder>
+    <zorder>castripplot_102</zorder>
+    <zorder>castripplot_105</zorder>
+    <zorder>castripplot_108</zorder>
+    <zorder>castripplot_111</zorder>
+    <zorder>castripplot_113</zorder>
+    <zorder>castripplot_114</zorder>
+    <zorder>castripplot_119</zorder>
+    <zorder>castripplot_120</zorder>
+    <zorder>castripplot_121</zorder>
+    <zorder>castripplot_124</zorder>
+    <zorder>castripplot_126</zorder>
+    <zorder>castripplot_128</zorder>
+    <zorder>castripplot_109</zorder>
+    <zorder>castripplot_117</zorder>
+    <zorder>castripplot_106</zorder>
+    <zorder>castripplot_101</zorder>
+    <zorder>castripplot_107</zorder>
+    <zorder>castripplot_103</zorder>
+    <zorder>castripplot_123</zorder>
+    <zorder>castripplot_127</zorder>
+    <zorder>castripplot_110</zorder>
+    <zorder>castripplot_118</zorder>
+    <zorder>castripplot_115</zorder>
+    <zorder>castripplot_97</zorder>
+    <zorder>castripplot_125</zorder>
+    <zorder>castripplot_112</zorder>
+    <zorder>castripplot_104</zorder>
+    <zorder>castripplot_122</zorder>
+    <zorder>castripplot_116</zorder>
+    <zorder>castripplot_129</zorder>
+   </widget>
+   <widget class="QWidget" name="tab_2">
+    <attribute name="title">
+     <string>5min</string>
+    </attribute>
+    <widget class="caStripPlot" name="castripplot_65">
+     <property name="geometry">
+      <rect>
+       <x>1160</x>
+       <y>150</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS13</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_66">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS1</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>255</red>
+       <green>192</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_67">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>600</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-PCT:TAU-HOUR</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_68">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>10</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS2</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>146</red>
+       <green>208</green>
+       <blue>80</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_69">
+     <property name="geometry">
+      <rect>
+       <x>700</x>
+       <y>430</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS25</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_70">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>150</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS8</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>192</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_71">
+     <property name="geometry">
+      <rect>
+       <x>930</x>
+       <y>430</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS26</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_72">
+     <property name="geometry">
+      <rect>
+       <x>1390</x>
+       <y>430</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS28</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_73">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>10</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS3</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>80</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_74">
+     <property name="geometry">
+      <rect>
+       <x>700</x>
+       <y>150</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS11</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>255</red>
+       <green>85</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_75">
+     <property name="geometry">
+      <rect>
+       <x>700</x>
+       <y>290</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS18</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_76">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>430</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS22</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_77">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>290</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS16</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_78">
+     <property name="geometry">
+      <rect>
+       <x>930</x>
+       <y>150</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS12</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_79">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>290</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS17</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_80">
+     <property name="geometry">
+      <rect>
+       <x>1390</x>
+       <y>290</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS21</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_81">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>600</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-PCT:CURRENT</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_82">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>600</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ABRDI-ICT-1:Q-CHRG</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_83">
+     <property name="geometry">
+      <rect>
+       <x>1160</x>
+       <y>430</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS27</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_84">
+     <property name="geometry">
+      <rect>
+       <x>1390</x>
+       <y>10</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS7</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>112</red>
+       <green>48</green>
+       <blue>160</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_85">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>430</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS24</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_86">
+     <property name="geometry">
+      <rect>
+       <x>1160</x>
+       <y>290</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS20</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_87">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>290</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS15</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_88">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>430</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS23</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_89">
+     <property name="geometry">
+      <rect>
+       <x>850</x>
+       <y>600</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ALIDI-ICT-1:AVG-CHRG</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_90">
+     <property name="geometry">
+      <rect>
+       <x>1390</x>
+       <y>150</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS14</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_91">
+     <property name="geometry">
+      <rect>
+       <x>930</x>
+       <y>290</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS19</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_92">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>150</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS9</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>255</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_93">
+     <property name="geometry">
+      <rect>
+       <x>1160</x>
+       <y>10</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS6</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>32</green>
+       <blue>96</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_94">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>150</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS10</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>247</red>
+       <green>150</green>
+       <blue>70</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_95">
+     <property name="geometry">
+      <rect>
+       <x>930</x>
+       <y>10</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS5</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_96">
+     <property name="geometry">
+      <rect>
+       <x>700</x>
+       <y>10</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS4</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_130">
+     <property name="geometry">
+      <rect>
+       <x>1130</x>
+       <y>600</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>X04SA-ID-GAP:READ</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <zorder>castripplot_67</zorder>
+    <zorder>castripplot_81</zorder>
+    <zorder>castripplot_82</zorder>
+    <zorder>castripplot_89</zorder>
+    <zorder>castripplot_87</zorder>
+    <zorder>castripplot_77</zorder>
+    <zorder>castripplot_66</zorder>
+    <zorder>castripplot_79</zorder>
+    <zorder>castripplot_76</zorder>
+    <zorder>castripplot_70</zorder>
+    <zorder>castripplot_88</zorder>
+    <zorder>castripplot_92</zorder>
+    <zorder>castripplot_68</zorder>
+    <zorder>castripplot_94</zorder>
+    <zorder>castripplot_73</zorder>
+    <zorder>castripplot_85</zorder>
+    <zorder>castripplot_96</zorder>
+    <zorder>castripplot_74</zorder>
+    <zorder>castripplot_75</zorder>
+    <zorder>castripplot_69</zorder>
+    <zorder>castripplot_91</zorder>
+    <zorder>castripplot_78</zorder>
+    <zorder>castripplot_95</zorder>
+    <zorder>castripplot_71</zorder>
+    <zorder>castripplot_83</zorder>
+    <zorder>castripplot_65</zorder>
+    <zorder>castripplot_93</zorder>
+    <zorder>castripplot_86</zorder>
+    <zorder>castripplot_90</zorder>
+    <zorder>castripplot_72</zorder>
+    <zorder>castripplot_80</zorder>
+    <zorder>castripplot_84</zorder>
+    <zorder>castripplot_130</zorder>
+   </widget>
+   <widget class="QWidget" name="tab_3">
+    <attribute name="title">
+     <string>1h</string>
+    </attribute>
+    <widget class="caStripPlot" name="castripplot_35">
+     <property name="geometry">
+      <rect>
+       <x>1160</x>
+       <y>150</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS13</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_9">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS1</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>255</red>
+       <green>192</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_36">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>600</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-PCT:TAU-HOUR</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_10">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>10</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS2</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>146</red>
+       <green>208</green>
+       <blue>80</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_37">
+     <property name="geometry">
+      <rect>
+       <x>700</x>
+       <y>430</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS25</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_38">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>150</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS8</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>192</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_39">
+     <property name="geometry">
+      <rect>
+       <x>930</x>
+       <y>430</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS26</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_40">
+     <property name="geometry">
+      <rect>
+       <x>1390</x>
+       <y>430</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS28</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_41">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>10</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS3</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>80</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_42">
+     <property name="geometry">
+      <rect>
+       <x>700</x>
+       <y>150</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS11</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>255</red>
+       <green>85</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_43">
+     <property name="geometry">
+      <rect>
+       <x>700</x>
+       <y>290</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS18</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_44">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>430</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS22</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_45">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>290</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS16</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_46">
+     <property name="geometry">
+      <rect>
+       <x>930</x>
+       <y>150</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS12</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_47">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>290</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS17</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_48">
+     <property name="geometry">
+      <rect>
+       <x>1390</x>
+       <y>290</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS21</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_49">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>600</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ARIDI-PCT:CURRENT</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_50">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>600</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ABRDI-ICT-1:Q-CHRG</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_51">
+     <property name="geometry">
+      <rect>
+       <x>1160</x>
+       <y>430</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS27</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_52">
+     <property name="geometry">
+      <rect>
+       <x>1390</x>
+       <y>10</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS7</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>112</red>
+       <green>48</green>
+       <blue>160</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_53">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>430</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS24</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_54">
+     <property name="geometry">
+      <rect>
+       <x>1160</x>
+       <y>290</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS20</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_55">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>290</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS15</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_56">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>430</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS23</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_57">
+     <property name="geometry">
+      <rect>
+       <x>850</x>
+       <y>600</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>ALIDI-ICT-1:AVG-CHRG</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_58">
+     <property name="geometry">
+      <rect>
+       <x>1390</x>
+       <y>150</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS14</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_59">
+     <property name="geometry">
+      <rect>
+       <x>930</x>
+       <y>290</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS19</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_60">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>150</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS9</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>255</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_61">
+     <property name="geometry">
+      <rect>
+       <x>1160</x>
+       <y>10</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS6</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>32</green>
+       <blue>96</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_62">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>150</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS10</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>247</red>
+       <green>150</green>
+       <blue>70</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_63">
+     <property name="geometry">
+      <rect>
+       <x>930</x>
+       <y>10</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS5</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>112</green>
+       <blue>192</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_64">
+     <property name="geometry">
+      <rect>
+       <x>700</x>
+       <y>10</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):LOSS4</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>176</green>
+       <blue>240</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_131">
+     <property name="geometry">
+      <rect>
+       <x>1130</x>
+       <y>600</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>X04SA-ID-GAP:READ</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <zorder>castripplot_9</zorder>
+    <zorder>castripplot_36</zorder>
+    <zorder>castripplot_10</zorder>
+    <zorder>castripplot_38</zorder>
+    <zorder>castripplot_41</zorder>
+    <zorder>castripplot_44</zorder>
+    <zorder>castripplot_49</zorder>
+    <zorder>castripplot_50</zorder>
+    <zorder>castripplot_55</zorder>
+    <zorder>castripplot_56</zorder>
+    <zorder>castripplot_57</zorder>
+    <zorder>castripplot_60</zorder>
+    <zorder>castripplot_62</zorder>
+    <zorder>castripplot_64</zorder>
+    <zorder>castripplot_63</zorder>
+    <zorder>castripplot_61</zorder>
+    <zorder>castripplot_53</zorder>
+    <zorder>castripplot_37</zorder>
+    <zorder>castripplot_52</zorder>
+    <zorder>castripplot_42</zorder>
+    <zorder>castripplot_46</zorder>
+    <zorder>castripplot_39</zorder>
+    <zorder>castripplot_51</zorder>
+    <zorder>castripplot_35</zorder>
+    <zorder>castripplot_40</zorder>
+    <zorder>castripplot_58</zorder>
+    <zorder>castripplot_45</zorder>
+    <zorder>castripplot_47</zorder>
+    <zorder>castripplot_43</zorder>
+    <zorder>castripplot_59</zorder>
+    <zorder>castripplot_54</zorder>
+    <zorder>castripplot_48</zorder>
+    <zorder>castripplot_131</zorder>
+   </widget>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QwtPlot</class>
+   <extends>QFrame</extends>
+   <header>qwt_plot.h</header>
+  </customwidget>
+  <customwidget>
+   <class>caStripPlot</class>
+   <extends>QwtPlot</extends>
+   <header>caStripPlot</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
