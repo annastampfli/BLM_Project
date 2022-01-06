@@ -172,6 +172,13 @@ def cal_CAL_FAKTOR(Aflatd, LED_FAKTOR, NR, sqrt=False):
     if sqrt:
         CAL_FAKTOR = np.sqrt(CAL_FAKTOR)#3) optional: take sqrt
         
-    return CAL_FAKTOR       
+    return CAL_FAKTOR
+
+
+def newdir(PATH):
+    #creates directories if they had not exsist
+    if not os.path.exists(PATH):
+        os.makedirs(PATH)
+    return None
         
     
