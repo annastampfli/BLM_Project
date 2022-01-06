@@ -136,8 +136,8 @@ def reshape_allROI(allROI, splits, show = True): # Example: from (28, ly, lx) to
 def float_or_na(value): #to convert N/A (not available) to nan (not a number), nan <class 'float'>
     return float(value if value != '#N/A' and value != 'BadVal' else 'nan')
 
+arr = np.ones(28).reshape(4,7) #example to make the code running
 def norm_A(arr, channels=np.ones(arr.size).reshape(arr.shape)):
-    print(channels)
     #arr = Array which needs to be normalized
     #channels = channels which are used for Normalisation all the other get 1 as Faktor
     #FAKTOR = normalized Array with unconnected channels as 1
@@ -147,6 +147,8 @@ def norm_A(arr, channels=np.ones(arr.size).reshape(arr.shape)):
     arr = np.array(arr)
     channels = np.array(channels)
     FAKTOR = np.ones(arr.size).reshape(arr.shape)
+    if channels.any() == False: #no channel is connected
+        return FAKTOR
     AVG = np.average(arr, weights=channels) #Average over connected channels
     for i in range(arr.size):
         if channels.flat[i]==True:

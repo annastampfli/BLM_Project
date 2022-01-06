@@ -1329,14 +1329,14 @@ class iocDriver(Driver):
         print('CalA with subtracted dark and Bitmask \n', CalA)
         
         #find out which channel is connected
-        channels = np.zeros(splits[0]*splits[1])
-        for i in range(splits[0]*splits[1])
-            if CalA.flatten[i] > DarkA_BM.flatten[i]
-                channels[i] = 1 #channel is connected
-        print('Connected channels', channels)       
+        channels = np.zeros(splits[0]*splits[1]).reshape(splits[0],splits[1])
+        for i in range(splits[0]*splits[1]):
+            if CalA.flat[i] > DarkA_BM.flat[i]:
+                channels.flat[i] = 1 #channel is connected
+        print('Connected channels \n', channels)       
         #CalA normalize connected channels
-        self.CalA = f.norm_A(CalA)
-        
+        self.CalA = f.norm_A(CalA, channels)
+        print('CalA: \n', self.CalA)
         
                 
         
