@@ -1,0 +1,1516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1145</width>
+    <height>953</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="caNumeric" name="canumeric">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>100</y>
+     <width>100</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):BitMask-TH</string>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_9">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>290</y>
+     <width>431</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Images (sliced and mirrored, right Nr.1 left Nr.7)</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_10">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>110</y>
+     <width>81</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Threshold </string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="caToggleButton" name="catogglebutton_8">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>60</y>
+     <width>421</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>acquire new BitMask, calculate Calibration Faktor</string>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):CAM-acq_BM_Cal</string>
+   </property>
+   <property name="fontScaleMode" stdset="0">
+    <enum>caToggleButton::None</enum>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_12">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>17</y>
+     <width>491</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <italic>true</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>run, when Camera connected, but not measuring</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="caTable" name="catable">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>80</y>
+     <width>151</width>
+     <height>611</height>
+    </rect>
+   </property>
+   <property name="rowCount">
+    <number>28</number>
+   </property>
+   <property name="columnCount">
+    <number>0</number>
+   </property>
+   <property name="channels" stdset="0">
+    <string>$(XX):CalA1;$(XX):CalA2;$(XX):CalA3;$(XX):CalA4;$(XX):CalA5;$(XX):CalA6;$(XX):CalA7;$(XX):CalA8;$(XX):CalA9;$(XX):CalA10;$(XX):CalA11;$(XX):CalA12;$(XX):CalA13;$(XX):CalA14;$(XX):CalA15;$(XX):CalA16;$(XX):CalA17;$(XX):CalA18;$(XX):CalA19;$(XX):CalA20;$(XX):CalA21;$(XX):CalA22;$(XX):CalA23;$(XX):CalA24;$(XX):CalA25;$(XX):CalA26;$(XX):CalA27;$(XX):CalA28</string>
+   </property>
+   <property name="columnSizes">
+    <string notr="true">0</string>
+   </property>
+   <attribute name="horizontalHeaderCascadingSectionResizes">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>100</number>
+   </attribute>
+   <attribute name="horizontalHeaderStretchLastSection">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="verticalHeaderVisible">
+    <bool>true</bool>
+   </attribute>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+  </widget>
+  <widget class="caLineEdit" name="calineedit_5">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>200</y>
+     <width>251</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):BM_Cal-EXPT</string>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_3">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>170</y>
+     <width>361</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>current BitMask, Calibration Image</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_13">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>10</y>
+     <width>141</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="text">
+    <string>Calibration Faktor</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_14">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>30</y>
+     <width>161</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_15">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>50</y>
+     <width>161</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_3">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>57</y>
+     <width>30</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):CAM-acqBitMask</string>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_16">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>800</y>
+     <width>51</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>X Axis</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_17">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>840</y>
+     <width>51</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Y Axis</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_4">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>710</y>
+     <width>351</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Position (slicing Parameters)</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="caNumeric" name="canumeric_2">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>790</y>
+     <width>81</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="integerDigits" stdset="0">
+    <number>3</number>
+   </property>
+   <property name="decimalDigits" stdset="0">
+    <number>0</number>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):CAM-X_START</string>
+   </property>
+  </widget>
+  <widget class="caLineEdit" name="calineedit_13">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>800</y>
+     <width>100</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):CAM-IMAGEx</string>
+   </property>
+   <property name="unitsEnabled">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="caLineEdit" name="calineedit_14">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>850</y>
+     <width>100</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):CAM-IMAGEy</string>
+   </property>
+   <property name="unitsEnabled">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="caNumeric" name="canumeric_3">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>790</y>
+     <width>81</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="integerDigits" stdset="0">
+    <number>3</number>
+   </property>
+   <property name="decimalDigits" stdset="0">
+    <number>0</number>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):CAM-X_END</string>
+   </property>
+  </widget>
+  <widget class="caNumeric" name="canumeric_8">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>840</y>
+     <width>81</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="integerDigits" stdset="0">
+    <number>3</number>
+   </property>
+   <property name="decimalDigits" stdset="0">
+    <number>0</number>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):CAM-Y_END</string>
+   </property>
+  </widget>
+  <widget class="caNumeric" name="canumeric_9">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>840</y>
+     <width>81</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="integerDigits" stdset="0">
+    <number>3</number>
+   </property>
+   <property name="decimalDigits" stdset="0">
+    <number>0</number>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):CAM-Y_START</string>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_18">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>750</y>
+     <width>661</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <italic>true</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>after changes new Bitmask and Dark are required, only once in Setup!</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="caToggleButton" name="catogglebutton_9">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>800</y>
+     <width>201</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>apply new Position</string>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):CAM-applyPOS</string>
+   </property>
+   <property name="fontScaleMode" stdset="0">
+    <enum>caToggleButton::None</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_4">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>840</y>
+     <width>30</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):POS-applied</string>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_19">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>820</y>
+     <width>191</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>to Dark and Bitmask</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_20">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>850</y>
+     <width>191</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Position applied!</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="caLineEdit" name="calineedit_6">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>880</y>
+     <width>251</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):POS-Time</string>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_21">
+   <property name="geometry">
+    <rect>
+     <x>730</x>
+     <y>10</y>
+     <width>141</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="text">
+    <string>Saturation </string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_22">
+   <property name="geometry">
+    <rect>
+     <x>730</x>
+     <y>30</y>
+     <width>161</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="text">
+    <string>(without Dark and </string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_23">
+   <property name="geometry">
+    <rect>
+     <x>730</x>
+     <y>50</y>
+     <width>161</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="text">
+    <string>Calibration Faktor)</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="caTable" name="catable_2">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>730</x>
+     <y>80</y>
+     <width>151</width>
+     <height>611</height>
+    </rect>
+   </property>
+   <property name="rowCount">
+    <number>28</number>
+   </property>
+   <property name="columnCount">
+    <number>0</number>
+   </property>
+   <property name="channels" stdset="0">
+    <string>$(XX):SatA1;$(XX):SatA2;$(XX):SatA3;$(XX):SatA4;$(XX):SatA5;$(XX):SatA6;$(XX):SatA7;$(XX):SatA8;$(XX):SatA9;$(XX):SatA10;$(XX):SatA11;$(XX):SatA12;$(XX):SatA13;$(XX):SatA14;$(XX):SatA15;$(XX):SatA16;$(XX):SatA17;$(XX):SatA18;$(XX):SatA19;$(XX):SatA20;$(XX):SatA21;$(XX):SatA22;$(XX):SatA23;$(XX):SatA24;$(XX):SatA25;$(XX):SatA26;$(XX):SatA27;$(XX):SatA28</string>
+   </property>
+   <property name="columnSizes">
+    <string notr="true">0</string>
+   </property>
+   <attribute name="horizontalHeaderCascadingSectionResizes">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>100</number>
+   </attribute>
+   <attribute name="horizontalHeaderStretchLastSection">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="verticalHeaderVisible">
+    <bool>true</bool>
+   </attribute>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+  </widget>
+  <widget class="caLed" name="caled_25">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>290</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):ChlA10</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Static</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_46">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>651</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):ChlA28</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Static</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_42">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>570</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):ChlA24</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Static</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_14">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>210</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):ChlA6</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Static</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_37">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>470</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):ChlA19</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Static</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_33">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>390</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):ChlA15</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Static</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_26">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>310</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):ChlA11</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Static</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_15">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>230</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):ChlA7</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Static</enum>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_24">
+   <property name="geometry">
+    <rect>
+     <x>486</x>
+     <y>70</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+   <property name="text">
+    <string>Sensor</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_43">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>590</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):ChlA25</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Static</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_38">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>490</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):ChlA20</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Static</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_34">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>410</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):ChlA16</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Static</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_40">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>530</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):ChlA22</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Static</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_28">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>330</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):ChlA12</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Static</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_16">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>250</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):ChlA8</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Static</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_12">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>170</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):ChlA4</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Static</enum>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_25">
+   <property name="geometry">
+    <rect>
+     <x>464</x>
+     <y>90</y>
+     <width>91</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+   <property name="text">
+    <string>connected</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_44">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>610</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):ChlA26</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Static</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_39">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>510</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):ChlA21</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Static</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>110</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):ChlA1</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Static</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_35">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>430</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):ChlA17</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Static</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_8">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>150</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):ChlA3</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Static</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_30">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>350</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):ChlA13</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Static</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_24">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>270</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):ChlA9</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Static</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_45">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>630</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):ChlA27</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Static</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_41">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>550</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):ChlA23</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Static</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_2">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>130</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):ChlA2</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Static</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_13">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>190</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):ChlA5</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Static</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_36">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>450</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):ChlA18</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Static</enum>
+   </property>
+  </widget>
+  <widget class="caLed" name="caled_32">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>370</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):ChlA14</string>
+   </property>
+   <property name="colorMode">
+    <enum>caLed::Static</enum>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_11">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>130</y>
+     <width>81</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>BitMask</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_26">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>100</y>
+     <width>171</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Exposure Time</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="caNumeric" name="canumeric_4">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>100</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="integerDigits" stdset="0">
+    <number>8</number>
+   </property>
+   <property name="decimalDigits" stdset="0">
+    <number>0</number>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):BM_Cal-EXPT</string>
+   </property>
+   <property name="limitsMode">
+    <enum>caNumeric::User</enum>
+   </property>
+   <property name="maxValue">
+    <double>20000000.000000000000000</double>
+   </property>
+   <property name="minValue">
+    <double>0.000000000000000</double>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_27">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>120</y>
+     <width>181</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>around half Saturation</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>320</y>
+     <width>511</width>
+     <height>371</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>1</number>
+   </property>
+   <widget class="QWidget" name="tab">
+    <attribute name="title">
+     <string>BitMask</string>
+    </attribute>
+    <widget class="caCamera" name="cacamera">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>10</y>
+       <width>531</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <property name="channelData" stdset="0">
+      <string notr="true">$(XX):BitMask</string>
+     </property>
+     <property name="channelWidth" stdset="0">
+      <string notr="true">$(XX):CAM-IMAGEx</string>
+     </property>
+     <property name="channelHeight" stdset="0">
+      <string notr="true">$(XX):CAM-IMAGEy</string>
+     </property>
+     <property name="minLevel">
+      <string notr="true">0</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_2">
+    <attribute name="title">
+     <string>Flatfield</string>
+    </attribute>
+    <widget class="caCamera" name="cacamera_3">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>10</y>
+       <width>531</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <property name="channelData" stdset="0">
+      <string notr="true">$(XX):CalI</string>
+     </property>
+     <property name="channelWidth" stdset="0">
+      <string notr="true">$(XX):CAM-IMAGEx</string>
+     </property>
+     <property name="channelHeight" stdset="0">
+      <string notr="true">$(XX):CAM-IMAGEy</string>
+     </property>
+     <property name="minLevel">
+      <string notr="true">0</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="caLineEdit" name="calineedit_7">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>240</y>
+     <width>251</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):CalA-Version</string>
+   </property>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>caNumeric</class>
+   <extends>QFrame</extends>
+   <header>caNumeric</header>
+  </customwidget>
+  <customwidget>
+   <class>caToggleButton</class>
+   <extends>QCheckBox</extends>
+   <header>caToggleButton</header>
+  </customwidget>
+  <customwidget>
+   <class>caLabel</class>
+   <extends>QLabel</extends>
+   <header>caLabel</header>
+  </customwidget>
+  <customwidget>
+   <class>caLed</class>
+   <extends>QWidget</extends>
+   <header>caLed</header>
+  </customwidget>
+  <customwidget>
+   <class>caLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>caLineEdit</header>
+  </customwidget>
+  <customwidget>
+   <class>caTable</class>
+   <extends>QTableWidget</extends>
+   <header>caTable</header>
+  </customwidget>
+  <customwidget>
+   <class>caCamera</class>
+   <extends>QWidget</extends>
+   <header>caCamera</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

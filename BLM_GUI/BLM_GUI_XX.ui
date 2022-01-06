@@ -1151,7 +1151,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>3</number>
    </property>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
@@ -2578,9 +2578,9 @@
     <widget class="caRelatedDisplay" name="carelateddisplay">
      <property name="geometry">
       <rect>
-       <x>300</x>
-       <y>20</y>
-       <width>170</width>
+       <x>219</x>
+       <y>10</y>
+       <width>281</width>
        <height>31</height>
       </rect>
      </property>
@@ -2593,10 +2593,10 @@
       <string notr="true">Testlabel</string>
      </property>
      <property name="labels">
-      <string>acquire Bit Mask</string>
+      <string>acquire Bit Mask and Calibration</string>
      </property>
      <property name="files">
-      <string>BitMask_XX.ui</string>
+      <string>BitMask_Calibration_XX.ui</string>
      </property>
      <property name="args">
       <string>XX=$(XX)</string>
@@ -2608,8 +2608,8 @@
     <widget class="caRelatedDisplay" name="carelateddisplay_2">
      <property name="geometry">
       <rect>
-       <x>300</x>
-       <y>60</y>
+       <x>330</x>
+       <y>50</y>
        <width>170</width>
        <height>31</height>
       </rect>
