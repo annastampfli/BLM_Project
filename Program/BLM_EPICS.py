@@ -212,12 +212,6 @@ pvdb = {
               'value' : 0,
               'count' : splits[0]*splits[1]+1,
              },
-
-    'CAM-acqCal' : {
-        'type' : 'int', #usage as boolean
-        'value' : 0,  
-        'scan' : 1,
-    },
     
     'CalA' : { #Correction Array
         'type' : 'float', #usage as boolean array
@@ -233,16 +227,17 @@ pvdb = {
         'type' : 'string',
     },
     
-    'Cal-EXPT' : {
+    'BM_Cal-EXPT' : {
         'type' : 'int',    
         'unit' : 'us',
+        'value' : 30000,
     },
     
-    'Cal-Time' : {
+    'BM_Cal-Time' : {
         'type' : 'string',
     },
     
-    'CAM-acqBitMask' : {
+    'CAM-acq_BM_Cal' : {
         'type' : 'int', #usage as boolean
         'value' : 0,  
         'scan' : 1,
@@ -261,10 +256,7 @@ pvdb = {
         'type' : 'int',
 #        'value' : BitMask_json['Threshhold'],
     },
-    'BitMask-Time' : {
-        'type' : 'string',
-#        'value' :  BitMask_json['Time'],
-    },
+
       
     'CAM-acqDark' : {
         'type' : 'int', #usage as boolean
@@ -300,10 +292,6 @@ pvdb = {
         'count' : splits[0]*splits[1], #28
 #        'value' : BitMask_json['Saturation Array'],#np.ones(splits[0]*splits[1]),
         'scan' : 1,
-    },
-    'useSat': { #use Saturation
-        'type' : 'int', #usage as boolean
-        'value' : 0,
     },
     
     'save': {
@@ -395,6 +383,12 @@ for i in range(splits[0]*splits[1]):
     SatAdir['SatA'+str(i+1)] = {'type' : 'int',
 #                                'value' : BitMask_json['Saturation Array'][i],
                                }
+    
+ChlAdir = {}
+for i in range(splits[0]*splits[1]):
+    ChlAdir['ChlA'+str(i+1)] = {'type' : 'int', #usage as boolean
+#                                'value' : BM_Cal_json['Saturation Array'][i],
+                               }
 
 pvdb.update(LEDdir)  # To add two dictionary  
 pvdb.update(LOSSdir) 
@@ -402,6 +396,7 @@ pvdb.update(CalAdir)
 pvdb.update(DarkAdir)
 pvdb.update(DarkA_BMdir)
 pvdb.update(SatAdir)
+pvdb.update(ChlAdir)
 
 
 class iocDriver(Driver):
@@ -580,7 +575,7 @@ class iocDriver(Driver):
         self.setParam('POS-Time', self.pos_json['Time'])
         self.setParam('BitMask', self.BitMask_view.flatten())
         self.setParam('BitMask-TH', self.BitMask_json['Threshhold'])
-        self.setParam('BitMask-Time', self.BitMask_json['Time'])
+        self.setParam('BM_Cal-Time', self.BitMask_json['Time'])
         self.setParam('Dark-EXPT', self.dark_json['Exposure Time'])
         self.setParam('Dark-Time',self.dark_json['Time'])
         self.setParam('CalA', self.CalA.flatten())
@@ -622,13 +617,14 @@ class iocDriver(Driver):
                 j += 1
                 
         elif reason == 'LEDall':
+            print('write LEDall')
             if val == True:
                 GPIO.output(LED_all, GPIO.HIGH)
-                self.updatePVs()
+                status = True
            
             elif val == False:
                 GPIO.output(LED_all, GPIO.LOW)
-                self.updatePVs()
+                status == True
             else:
                 false_val = True
 
@@ -740,16 +736,16 @@ class iocDriver(Driver):
             else:
                 false_val = True
         
-        elif reason == 'CAM-acqBitMask': # can only be changed, when camera not measuring
+        elif reason == 'CAM-acq_BM_Cal': # can only be changed, when camera not measuring
             if val == True and self.getParam('CAM-isMeasuring') == False:
                 status = True #writes the PV -> sets the value to True
-                #acquire BitMask Thread
-                self.BitMask_thread = threading.Thread(target = self.acqBitMask, daemon = True)
+                #acquire BitMask Calibration Thread
+                self.BM_Cal_thread = threading.Thread(target = self.acq_BM_Cal, daemon = True)
                 self.setParam('CAM-isMeasuring', True)
                 self.updatePVs()
-                self.BitMask_thread.start()     
+                self.BM_Cal_thread.start()     
             else:
-                logging.warning('can not acquire BitMask, when Camara is measuring.')
+                logging.warning('can not acquire BitMask and Calibration, when Camara is measuring.')
                 #print('can not acquire BitMask when Camera not connected or measuring.') 
                 return False
                 
@@ -766,18 +762,6 @@ class iocDriver(Driver):
                 #print('can not acquire Dark when Camera not connected or measuring.') 
                 return False
             
-        elif reason == 'CAM-acqCal': # can only be changed, when camera not measuring
-            if val == True and self.getParam('CAM-isMeasuring') == False:
-                status = True #writes the PV -> sets the value to True
-                self.setParam('CAM-isMeasuring', True)
-                self.updatePVs()
-                # acquire Dark Thread
-                self.Cal_thread = threading.Thread(target = self.acqCal, daemon = True)
-                self.Cal_thread.start()     
-            else:
-                logging.warning('can not acquire Cal, when Camara is measuring.')
-                #print('can not acquire Dark when Camera not connected or measuring.') 
-                return False
                 
         elif reason == 'useBitMask':
             if val == True or val == False:
@@ -892,7 +876,7 @@ class iocDriver(Driver):
             return False
             
         if status:
-            #print('write PV', reason, 'to', val)
+            print('write PV', reason, 'to', val)
             logging.info('write PV %s to %s', reason, val)
             self.setParam(reason, val)
             self.updatePVs()
@@ -1080,7 +1064,7 @@ class iocDriver(Driver):
                                 LABEL = ["Timestamp"]
                                 for i in range(28):
                                     LABEL.append("LOSS"+ str(i+1))
-                                LABEL.extend(["Bitmask "+str(self.getParam('BitMask-Time')), "Dark "+str(self.getParam('Dark-Time')), "Calibration Faktor "+str(self.CalA_Version )])   
+                                LABEL.extend(["Bitmask "+str(self.getParam('BM_Cal-Time')), "Dark "+str(self.getParam('Dark-Time')), "Calibration Faktor "+str(self.CalA_Version )])   
                                 #print(LABEL, len(LABEL))
                                 np.savetxt(file, [LABEL], delimiter = ',', fmt = '%s')      
                                 
@@ -1112,58 +1096,126 @@ class iocDriver(Driver):
                 time.sleep(self.getParam('Meas-delay')) # in sec
 
 
-    def acqBitMask(self, j=100):
-        self.StartGrabbing()
+    def acq_BM_Cal(self, j=100):
         
+        expt0 = self.getParam('CAM-EXPT') #get current exposure Time
+        self.write('CAM-EXPT',self.read('BM_Cal-EXPT')) #set to value for BitMask and Calibration
+        self.write('LEDall', 0) #LED off
+        
+        """ 
+        while True:
+            time.sleep(1)
+            if self.camera.ExposureTime.GetValue() == self.getParam('BM_Cal-EXPT') and self.getParam('LEDall') == 0: #check expt and LED
+                print('BM Cal EXPT and LEDall set successfully')
+                break
+            else:
+                print('ERROR: BM Cal Expt not set')
+         """   
+            
+        #acq Dark with LED off
+        self.StartGrabbing()
         width = self.getParam('CAM-WIDTH')
         height = self.getParam('CAM-HEIGHT')
         Isum = np.zeros(width*height).reshape(height, width)
         for i in range(j):
+            time.sleep(0.05)
             grabResult = self.camera.RetrieveResult(5000,pylon.TimeoutHandling_Return)
             if grabResult.GrabSucceeded():
                 img = grabResult.Array
                 # sum it up
-                Isum += img 
-        Img = Isum/j
-            
+                Isum += img                    
+        DarkI = Isum/j
         grabResult.Release()
+                            
+        
+        DarkIs = self.SliceIMG(DarkI) # Slice it
+        #Calculate DarkA with BitMask
+        DarkI_BM = DarkIs*self.BitMask
+        DarkA_BM = f.split_sum(DarkI_BM, splits)
+        print('DarkA_BM from acqCal \n', DarkA_BM)
+        
+        self.write('LEDall', 1) #LED off
+        if self.getParam('LEDall') == 1: #check LED
+            print('BM Cal LED set successfully on')
+        else:
+            print('ERROR: BM Cal LED not set on')
+            
+        #,acq Flatfield and BitMask with LED on
+        Isum = np.zeros(width*height).reshape(height, width)
+        for i in range(j):
+            time.sleep(0.05)
+            grabResult = self.camera.RetrieveResult(5000,pylon.TimeoutHandling_Return)
+            if grabResult.GrabSucceeded():
+                img = grabResult.Array
+                # sum it up
+                Isum += img                    
+        CalI = Isum/j
+        grabResult.Release()
+        
         self.camera.StopGrabbing()
         
         #calculate Bitmask
         threshhold = self.getParam('BitMask-TH')
-        ret, mask = cv.threshold(Img, threshhold, 1, cv.THRESH_BINARY)#ret = treshhold
+        ret, mask = cv.threshold(CalI, threshhold, 1, cv.THRESH_BINARY)#ret = treshhold
         mask = np.array(mask, dtype=int) #whole image
                             
-        #save whole Image of Bitmask
-        with open(os.path.join(CWD,'../Calibration_Data/BitMask/_last_bitmask.npy'), 'wb') as file:
-            np.save(file, mask)
-        
-        expt_ms = str(self.getParam('CAM-EXPT')/1000) + 'ms'
-        time_txt = time.strftime("%Y-%m-%d_%H-%M-%S_%Z", time.localtime())
-        #save with Time and Date -> Archiv 
-        with open(os.path.join(CWD,'../Calibration_Data/BitMask/' + time_txt + '_bitmask_' + expt_ms + '.npy'), 'wb') as file:
-            np.save(file, mask)
-                            
-        #Slice it                    
-        self.BitMask = self.SliceIMG(mask)
-        
-        #calculate new DarkA_BM
-        self.DarkI_BM = self.DarkI*self.BitMask
-        self.DarkA_BM = f.split_sum(self.DarkI_BM, splits)
-        for j in range(splits[0]*splits[1]):
-            self.setParam('DarkA_BM'+str(j+1), self.DarkA_BM.flatten()[j])
+        self.BitMask = self.SliceIMG(mask) #Slice it
+        self.BitMask_view = f.paint_raster(self.BitMask, (4,7), show = False)
+        self.BitMask_view = np.fliplr(self.BitMask_view)
         
         #calculate Saturation
         arr = f.split_sum(self.BitMask, splits)
         val = arr.flatten()*4095 #Max Brigthness (Nr. Pixels * Mono12)
-        #print('Saturation', val)
-        self.setParam('SatA', val)  
-        for j in range(splits[0]*splits[1]):
-                    self.setParam('SatA'+str(j+1), val[j])
-        self.updatePVs()
-         
+        
+        #calculate new DarkA_BM
+        self.DarkI_BM = self.DarkI*self.BitMask
+        self.DarkA_BM = f.split_sum(self.DarkI_BM, splits)
+        
+        #find out which channel is connected
+        self.ChlA = np.zeros(splits[0]*splits[1]).reshape(splits[0],splits[1])
+        for i in range(splits[0]*splits[1]):
+            if val[i] != 0: #CalA.flat[i] > DarkA_BM.flat[i]: #not connected channels should be zero because of the BitMask
+                self.ChlA.flat[i] = 1 #channel is connected
+        print('Connected channels \n', self.ChlA)       
+                            
+        #calculate CalA
+        CalI = CalI-DarkI #DarkI correction
+        self.CalI = self.SliceIMG(CalI) # Slice it
+        self.CalI = self.CalI*self.BitMask # with BitMask
+        CalA = f.split_sum(self.CalI, splits) #Calculate CalA
+        print('CalA with subtracted dark and Bitmask \n', CalA)
+        self.CalA = f.norm_A(CalA, self.ChlA) #CalA normalize connected channels
+        print('CalA: \n', self.CalA)
+        
+        
+        #save DarkI for Flatfield
+        time_txt = time.strftime("%Y-%m-%d_%H-%M-%S_%Z", time.localtime())
+        expt_ms = str(self.getParam('CAM-EXPT')/1000) + 'ms'
+            #save with Time and Date -> Archiv
+        with open(os.path.join(CWD,'../Calibration_Data/Flatfield/' + time_txt + '_DarkI_' + expt_ms + '.npy'), 'wb') as file:
+            np.save(file, DarkI)
+            #save as _last_ for reopening
+        with open(os.path.join(CWD,'../Calibration_Data/Flatfield/_last_DarkI.npy'), 'wb') as file:
+            np.save(file, DarkI)
+                                  
+        #save CalI
+            #save with Time and Date -> Archiv
+        with open(os.path.join(CWD,'../Calibration_Data/Flatfield/' + time_txt + '_CalI_' + expt_ms + '.npy'), 'wb') as file:
+            np.save(file, CalI)
+            #save as _last_ for reopening
+        with open(os.path.join(CWD,'../Calibration_Data/Flatfield/_last_CalI.npy'), 'wb') as file:
+            np.save(file, CalI)
+        
+        #save Bitmask
+            #save with Time and Date -> Archiv 
+        with open(os.path.join(CWD,'../Calibration_Data/BitMask/' + time_txt + '_bitmask_' + expt_ms + '.npy'), 'wb') as file:
+            np.save(file, mask)
+            #save as _last_ for reopening
+        with open(os.path.join(CWD,'../Calibration_Data/BitMask/_last_bitmask.npy'), 'wb') as file:
+            np.save(file, mask)
+        
         # save a Dictionary with all the Data to a .json file
-        BitMask_json = {'Time': time_txt, 
+        BM_Cal_json = {'Time': time_txt, 
                      'Timestamp' : time.time(),
                      'Threshhold': self.getParam('BitMask-TH'), 
                      'Exposure Time': self.getParam('CAM-EXPT'), 
@@ -1172,25 +1224,42 @@ class iocDriver(Driver):
                      'Gain': self.getParam('CAM-GAIN'),
                      'Img Size': (self.getParam('CAM-WIDTH'), self.getParam('CAM-HEIGHT')),
                      'Slice Parameters(y_start,y_end, x_start, x_end):': (self.y_start,self.y_end,self.x_start,self.x_end),
-                     'Saturation Array': tuple(np.array(self.getParam('SatA'), dtype=float))}
-        #print('BitMask_json:', BitMask_json)
-        with open(os.path.join(CWD,'../Calibration_Data/BitMask/_last_bitmask_parameters.json'), 'w') as file:
-            json.dump(BitMask_json, file)
-        #save with Time and Date -> Archiv    
-        with open(os.path.join(CWD,'../Calibration_Data/BitMask/' + time_txt + '_bitmask_' + expt_ms + '.json'), 'w') as file:
-            json.dump(BitMask_json, file)
-                  
-        self.BitMask_view = f.paint_raster(self.BitMask, (4,7), show = False)
-        self.BitMask_view = np.fliplr(self.BitMask_view)
-    
+                     'Saturation Array': tuple(np.array(val, dtype='float')),
+                     'Channels Array': tuple(np.array(self.ChlA.flatten(),dtype='float')),
+                     'Calibration Array': tuple(np.array(self.CalA.flatten(), dtype='float')),
+                     'Shape of Arrays': tuple(np.array(CalA.shape, dtype='float')),}
+        #print('BitMask_json:', BitMask_json)        
+            #save with Time and Date -> Archiv    
+        with open(os.path.join(CWD,'../Calibration_Data/BitMask/' + time_txt + '_BM_Cal_' + expt_ms + '.json'), 'w') as file:
+            json.dump(BM_Cal_json, file)
+            #save as _last_ for reopening
+        with open(os.path.join(CWD,'../Calibration_Data/BitMask/_last_BM_Cal_parameters.json'), 'w') as file:
+            json.dump(BM_Cal_json, file)
+        
+        
+        for j in range(splits[0]*splits[1]):
+            self.setParam('DarkA_BM'+str(j+1), self.DarkA_BM.flatten()[j])        
+        #print('Saturation', val)
+        self.setParam('SatA', val)  
+        for j in range(splits[0]*splits[1]):
+                    self.setParam('SatA'+str(j+1), val[j])
+        for j in range(splits[0]*splits[1]):
+            self.setParam('CalA'+str(j+1), self.CalA.flatten()[j])
+        for i in range(splits[0]*splits[1]):
+            self.setParam('ChlA'+str(i+1), self.ChlA.flat[i])
+        #self.setParam('CalI', self.DarkI.flatten())
+        self.setParam('BM_Cal-EXPT', int(self.getParam('CAM-EXPT')))
+        self.write('CAM-EXPT', expt0)
+        self.write('LEDall', 0) #LED off
+        self.setParam('CalA-Version', 'without LED Calibration from GUI')
         self.setParam('BitMask', self.BitMask_view.flatten())
-        self.setParam('BitMask-Time', time_txt)
-        self.setParam('CAM-acqBitMask', False) #resets the value
+        self.setParam('BM_Cal-Time', time_txt)
+        self.setParam('CAM-acq_BM_Cal', False) #resets the value
         self.setParam('CAM-isMeasuring', False)#resets the isMeasuring so Camera is ready for other Grabbing
         self.updatePVs()
         
-        #print('acqBitMask finished')
-        logging.info('acqBitMask finished')
+        print('acq_BM_Cal finished')
+        logging.info('acqBM_Cal finished')
         return None #end of Function
 
     
@@ -1278,121 +1347,7 @@ class iocDriver(Driver):
         return None #end of function
     
     
-    def acqCal(self, j=100):
-        
-        #LEDs of
-        
-        self.StartGrabbing()
-        
-        width = self.getParam('CAM-WIDTH')
-        height = self.getParam('CAM-HEIGHT')
-        Isum = np.zeros(width*height).reshape(height, width)
-        for i in range(j):
-            time.sleep(0.05)
-            grabResult = self.camera.RetrieveResult(5000,pylon.TimeoutHandling_Return)
-            if grabResult.GrabSucceeded():
-                img = grabResult.Array
-                # sum it up
-                Isum += img                    
-        DarkI = Isum/j
-        grabResult.Release()
-                            
-        # Slice it
-        DarkIs = self.SliceIMG(DarkI)
-        #Calculate DarkA with BitMask
-        DarkI_BM = DarkIs*self.BitMask
-        DarkA_BM = f.split_sum(DarkI_BM, splits)
-        print('DarkA_BM from acqCal \n', DarkA_BM)
-        
-        #LEDs on 
-        Isum = np.zeros(width*height).reshape(height, width)
-        for i in range(j):
-            grabResult = self.camera.RetrieveResult(5000,pylon.TimeoutHandling_Return)
-            if grabResult.GrabSucceeded():
-                img = grabResult.Array
-                # sum it up
-                Isum += img                    
-        CalI = Isum/j
-        
-        grabResult.Release()
-        
-        self.camera.StopGrabbing()
-        
-        #DarkI correction
-        #CalI = CalI-DarkI
-        # Slice it
-        self.CalI = self.SliceIMG(CalI)
-        #Calculate CalA with BitMask
-        self.CalI = self.CalI*self.BitMask
-        CalA = f.split_sum(self.CalI, splits)
-        CalA = CalA - DarkA_BM
-        print('CalA with subtracted dark and Bitmask \n', CalA)
-        
-        #find out which channel is connected
-        channels = np.zeros(splits[0]*splits[1]).reshape(splits[0],splits[1])
-        for i in range(splits[0]*splits[1]):
-            if CalA.flat[i] > DarkA_BM.flat[i]:
-                channels.flat[i] = 1 #channel is connected
-        print('Connected channels \n', channels)       
-        #CalA normalize connected channels
-        self.CalA = f.norm_A(CalA, channels)
-        print('CalA: \n', self.CalA)
-        
-                
-        
-        
-        #save DarkI for Flatfield
-        time_txt = time.strftime("%Y-%m-%d_%H-%M-%S_%Z", time.localtime())
-        expt_ms = str(self.getParam('CAM-EXPT')/1000) + 'ms'
-            #save with Time and Date -> Archiv
-        with open(os.path.join(CWD,'../Calibration_Data/Flatfield/' + time_txt + '_DarkI_' + expt_ms + '.npy'), 'wb') as file:
-            np.save(file, DarkI)
-            #save as _last_ for reopening
-        with open(os.path.join(CWD,'../Calibration_Data/Flatfield/_last_DarkI.npy'), 'wb') as file:
-            np.save(file, DarkI)
-                                  
-        #save CalI
-            #save with Time and Date -> Archiv
-        with open(os.path.join(CWD,'../Calibration_Data/Flatfield/' + time_txt + '_CalI_' + expt_ms + '.npy'), 'wb') as file:
-            np.save(file, CalI)
-            #save as _last_ for reopening
-        with open(os.path.join(CWD,'../Calibration_Data/Flatfield/_last_CalI.npy'), 'wb') as file:
-            np.save(file, CalI)
 
-        # save a Dictionary with all the Data to a .json file
-        dark_json = {'Time': time_txt, 
-                     'Timestamp' : time.time(),
-                     'Exposure Time': self.getParam('CAM-EXPT'),
-                     'BitMask': self.getParam('BitMask-Time') ,
-                     'Sensor Bit Depth': self.getParam('CAM-SenBitD'), 
-                     'Pixelformat': self.getParam('CAM-Pformat'), 
-                     'Gain': self.getParam('CAM-GAIN'),
-                     'Img Size': (self.getParam('CAM-WIDTH'), self.getParam('CAM-HEIGHT')),
-                     'Slice Parameters(y_start,y_end, x_start, x_end):': (self.y_start,self.y_end,self.x_start,self.x_end)}
-        #print('dark_json:', dark_json)
-        with open(os.path.join(CWD,'../Calibration_Data/Flatfield/_last_Flatfield_parameters.json'), 'w') as file:
-            json.dump(dark_json, file)
-        with open(os.path.join(CWD,'../Calibration_Data/Flatfield/' + time_txt + '_Flatfield_parameters.json'), 'w') as file:
-            json.dump(dark_json, file)
-                            
-        #set CalA
-        for j in range(splits[0]*splits[1]):
-            self.setParam('CalA'+str(j+1), self.CalA.flatten()[j])
-
-        #self.setParam('CalI', self.DarkI.flatten())
-        self.setParam('Cal-EXPT', int(self.getParam('CAM-EXPT')))
-        self.setParam('Cal-Time', time_txt)
-        self.setParam('CalA-Version', 'without LED Calibration from GUI')
-        self.setParam('CAM-acqCal', False)
-        self.setParam('CAM-isMeasuring', False)#resets the isMeasuring so Camera is ready for other Grabbing
-        self.updatePVs()
-        
-        #print('acqDarkA finished')
-        logging.info('acqCal finished')
-        return None #end of function
-    
-    
-        
     def StartGrabbing(self):
         self.camera.StartGrabbing(pylon.GrabStrategy_LatestImageOnly)#test other grabStrategies
         wait = True
