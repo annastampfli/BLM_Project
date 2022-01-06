@@ -213,6 +213,14 @@ pvdb = {
               'count' : splits[0]*splits[1]+1,
              },
     
+    'CalI' : {'type' : 'float',
+               'prec' : 2,
+               'value' : np.zeros(Lx*Ly), 
+               'count' : 300*480, #max of size
+#               'value' : CalI.flatten(),
+               'scan' : 10 #to display it even when GUI is reloaded
+    },
+    
     'CalA' : { #Correction Array
         'type' : 'float', #usage as boolean array
         'prec' : 5,
@@ -1247,7 +1255,7 @@ class iocDriver(Driver):
             self.setParam('CalA'+str(j+1), self.CalA.flatten()[j])
         for i in range(splits[0]*splits[1]):
             self.setParam('ChlA'+str(i+1), self.ChlA.flat[i])
-        #self.setParam('CalI', self.DarkI.flatten())
+        self.setParam('CalI', self.CalI.flatten())
         self.setParam('BM_Cal-EXPT', int(self.getParam('CAM-EXPT')))
         self.write('CAM-EXPT', expt0)
         self.write('LEDall', 0) #LED off
