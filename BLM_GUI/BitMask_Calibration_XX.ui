@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>891</width>
-    <height>953</height>
+    <height>909</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -29,8 +29,8 @@
   <widget class="caLabel" name="calabel_9">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>290</y>
+     <x>20</x>
+     <y>240</y>
      <width>431</width>
      <height>28</height>
     </rect>
@@ -532,7 +532,7 @@
     </font>
    </property>
    <property name="text">
-    <string>after changes new Bitmask and Dark are required, only once in Setup!</string>
+    <string>Setup first, before Bitmask and Calibration, and Dark</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -990,7 +990,7 @@
     <enum>Qt::RightToLeft</enum>
    </property>
    <property name="text">
-    <string>Sensor</string>
+    <string>Channel</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1567,7 +1567,7 @@
     <rect>
      <x>330</x>
      <y>120</y>
-     <width>181</width>
+     <width>201</width>
      <height>28</height>
     </rect>
    </property>
@@ -1577,7 +1577,7 @@
     </font>
    </property>
    <property name="text">
-    <string>around half Saturation</string>
+    <string>(around half Saturation)</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -1589,8 +1589,8 @@
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>320</y>
+     <x>10</x>
+     <y>270</y>
      <width>511</width>
      <height>371</height>
     </rect>
@@ -1653,20 +1653,58 @@
     </widget>
    </widget>
   </widget>
-  <widget class="caLineEdit" name="calineedit_7">
+  <widget class="caLabel" name="calabel_28">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>240</y>
-     <width>251</width>
-     <height>20</height>
+     <x>570</x>
+     <y>50</y>
+     <width>161</width>
+     <height>28</height>
     </rect>
    </property>
-   <property name="readOnly">
-    <bool>true</bool>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
    </property>
-   <property name="channel" stdset="0">
-    <string notr="true">$(XX):CalA-Version</string>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="text">
+    <string>Calibration)</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_29">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>30</y>
+     <width>161</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="text">
+    <string>(without LED</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
    </property>
   </widget>
  </widget>
