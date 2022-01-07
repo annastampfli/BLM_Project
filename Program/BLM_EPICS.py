@@ -57,15 +57,16 @@ BLM_NR = output[-3:-1]
 
 #PATHS
 CWD = os.getcwd()
-print(CWD)
 PATH_BM = os.path.join(CWD,'../Calibration_Data/BitMask/')
 PATH_Pos = os.path.join(CWD,'../Calibration_Data/Position/')
 PATH_Dark = os.path.join(CWD,'../Calibration_Data/Dark/')
 PATH_Cal = os.path.join(CWD,'../Calibration_Data/Flatfield/')
+PATH_sav = os.path.join(CWD,'../Data/EPICS_GUI/')
 f.newdir(PATH_BM)
 f.newdir(PATH_Pos)
 f.newdir(PATH_Dark)
 f.newdir(PATH_Cal)
+f.newdir(PATH_sav)
 
 #logger setup
 logging.basicConfig(format='%(asctime)s | %(levelname)s | %(name)s:%(message)s', datefmt='%d/%m/%Y %H:%M:%S %p', level=logging.INFO, 
@@ -230,7 +231,7 @@ pvdb = {
     'LOSS' : {'type' : 'float',
               'prec' : 1,
               #'scan' : 1,
-              'value' : 0,
+              'value' : -1,
               'count' : splits[0]*splits[1]+1,
              },
     
@@ -369,7 +370,7 @@ LOSSdir = {}
 for i in range(splits[0]*splits[1]):
     LOSSdir['LOSS'+str(i+1)] = {'type' : 'float',
                                 'prec' : 1,
-                                'value' : 0,
+                                'value' : -1,
                                 'low' : -100, 'high' : 100, #Data limit for low / high alarm, -> Warning
                                 'lolo' : -200, 'hihi' : 1000000, #Data limit for low low / high high alarm, -> Alarm
                              'lolim' : -200, 'hilim' : 13304655, #Data limit for graphics Display, complete Saturation for ROI 57x57=3249Pix Mono12
@@ -425,7 +426,6 @@ class iocDriver(Driver):
 
     def __init__(self):
         super(iocDriver, self).__init__()
-        print('__init__ function started')
     
             #GPIO setup
         GPIO.setwarnings(False)
@@ -461,7 +461,6 @@ class iocDriver(Driver):
                 j += 1
                 
         elif reason == 'LEDall':
-            print('write LEDall')
             if val == True:
                 GPIO.output(LED_all, GPIO.HIGH)
                 status = True
@@ -641,9 +640,8 @@ class iocDriver(Driver):
                 self.setParam('CAM-applyPOS', 1)
                 self.updatePVs()
                 self.loadCdata(newPOS=True)
-                self.setParam('CAM-applyPOS', 0)
-                self.updatePVs()
                 val = 0
+                status = True
             elif val == False:
                 status = True
             else:
@@ -850,18 +848,15 @@ class iocDriver(Driver):
     
     def loadCdata(self, newPOS=False):
         # try: if file already exist; except: take init values
-            
-            
+        
         if not newPOS:
             
             try:
                 # Position Parameters
                 with open(PATH_Pos+'_last_position.json', 'r') as file:
                     self.pos_json = json.load(file)
-                #print(self.BitMask_json)
 
             except:
-                print('this is default Position')
                 self.pos_json = {'Time': 'No Position yet', 
                      'Timestamp' : 0,
                      'Slice Parameters(y_start,y_end, x_start, x_end):': (0,300,0,480),
@@ -890,9 +885,6 @@ class iocDriver(Driver):
             #save with Time and Date -> Archiv    
             with open(PATH_Pos + time_txt + '_position.json', 'w') as file:
                 json.dump(self.pos_json, file)
-            
-        print('Slice Parameters',self.x_start, self.x_end, self.y_start, self.y_end)
-        
         
         try:
             #open Bitmask
@@ -1068,17 +1060,17 @@ class iocDriver(Driver):
                         
                 # 5) Correction with Calibration Faktor Array
                 if self.getParam('useCalA') == True:
-                    arr = arr/self.getParam('CalA').reshape(splits[0], splits[1]) #divide
+                    arr = arr/self.CalA #divide
                 
-                val = arr.flatten()
+                value = arr.flatten()
                 par = np.array([int(self.getParam('useBitMask')),int(self.getParam('useDark')),int(self.getParam('useCalA'))])
-                sav = np.concatenate((t1, val, par), axis=None)
+                sav = np.concatenate((t1, value, par), axis=None)
                 sav = np.expand_dims(sav, axis = 0) #to save it on one column in .csv
                 
                 #save to csv File
                 if self.getParam('save') == True:
                     if not os.path.exists('../Data/EPICS_GUI/'+self.time_sav+'_Data.csv'):#when file doesn't exist, first time
-                          with open(os.path.join(CWD,'../Data/EPICS_GUI/'+self.time_sav+'_Data.csv'), 'wb') as file:
+                          with open(PATH_sav+self.time_sav+'_Data.csv', 'wb') as file:
                                 LABEL = ["Timestamp"]
                                 for i in range(28):
                                     LABEL.append("LOSS"+ str(i+1))
@@ -1092,18 +1084,20 @@ class iocDriver(Driver):
                 #save to LOSS variables
                 self.setParam('LOSS', sav)
                 for j in range(splits[0]*splits[1]):
-                    self.setParam('LOSS'+str(j+1), val[j])
+                    self.setParam('LOSS'+str(j+1), value[j])
                 self.updatePVs()
        
                 #global stop_measurement
                 if self.getParam('CAM-isMeasuring') == False:
-                    self.setParam('LOSS', np.zeros(splits[0]*splits[1]+1))#reset the LOSS Variabels to 0
                     grabResult.Release()
-                    for j in range(splits[0]*splits[1]):
-                        self.setParam('LOSS'+str(j+1), 0)
-                        self.updatePVs()
                     self.camera.StopGrabbing()
-                    #print('stopped Grabbing')
+                    sav = np.zeros(splits[0]*splits[1]+1)
+                    sav[:]=-1
+                    self.setParam('LOSS', sav)#reset the LOSS Variabels to -1
+                    
+                    for j in range(splits[0]*splits[1]):
+                        self.setParam('LOSS'+str(j+1), -1)
+                        self.updatePVs()
                     break
                     
                 t2 = time.time()
@@ -1272,6 +1266,7 @@ class iocDriver(Driver):
                     self.setParam('SatA'+str(j+1), val[j])
         for j in range(splits[0]*splits[1]):
             self.setParam('CalA'+str(j+1), self.CalA.flatten()[j])
+        self.setParam('CalA', self.CalA.flatten())
         for i in range(splits[0]*splits[1]):
             self.setParam('ChlA'+str(i+1), self.ChlA.flat[i])
         self.setParam('CalI', self.CalI.flatten())
@@ -1285,7 +1280,7 @@ class iocDriver(Driver):
         self.setParam('CAM-isMeasuring', False)#resets the isMeasuring so Camera is ready for other Grabbing
         self.updatePVs()
         
-        print('acq_BM_Cal finished')
+        #print('acq_BM_Cal finished')
         logging.info('acqBM_Cal finished')
         return None #end of Function
 
