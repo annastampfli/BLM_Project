@@ -148,7 +148,7 @@ pvdb = {
     'CAM-measure' : {'type' : 'int', #usage like boolean
                            'value' : 0,
                           },
-    'CAM-isMeasuring' : {'type' : 'int', #usage like boolean
+    'CAM-isGrabbing' : {'type' : 'int', #usage like boolean
                            'value' : 0,
                          #'scan' : 1,
     },
@@ -166,7 +166,7 @@ pvdb = {
     },
                    
     'CAM-IMAGE' : {'type' : 'int',
-                   'scan' : 1, 
+                   'scan' : 3, 
                    'count' : 300*480, 
     },
     'CAM-IMAGEx' : {#'type' : 'int', #sliced size
@@ -266,6 +266,10 @@ pvdb = {
     'BM_Cal-Time' : {
         'type' : 'string',
     },
+    'BM_Cal-NR' : {
+        'type' : 'int',    
+        'value' : 0,
+    },
     
     'CAM-acq_BM_Cal' : {
         'type' : 'int', #usage as boolean
@@ -306,16 +310,12 @@ pvdb = {
     },
     'Dark-NR' : {
         'type' : 'int',    
-        'unit' : 'us',
         'value' : 0,
     },
     'useDark': {
         'type' : 'int', #usage as boolean
         'value' : 0,
     },
-    
-    
-    
 
     'SatA' : {
         'type' : 'int', 
@@ -451,7 +451,7 @@ class iocDriver(Driver):
                       
                 
     def write(self, reason, val): #caput
-        status = True #determines if the value is written to thterminate called after throwing an instance of 'Swig::DirectorMethodException'
+        status = True #determines if the value is written 
         false_val = False #sets to True if a value is wrong for a PV
         
         #what to do when value of a specific reason (PV Name) changes:   
@@ -469,11 +469,9 @@ class iocDriver(Driver):
         elif reason == 'LEDall':
             if val == True:
                 GPIO.output(LED_all, GPIO.HIGH)
-                status = True
            
             elif val == False:
                 GPIO.output(LED_all, GPIO.LOW)
-                status == True
             else:
                 false_val = True
 
@@ -520,7 +518,7 @@ class iocDriver(Driver):
             return False
   
         elif reason == 'CAM-Pformat': # can only be changed, when camera not measuring
-            if self.getParam('CAM-isMeasuring') == False and self.getParam('isConnected'):
+            if self.getParam('CAM-isGrabbing') == False and self.getParam('isConnected'):
                 #print(val, Pformat[val])
                 self.camera.PixelFormat = Pformat[val]
             else:
@@ -528,7 +526,7 @@ class iocDriver(Driver):
                 #print('can not change when Camera not connected or measuring.')
                 
         elif reason == 'CAM-SenBitD': # can only be changed, when camera not measuring
-            if self.getParam('CAM-isMeasuring') == False and self.getParam('isConnected'):
+            if self.getParam('CAM-isGrabbing') == False and self.getParam('isConnected'):
                 #print(val, SenBitD[val])
                 self.camera.BslSensorBitDepth = SenBitD[val]
             else:
@@ -566,15 +564,15 @@ class iocDriver(Driver):
                 false_val = True
 
         elif reason == 'CAM-measure':
-            if val == True and self.getParam('CAM-isMeasuring') == False:
+            if val == True and self.getParam('CAM-isGrabbing') == False:
                 # Camera Measurement Thread
                 self.CAM_thread = threading.Thread(target = self.measurement, daemon = True)
-                self.setParam('CAM-isMeasuring', True)
+                self.setParam('CAM-isGrabbing', True)
                 self.updatePVs()
                 self.CAM_thread.start()
                 logging.info("\n______________________________________________________\n\nCamera started measuring with following Parameters: \n Exposure Time: %s \n Gain: %s \n Pixel Format: %s \n Sensor Bit Depth: %s \nImage Processing Parmaters: \n use BitMask: %s \n use Dark: %s \n use Calibration Faktor: %s \n______________________________________________________\n", self.getParam('CAM-EXPT'), self.getParam('CAM-GAIN'), self.getParam('CAM-Pformat'), self.getParam('CAM-SenBitD'), self.getParam('useBitMask'), self.getParam('useDark'), self.getParam('useCalA'))
-            elif val == False and self.getParam('CAM-isMeasuring') == True:
-                self.setParam('CAM-isMeasuring', False)
+            elif val == False and self.getParam('CAM-isGrabbing') == True:
+                self.setParam('CAM-isGrabbing', False)
                 self.updatePVs()
                 self.CAM_thread.join() #really waits until the thread is finished
                 logging.info("\n______________________________________________________\n\nCamera stopped measuring \n______________________________________________________\n")
@@ -582,11 +580,10 @@ class iocDriver(Driver):
                 false_val = True
         
         elif reason == 'CAM-acq_BM_Cal': # can only be changed, when camera not measuring
-            if val == True and self.getParam('CAM-isMeasuring') == False:
-                status = True #writes the PV -> sets the value to True
+            if val == True and self.getParam('CAM-isGrabbing') == False:
                 #acquire BitMask Calibration Thread
                 self.BM_Cal_thread = threading.Thread(target = self.acq_BM_Cal, daemon = True)
-                self.setParam('CAM-isMeasuring', True)
+                self.setParam('CAM-isGrabbing', True)
                 self.updatePVs()
                 self.BM_Cal_thread.start()     
             else:
@@ -596,7 +593,6 @@ class iocDriver(Driver):
                 
         elif reason == 'CAM-acqDark': # can only be changed, when camera not measuring
             if val == True:
-                status = True #writes the PV -> sets the value to True
                 # acquire Dark Thread
                 self.Dark_thread = threading.Thread(target = self.acqDark, daemon = True)
                 self.Dark_thread.start()     
@@ -605,38 +601,35 @@ class iocDriver(Driver):
                 #print('can not acquire Dark when Camera not connected or measuring.') 
                 return False
             
-                
+        elif reason == 'Dark-NR':
+            #status already true
+            status=True
         elif reason == 'useBitMask':
-            if val == True or val == False:
-                status = True
-            else:
+            if not val == True or val == False:
                 false_val = True
                 
         elif reason == 'BitMask-TH':
-            if 0 <= val <= 4095: #12bit
-                status = True
-            else: 
+            if not 0 <= val <= 4095: #12bit 
                  false_val = True
+        elif reason == 'BM_Cal-NR':
+            #status already true
+            status=True
        
         elif reason == 'CAM-X_START':
             self.x_start = val
             self.set_IMAGExy()
-            status = True
             
         elif reason == 'CAM-X_END':
             self.x_end = val
             self.set_IMAGExy()
-            status = True
             
         elif reason == 'CAM-Y_START':
             self.y_start = val
             self.set_IMAGExy()
-            status = True
         
         elif reason == 'CAM-Y_END':
             self.y_end = val
             self.set_IMAGExy()
-            status = True
             
         elif reason == 'CAM-applyPOS':
             if val == True:
@@ -645,58 +638,42 @@ class iocDriver(Driver):
                 self.updatePVs()
                 self.loadCdata(newPOS=True)
                 val = 0
-                status = True
-            elif val == False:
-                status = True
-            else:
+            if not val == False:
                 false_val = True
                 
             
                 
         elif reason == 'useDark':
-            if val == True or val == False:
-                status = True
-            else:
+            if not val == True or val == False:
                 false_val = True
                 
         elif reason == 'useCalA':
-            if val == True or val == False:
-                status = True
-            else:
+            if not val == True or val == False:
                 false_val = True
                 
         elif reason == 'useEdgeDarkCor':
-            if val == True or val == False:
-                status = True
-            else:
+            if not val == True or val == False:
                 false_val = True
         
         elif reason == 'useEdgeCor':
-            if val == True or val == False:
-                status = True
-            else:
+            if not val == True or val == False:
                 false_val = True
                 
         elif reason == 'Meas-delay':
-            if 0 <= val <= 360: #not longer than 5min
-                status = True 
-            else:
+            if not 0 <= val <= 360: #not longer than 5min 
                 false_val = True
        
         elif reason == 'save':
             if val == True:
-                status = True
                 self.time_sav = time.strftime("%Y-%m-%d_%H-%M-%S_%Z", time.localtime())
                 logging.info("\n########## \n\nsaving Data to csv with following Parameters: \n Exposure Time: %s \n Gain: %s \n Pixel Format: %s \n Sensor Bit Depth: %s \nImage Processing Parmaters: \n use BitMask: %s \n use Dark: %s \n use Calibration Faktor: %s \n##########\n\n", self.getParam('CAM-EXPT'), self.getParam('CAM-GAIN'), self.getParam('CAM-Pformat'), self.getParam('CAM-SenBitD'), self.getParam('useBitMask'), self.getParam('useDark'), self.getParam('useCalA'))
             elif val == False:
-                status == True
                 logging.info("\n########## \n\nsaving Data to csv stopped  \n##########\n\n")
             else:
                 false_val = True
        
         elif reason[0:4] == 'LOSS' and reason != 'LOSS': #if an LOSSxx PV exept LOSS itself changed, thats when a limit LOSSxx PV changes
             if val != '':
-                status = True #same as self.setParam(reason, val)
                 PV,limit = reason.split('_')
                 self.setParamInfo(PV, {limit : val})
                 dirPV = self.getParamInfo(PV)
@@ -775,16 +752,16 @@ class iocDriver(Driver):
         elif reason == 'CAM-Temp':
             return round(self.camera.DeviceTemperature.GetValue(), 3)
                             
-        elif reason == 'CAM-IMAGE' and self.getParam('CAM-isMeasuring') == False: 
+        elif reason == 'CAM-IMAGE' and self.getParam('CAM-isGrabbing') == False:
+            self.setParam('CAM-isGrabbing', True)
+            self.updatePVs()
             numberOfImagesToGrab = 1
             try:
                 self.camera.StartGrabbingMax(numberOfImagesToGrab)
             except:
                 return None
-            self.setParam('CAM-isMeasuring', True)
-            self.updatePVs()
-            grabResult = self.camera.RetrieveResult(5000, pylon.TimeoutHandling_ThrowException)
-            img = grabResult.Array
+            self.grabResult = self.camera.RetrieveResult(1100, pylon.TimeoutHandling_ThrowException)
+            img = self.grabResult.Array
                             
             img = self.SliceIMG(img)#Slice it
             if self.getParam('useDark') == True:
@@ -795,10 +772,10 @@ class iocDriver(Driver):
             img_paint = f.paint_raster(img, (4,7), show = False)
             img_flip = np.fliplr(img_paint)
             
-            grabResult.Release()
+            self.grabResult.Release()
             self.camera.StopGrabbing()
             
-            self.setParam('CAM-isMeasuring', False)
+            self.setParam('CAM-isGrabbing', False)
             self.updatePVs()
             return img_flip.flatten()
         
@@ -1093,7 +1070,7 @@ class iocDriver(Driver):
                 self.updatePVs()
        
                 #global stop_measurement
-                if self.getParam('CAM-isMeasuring') == False:
+                if self.getParam('CAM-isGrabbing') == False:
                     self.grabResult.Release()
                     self.camera.StopGrabbing()
                     sav = np.zeros(splits[0]*splits[1]+1)
@@ -1107,6 +1084,10 @@ class iocDriver(Driver):
                 
                 elif self.getParam('CAM-acqDark') == True:
                     self.grabResult.Release()
+                    self.setParam('CAM-isGrabbing', False)
+                    self.updatePV('CAM-isGrabbing')
+                    time.sleep(0.1)
+                    print('pause measure function, CAM-isGrabbing:', self.getParam('CAM-isGrabbing'))
                     #wait until Dark is finished
                     while self.getParam('CAM-acqDark') == True:
                         time.sleep(1)
@@ -1142,14 +1123,15 @@ class iocDriver(Driver):
         height = self.getParam('CAM-HEIGHT')
         Isum = np.zeros(width*height).reshape(height, width)
         for i in range(j):
+            self.write('BM_Cal-NR', i+1) #counter :)
             time.sleep(0.05)
-            grabResult = self.camera.RetrieveResult(5000,pylon.TimeoutHandling_Return)
-            if grabResult.GrabSucceeded():
-                img = grabResult.Array
+            self.grabResult = self.camera.RetrieveResult(5000,pylon.TimeoutHandling_Return)
+            if self.grabResult.GrabSucceeded():
+                img = self.grabResult.Array
                 # sum it up
                 Isum += img                    
         DarkI = Isum/j
-        grabResult.Release()
+        self.grabResult.Release()
                             
         
         DarkIs = self.SliceIMG(DarkI) # Slice it
@@ -1167,14 +1149,15 @@ class iocDriver(Driver):
         #,acq Flatfield and BitMask with LED on
         Isum = np.zeros(width*height).reshape(height, width)
         for i in range(j):
+            self.write('BM_Cal-NR', i+101) #counter :)
             time.sleep(0.05)
-            grabResult = self.camera.RetrieveResult(5000,pylon.TimeoutHandling_Return)
-            if grabResult.GrabSucceeded():
-                img = grabResult.Array
+            self.grabResult = self.camera.RetrieveResult(5000,pylon.TimeoutHandling_Return)
+            if self.grabResult.GrabSucceeded():
+                img = self.grabResult.Array
                 # sum it up
                 Isum += img                    
         CalI = Isum/j
-        grabResult.Release()
+        self.grabResult.Release()
         
         self.camera.StopGrabbing()
         
@@ -1289,7 +1272,7 @@ class iocDriver(Driver):
         self.setParam('BitMask', self.BitMask_view.flatten())
         self.setParam('BM_Cal-Time', time_txt)
         self.setParam('CAM-acq_BM_Cal', False) #resets the value
-        self.setParam('CAM-isMeasuring', False)#resets the isMeasuring so Camera is ready for other Grabbing
+        self.setParam('CAM-isGrabbing', False)#resets the isGrabbing state of Camera
         self.updatePVs()
         
         #print('acq_BM_Cal finished')
@@ -1298,30 +1281,37 @@ class iocDriver(Driver):
 
     
     def acqDark(self, j=100):
-        if self.getParam('CAM-isMeasuring') == False:#if measuring hasn't started
-            self.setParam('CAM-isMeasuring', True)
-            self.updatePVs()
+        while self.getParam('CAM-isGrabbing') == True:
+                time.sleep(0.4)
+                #print('cannot acq Dark, must wait until CAM-isGrabbing == False, current', self.getParam('CAM-isGrabbing'))
+                
+        if self.getParam('CAM-measure') == False:#if measuring hasn't started
             self.StartGrabbing()
             notM = True
         else:
             notM = False
+            
+        self.setParam('CAM-isGrabbing', True)
+        self.updatePVs()
+        print('now can start CAM-isGrabbing True for Dark')
+            
             
         grab = True
         while grab == True:
             time.sleep(0.1)
             try: 
                 self.grabResult.Array
-                print('cannot acq Dark, must wait')
+                print('cannot acq Dark, must wait until grabResult.Release')
             except:
-                print('can start new grab')
+                print('can start new grab,free grabResult')
                 break
-                
+        
+        
         width = self.getParam('CAM-WIDTH')
         height = self.getParam('CAM-HEIGHT')
         DarkIsum = np.zeros(width*height).reshape(height, width)
         for i in range(j):
-            self.setParam('Dark-NR', i+1) #counter :)
-            self.updatePVs
+            self.write('Dark-NR', i+1) #counter :)
             self.grabResult = self.camera.RetrieveResult(5000,pylon.TimeoutHandling_Return)
             if self.grabResult.GrabSucceeded():
                 img = self.grabResult.Array
@@ -1329,9 +1319,7 @@ class iocDriver(Driver):
                 DarkIsum += img                    
         DarkI = DarkIsum/j
         self.grabResult.Release() #after release grabResult.Array,grabResult.ID = error Nullpointer
-        if notM:#if measuring hasn't started
-            self.camera.StopGrabbing()
-            self.setParam('CAM-isMeasuring', False)#resets the isMeasuring so Camera is ready for other Grabbing
+        
         #EdgeLoss0
         try:
             self.EdgeLoss0 = np.average(DarkI, weights = self.EdgeBM)
@@ -1390,7 +1378,10 @@ class iocDriver(Driver):
         self.setParam('Dark-EXPT', int(self.getParam('CAM-EXPT')))
         self.setParam('Dark-Time', time_txt)
         self.setParam('CAM-acqDark', False)
-        
+        if notM:#if measuring hasn't started
+            self.camera.StopGrabbing()
+            self.setParam('CAM-isGrabbing', False)#resets the isGrabbing state of Camera
+        #else: CAM-isGrabbing still True for continuing Measurement
         self.updatePVs()
         
         #print('acqDarkA finished')
