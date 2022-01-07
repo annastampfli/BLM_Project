@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>855</width>
+    <width>811</width>
     <height>669</height>
    </rect>
   </property>
@@ -69,7 +69,7 @@
     <rect>
      <x>530</x>
      <y>40</y>
-     <width>151</width>
+     <width>131</width>
      <height>611</height>
     </rect>
    </property>
@@ -253,7 +253,7 @@
     </font>
    </property>
    <property name="text">
-    <string>run, when Camera connected, but not measuring</string>
+    <string>run, when Camera is connected, during Measurement</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -268,9 +268,9 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>690</x>
+     <x>670</x>
      <y>40</y>
-     <width>151</width>
+     <width>131</width>
      <height>611</height>
     </rect>
    </property>
@@ -354,7 +354,7 @@
   <widget class="caLabel" name="calabel_6">
    <property name="geometry">
     <rect>
-     <x>690</x>
+     <x>640</x>
      <y>10</y>
      <width>171</width>
      <height>28</height>
@@ -386,6 +386,43 @@
    </property>
    <property name="channel" stdset="0">
     <string notr="true">$(XX):CAM-acqDark</string>
+   </property>
+  </widget>
+  <widget class="caLineEdit" name="calineedit">
+   <property name="geometry">
+    <rect>
+     <x>319</x>
+     <y>53</y>
+     <width>41</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):Dark-NR</string>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_7">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>50</y>
+     <width>151</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>/100 Nr of Img</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
    </property>
   </widget>
  </widget>
