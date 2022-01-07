@@ -33,7 +33,7 @@ PVlimits = ['lolo', 'low', 'high', 'hihi']
 
 
 
-
+#files to read in
 """
 '../Calibration_Data/Position/_last_position.json'
 '../Calibration_Data/Flatfield/_last_DarkI.npy'
@@ -57,6 +57,7 @@ BLM_NR = output[-3:-1]
 
 #PATHS
 CWD = os.getcwd()
+print('Current working directory', CWD)
 PATH_BM = os.path.join(CWD,'../Calibration_Data/BitMask/')
 PATH_Pos = os.path.join(CWD,'../Calibration_Data/Position/')
 PATH_Dark = os.path.join(CWD,'../Calibration_Data/Dark/')
@@ -302,6 +303,11 @@ pvdb = {
     },
     'Dark-Time' : {
         'type' : 'string',
+    },
+    'Dark-NR' : {
+        'type' : 'int',    
+        'unit' : 'us',
+        'value' : 0,
     },
     'useDark': {
         'type' : 'int', #usage as boolean
@@ -589,10 +595,8 @@ class iocDriver(Driver):
                 return False
                 
         elif reason == 'CAM-acqDark': # can only be changed, when camera not measuring
-            if val == True and self.getParam('CAM-isMeasuring') == False:
+            if val == True:
                 status = True #writes the PV -> sets the value to True
-                self.setParam('CAM-isMeasuring', True)
-                self.updatePVs()
                 # acquire Dark Thread
                 self.Dark_thread = threading.Thread(target = self.acqDark, daemon = True)
                 self.Dark_thread.start()     
@@ -892,7 +896,8 @@ class iocDriver(Driver):
                 self.BitMask = np.load(file) 
 
             self.BitMask = np.array(self.BitMask, dtype=int)
-        except:
+        except Exception as e:
+            #print('Error Bitmask:',e)
             self.BitMask = np.zeros(300*480).reshape(300, 480)
             
         try:
@@ -1013,10 +1018,10 @@ class iocDriver(Driver):
         t0 = time.time()
         while Nr_img:
             t1 = time.time()
-            grabResult = self.camera.RetrieveResult(1000, pylon.TimeoutHandling_Return)
-            if grabResult.GrabSucceeded():
+            self.grabResult = self.camera.RetrieveResult(5000, pylon.TimeoutHandling_ThrowException) #pylon.TimeoutHandling_Return)
+            if self.grabResult.GrabSucceeded():
                 # Access the image data.
-                img = grabResult.Array
+                img = self.grabResult.Array
                 #print(img.shape)
                 
                 #Camera analysation
@@ -1072,7 +1077,7 @@ class iocDriver(Driver):
                     if not os.path.exists('../Data/EPICS_GUI/'+self.time_sav+'_Data.csv'):#when file doesn't exist, first time
                           with open(PATH_sav+self.time_sav+'_Data.csv', 'wb') as file:
                                 LABEL = ["Timestamp"]
-                                for i in range(28):
+                                for i in range(splits[0]*splits[1]):
                                     LABEL.append("LOSS"+ str(i+1))
                                 LABEL.extend(["Bitmask "+str(self.getParam('BM_Cal-Time')), "Dark "+str(self.getParam('Dark-Time')), "Calibration Faktor "+str(self.getParam('BM_Cal-Time'))])   
                                 #print(LABEL, len(LABEL))
@@ -1089,7 +1094,7 @@ class iocDriver(Driver):
        
                 #global stop_measurement
                 if self.getParam('CAM-isMeasuring') == False:
-                    grabResult.Release()
+                    self.grabResult.Release()
                     self.camera.StopGrabbing()
                     sav = np.zeros(splits[0]*splits[1]+1)
                     sav[:]=-1
@@ -1099,7 +1104,14 @@ class iocDriver(Driver):
                         self.setParam('LOSS'+str(j+1), -1)
                         self.updatePVs()
                     break
-                    
+                
+                elif self.getParam('CAM-acqDark') == True:
+                    self.grabResult.Release()
+                    #wait until Dark is finished
+                    while self.getParam('CAM-acqDark') == True:
+                        time.sleep(1)
+                        print('measuring waits for dark to be finished')
+                    print('waiting finished')
                 t2 = time.time()
                 tdiff = t2-t1
             
@@ -1286,22 +1298,40 @@ class iocDriver(Driver):
 
     
     def acqDark(self, j=100):
-        self.StartGrabbing()
-        
+        if self.getParam('CAM-isMeasuring') == False:#if measuring hasn't started
+            self.setParam('CAM-isMeasuring', True)
+            self.updatePVs()
+            self.StartGrabbing()
+            notM = True
+        else:
+            notM = False
+            
+        grab = True
+        while grab == True:
+            time.sleep(0.1)
+            try: 
+                self.grabResult.Array
+                print('cannot acq Dark, must wait')
+            except:
+                print('can start new grab')
+                break
+                
         width = self.getParam('CAM-WIDTH')
         height = self.getParam('CAM-HEIGHT')
         DarkIsum = np.zeros(width*height).reshape(height, width)
         for i in range(j):
-            grabResult = self.camera.RetrieveResult(5000,pylon.TimeoutHandling_Return)
-            if grabResult.GrabSucceeded():
-                img = grabResult.Array
+            self.setParam('Dark-NR', i+1) #counter :)
+            self.updatePVs
+            self.grabResult = self.camera.RetrieveResult(5000,pylon.TimeoutHandling_Return)
+            if self.grabResult.GrabSucceeded():
+                img = self.grabResult.Array
                 # sum it up
                 DarkIsum += img                    
         DarkI = DarkIsum/j
-    
-        grabResult.Release()
-        self.camera.StopGrabbing()
-        
+        self.grabResult.Release() #after release grabResult.Array,grabResult.ID = error Nullpointer
+        if notM:#if measuring hasn't started
+            self.camera.StopGrabbing()
+            self.setParam('CAM-isMeasuring', False)#resets the isMeasuring so Camera is ready for other Grabbing
         #EdgeLoss0
         try:
             self.EdgeLoss0 = np.average(DarkI, weights = self.EdgeBM)
@@ -1360,7 +1390,7 @@ class iocDriver(Driver):
         self.setParam('Dark-EXPT', int(self.getParam('CAM-EXPT')))
         self.setParam('Dark-Time', time_txt)
         self.setParam('CAM-acqDark', False)
-        self.setParam('CAM-isMeasuring', False)#resets the isMeasuring so Camera is ready for other Grabbing
+        
         self.updatePVs()
         
         #print('acqDarkA finished')
