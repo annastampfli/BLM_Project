@@ -366,7 +366,7 @@ pvdb = {
 }
       
 LEDdir = {}
-for i in range(14):
+for i in range(21):
     LEDdir['LED_'+str(i+1)] = {'type' : 'int', #usage like boolean
                               'value' : 0,
                               'scan' : 1, #execute the read function reguarly
@@ -605,7 +605,7 @@ class iocDriver(Driver):
             #status already true
             status=True
         elif reason == 'useBitMask':
-            if not val == True or val == False:
+            if not (val == True or val == False):
                 false_val = True
                 
         elif reason == 'BitMask-TH':
@@ -644,19 +644,19 @@ class iocDriver(Driver):
             
                 
         elif reason == 'useDark':
-            if not val == True or val == False:
+            if not (val == True or val == False):
                 false_val = True
                 
         elif reason == 'useCalA':
-            if not val == True or val == False:
+            if not (val == True or val == False):
                 false_val = True
                 
         elif reason == 'useEdgeDarkCor':
-            if not val == True or val == False:
+            if not (val == True or val == False):
                 false_val = True
         
         elif reason == 'useEdgeCor':
-            if not val == True or val == False:
+            if not (val == True or val == False):
                 false_val = True
                 
         elif reason == 'Meas-delay':

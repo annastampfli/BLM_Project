@@ -38,36 +38,10 @@ binv = 4
 #LED on GPIO
 LED_all = [40, 38, 37, 36, 35, 33, 32, #right order
            22, 21, 19, 18, 16, 15, 13, #right order
-           23, 24, 26, 29, 31, 
-               7, 11, 12] 
-
-LED_all_old = [7, 11, 12, 13, 15, 16, 18, 19, 21, 22, 23, 24, 26, 29, 31, 32, 33, 35, 36, 37, 38, 40] #Tulple (..) is also possible
-LED_row1 = [40, 38, 37, 36, 35, 33, 32]#right order
-LED_row2 = [22, 21, 19, 18, 16, 15, 13]#right order
-LED_row3 = [23, 24, 26, 29, 31]#check connection ???
-LED_row4 = [7, 11, 12]
-
-LED1 = 40
-LED2 = 38
-LED3 = 37
-LED4 = 36
-LED5 = 35
-LED6 = 33
-LED7 = 32
-
-LED8 = 22
-LED9 = 21
-LED10 = 19
-LED11 = 18
-LED12 = 16
-LED13 = 15
-LED14 = 13
-
-
+           31, 29, 12, 11, 26, 24, 23] #right order
 
 #Analyse
 splits = (4, 7)
-
 
 #for the graph
 labels = ('1 Injector',  
