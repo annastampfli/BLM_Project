@@ -1151,7 +1151,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
@@ -1918,8 +1918,8 @@
     <widget class="caToggleButton" name="catogglebutton_21">
      <property name="geometry">
       <rect>
-       <x>62</x>
-       <y>220</y>
+       <x>190</x>
+       <y>10</y>
        <width>81</width>
        <height>30</height>
       </rect>
@@ -2016,8 +2016,8 @@
     <widget class="caLed" name="caled_19">
      <property name="geometry">
       <rect>
-       <x>29</x>
-       <y>220</y>
+       <x>157</x>
+       <y>10</y>
        <width>31</width>
        <height>30</height>
       </rect>
@@ -2066,8 +2066,8 @@
     <widget class="caLed" name="caled_21">
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>280</y>
+       <x>158</x>
+       <y>70</y>
        <width>31</width>
        <height>30</height>
       </rect>
@@ -2079,8 +2079,8 @@
     <widget class="caLed" name="caled_22">
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>250</y>
+       <x>158</x>
+       <y>40</y>
        <width>31</width>
        <height>30</height>
       </rect>
@@ -2092,8 +2092,8 @@
     <widget class="caToggleButton" name="catogglebutton_25">
      <property name="geometry">
       <rect>
-       <x>63</x>
-       <y>280</y>
+       <x>191</x>
+       <y>70</y>
        <width>81</width>
        <height>30</height>
       </rect>
@@ -2116,8 +2116,8 @@
     <widget class="caToggleButton" name="catogglebutton_26">
      <property name="geometry">
       <rect>
-       <x>63</x>
-       <y>250</y>
+       <x>191</x>
+       <y>40</y>
        <width>81</width>
        <height>30</height>
       </rect>
@@ -2140,8 +2140,8 @@
     <widget class="caLed" name="caled_23">
      <property name="geometry">
       <rect>
-       <x>161</x>
-       <y>11</y>
+       <x>158</x>
+       <y>100</y>
        <width>31</width>
        <height>34</height>
       </rect>
@@ -2153,8 +2153,8 @@
     <widget class="caLed" name="caled_27">
      <property name="geometry">
       <rect>
-       <x>160</x>
-       <y>100</y>
+       <x>157</x>
+       <y>189</y>
        <width>31</width>
        <height>30</height>
       </rect>
@@ -2166,8 +2166,8 @@
     <widget class="caToggleButton" name="catogglebutton_30">
      <property name="geometry">
       <rect>
-       <x>191</x>
-       <y>100</y>
+       <x>190</x>
+       <y>189</y>
        <width>81</width>
        <height>30</height>
       </rect>
@@ -2190,8 +2190,8 @@
     <widget class="caToggleButton" name="catogglebutton_31">
      <property name="geometry">
       <rect>
-       <x>190</x>
-       <y>70</y>
+       <x>189</x>
+       <y>159</y>
        <width>81</width>
        <height>30</height>
       </rect>
@@ -2214,8 +2214,8 @@
     <widget class="caLed" name="caled_29">
      <property name="geometry">
       <rect>
-       <x>160</x>
-       <y>40</y>
+       <x>157</x>
+       <y>129</y>
        <width>31</width>
        <height>30</height>
       </rect>
@@ -2227,8 +2227,8 @@
     <widget class="caToggleButton" name="catogglebutton_33">
      <property name="geometry">
       <rect>
-       <x>191</x>
-       <y>50</y>
+       <x>190</x>
+       <y>139</y>
        <width>74</width>
        <height>16</height>
       </rect>
@@ -2251,8 +2251,8 @@
     <widget class="caLed" name="caled_31">
      <property name="geometry">
       <rect>
-       <x>159</x>
-       <y>70</y>
+       <x>156</x>
+       <y>159</y>
        <width>31</width>
        <height>30</height>
       </rect>
@@ -2264,8 +2264,8 @@
     <widget class="caToggleButton" name="catogglebutton_36">
      <property name="geometry">
       <rect>
-       <x>190</x>
-       <y>10</y>
+       <x>189</x>
+       <y>99</y>
        <width>80</width>
        <height>34</height>
       </rect>
@@ -2283,6 +2283,265 @@
      </property>
      <property name="fontScaleMode" stdset="0">
       <enum>caToggleButton::None</enum>
+     </property>
+    </widget>
+    <widget class="caToggleButton" name="catogglebutton_27">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>190</y>
+       <width>111</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>LED21;28</string>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">$(XX):LED_21</string>
+     </property>
+     <property name="fontScaleMode" stdset="0">
+      <enum>caToggleButton::None</enum>
+     </property>
+    </widget>
+    <widget class="caToggleButton" name="catogglebutton_16">
+     <property name="geometry">
+      <rect>
+       <x>339</x>
+       <y>100</y>
+       <width>111</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>LED18;25</string>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">$(XX):LED_18</string>
+     </property>
+     <property name="fontScaleMode" stdset="0">
+      <enum>caToggleButton::None</enum>
+     </property>
+    </widget>
+    <widget class="caToggleButton" name="catogglebutton_28">
+     <property name="geometry">
+      <rect>
+       <x>338</x>
+       <y>130</y>
+       <width>101</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>LED19;26</string>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">$(XX):LED_19</string>
+     </property>
+     <property name="fontScaleMode" stdset="0">
+      <enum>caToggleButton::None</enum>
+     </property>
+    </widget>
+    <widget class="caLed" name="caled_48">
+     <property name="geometry">
+      <rect>
+       <x>305</x>
+       <y>70</y>
+       <width>31</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">$(XX):LED_17</string>
+     </property>
+    </widget>
+    <widget class="caLed" name="caled_49">
+     <property name="geometry">
+      <rect>
+       <x>307</x>
+       <y>11</y>
+       <width>31</width>
+       <height>34</height>
+      </rect>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">$(XX):LED_15</string>
+     </property>
+    </widget>
+    <widget class="caLed" name="caled_50">
+     <property name="geometry">
+      <rect>
+       <x>307</x>
+       <y>190</y>
+       <width>31</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">$(XX):LED_21</string>
+     </property>
+    </widget>
+    <widget class="caToggleButton" name="catogglebutton_8">
+     <property name="geometry">
+      <rect>
+       <x>338</x>
+       <y>70</y>
+       <width>111</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>LED17;24</string>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">$(XX):LED_17</string>
+     </property>
+     <property name="fontScaleMode" stdset="0">
+      <enum>caToggleButton::None</enum>
+     </property>
+    </widget>
+    <widget class="caToggleButton" name="catogglebutton_29">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>160</y>
+       <width>101</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>LED20;27</string>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">$(XX):LED_20</string>
+     </property>
+     <property name="fontScaleMode" stdset="0">
+      <enum>caToggleButton::None</enum>
+     </property>
+    </widget>
+    <widget class="caToggleButton" name="catogglebutton_17">
+     <property name="geometry">
+      <rect>
+       <x>339</x>
+       <y>50</y>
+       <width>111</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>LED16;23</string>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">$(XX):LED_16</string>
+     </property>
+     <property name="fontScaleMode" stdset="0">
+      <enum>caToggleButton::None</enum>
+     </property>
+    </widget>
+    <widget class="caLed" name="caled_51">
+     <property name="geometry">
+      <rect>
+       <x>306</x>
+       <y>130</y>
+       <width>31</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">$(XX):LED_19</string>
+     </property>
+    </widget>
+    <widget class="caLed" name="caled_52">
+     <property name="geometry">
+      <rect>
+       <x>306</x>
+       <y>40</y>
+       <width>31</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">$(XX):LED_16</string>
+     </property>
+    </widget>
+    <widget class="caLed" name="caled_53">
+     <property name="geometry">
+      <rect>
+       <x>306</x>
+       <y>100</y>
+       <width>31</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">$(XX):LED_18</string>
+     </property>
+    </widget>
+    <widget class="caToggleButton" name="catogglebutton_18">
+     <property name="geometry">
+      <rect>
+       <x>338</x>
+       <y>10</y>
+       <width>121</width>
+       <height>34</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>LED15;22</string>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">$(XX):LED_15</string>
+     </property>
+     <property name="fontScaleMode" stdset="0">
+      <enum>caToggleButton::None</enum>
+     </property>
+    </widget>
+    <widget class="caLed" name="caled_54">
+     <property name="geometry">
+      <rect>
+       <x>307</x>
+       <y>160</y>
+       <width>31</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="channel" stdset="0">
+      <string notr="true">$(XX):LED_20</string>
      </property>
     </widget>
    </widget>
@@ -3237,7 +3496,7 @@
     <enum>Qt::RightToLeft</enum>
    </property>
    <property name="text">
-    <string>GUI last changed: 15.10.21</string>
+    <string>GUI last changed: 26.01.22</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
