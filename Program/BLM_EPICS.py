@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # created from Anna Stampfli PSI. July 2021
 # for Beam Loss Project
-
 from pcaspy import Driver, SimpleServer
 
 import threading # to run subprocesses, like image processing
@@ -21,7 +20,8 @@ import numpy as np
 import time
 import cv2 as cv #for thresholding BitMask
 import matplotlib.pyplot as plt
-
+import sys
+sys.settrace
 
 #____________________Parameters_____________________
 
@@ -62,11 +62,13 @@ PATH_BM = os.path.join(CWD,'../Calibration_Data/BitMask/')
 PATH_Pos = os.path.join(CWD,'../Calibration_Data/Position/')
 PATH_Dark = os.path.join(CWD,'../Calibration_Data/Dark/')
 PATH_Cal = os.path.join(CWD,'../Calibration_Data/Flatfield/')
+PATH_LEDCal = os.path.join(CWD,'../Calibration_Data/LED_Calibration/')
 PATH_sav = os.path.join(CWD,'../Data/EPICS_GUI/')
 f.newdir(PATH_BM)
 f.newdir(PATH_Pos)
 f.newdir(PATH_Dark)
 f.newdir(PATH_Cal)
+f.newdir(PATH_LEDCal)
 f.newdir(PATH_sav)
 
 #logger setup
@@ -84,12 +86,11 @@ logging.info('STARTED SERVER ;) ;) :) ;) ;) :) ;) ;) :)')
 prefix = 'ARIDI-BLM' + BLM_NR + ':' #'ARIDI-BLM01:'
 pvdb = {
     'LEDA' : {'type' : 'int', #usage like boolean
-                  'count' : 22,
+                  'count' : 21,
                   'scan' : 1, #for reloading in the GUI
                   'value' : [0,0,0,0,0,0,0,
-                              0,0,0,0,0,0,0,
-                              0,0,0,0,0,
-                              0,0,0],
+                             0,0,0,0,0,0,0,
+                             0,0,0,0,0,0,0],
     },
     'LEDall' : {'tpye' : 'int', #usage like boolean
                 'value' : 0,
@@ -276,6 +277,7 @@ pvdb = {
         'value' : 0,  
         'scan' : 1,
     },
+    
     'BitMask' : {
         'type' : 'int', #usage as boolean array
         'count' : Lx*Ly,#300*480,
@@ -322,6 +324,52 @@ pvdb = {
         'count' : splits[0]*splits[1], #28
         'scan' : 1,
     },
+    
+    'CAM-acq_LEDCal' : {
+        'type' : 'int', #usage as boolean
+        'value' : 0,  
+        'scan' : 1,
+    },
+    
+    'LEDCal-NR' : {
+        'type' : 'int',    
+        'value' : 0,
+    },
+    
+    'LEDCal-EXPT' : {
+        'type' : 'int',    
+        'unit' : 'us',
+    },
+    
+    'LEDCal-Time' : {
+        'type' : 'string',
+    },
+    
+    'LEDCal-Next' : {
+        'type' : 'int', #usage as boolean
+        'value' : 0,  
+        'scan' : 1,
+    },
+    
+    'LEDCalI' : {'type' : 'float',
+               'prec' : 2,
+               'value' : np.zeros(Lx*Ly), 
+               'count' : 300*480, #max of size
+#               'value' : CalI.flatten(),
+               'scan' : 10 #to display it even when GUI is reloaded
+    },
+    
+    'LEDCalA' : { #Correction Array
+        'type' : 'float', #usage as boolean array
+        'prec' : 5,
+        'count' : splits[0]*splits[1], #28
+#        'value' : CalA.flatten(),
+    },
+    'useLEDCalA': {
+        'type' : 'int', #usage as boolean
+        'value' : 0,
+    },
+    
     
     'save': {
         'type' : 'int', #usage as boolean
@@ -384,12 +432,13 @@ for i in range(splits[0]*splits[1]):
     for limit in PVlimits:
         LOSSdir['LOSS'+str(i+1)+'_'+limit] = {} #create LOSS1_high PV...
 
+
         
 CalAdir = {} 
 for i in range(splits[0]*splits[1]):
     CalAdir['CalA'+str(i+1)] = {'type' : 'float',
 #                                'value' : CalA.flatten()[i],
-                                  'prec' : 2,
+                                  'prec' : 3,
                                }        
 
 DarkAdir = {} 
@@ -418,6 +467,20 @@ for i in range(splits[0]*splits[1]):
     ChlAdir['ChlA'+str(i+1)] = {'type' : 'int', #usage as boolean
 #                                'value' : BM_Cal_json['Saturation Array'][i],
                                }
+    
+LEDCalAdir = {} 
+for i in range(splits[0]*splits[1]):
+    LEDCalAdir['LEDCalA'+str(i+1)] = {'type' : 'float',
+#                                'value' : CalA.flatten()[i],
+                                  'prec' : 2,
+                               }
+    
+LEDFAKTORdir = {} 
+for i in range(splits[0]*splits[1]):
+    LEDFAKTORdir['LEDFAKTOR'+str(i+1)] = {'type' : 'float',
+#                                'value' : CalA.flatten()[i],
+                                  'prec' : 3,
+                               }
 
 pvdb.update(LEDdir)  # To add two dictionary  
 pvdb.update(LOSSdir) 
@@ -426,7 +489,8 @@ pvdb.update(DarkAdir)
 pvdb.update(DarkA_BMdir)
 pvdb.update(SatAdir)
 pvdb.update(ChlAdir)
-
+pvdb.update(LEDCalAdir)
+pvdb.update(LEDFAKTORdir)
 
 class iocDriver(Driver):
 
@@ -550,6 +614,12 @@ class iocDriver(Driver):
                 self.camera.ExposureTime = val
             else:
                 false_val = True
+                
+        elif reason == 'BM_Cal-EXPT' or reason == 'LEDCal-EXPT':
+            if 19 <= val <= 10000000 : #limits in pylon viewer, 19us-10s
+                status = True
+            else:
+                false_val = True
                             
         elif reason == 'CAM-GAMMA':
             if 0 <= val < 4.0:
@@ -571,6 +641,7 @@ class iocDriver(Driver):
                 self.updatePVs()
                 self.CAM_thread.start()
                 logging.info("\n______________________________________________________\n\nCamera started measuring with following Parameters: \n Exposure Time: %s \n Gain: %s \n Pixel Format: %s \n Sensor Bit Depth: %s \nImage Processing Parmaters: \n use BitMask: %s \n use Dark: %s \n use Calibration Faktor: %s \n______________________________________________________\n", self.getParam('CAM-EXPT'), self.getParam('CAM-GAIN'), self.getParam('CAM-Pformat'), self.getParam('CAM-SenBitD'), self.getParam('useBitMask'), self.getParam('useDark'), self.getParam('useCalA'))
+               
             elif val == False and self.getParam('CAM-isGrabbing') == True:
                 self.setParam('CAM-isGrabbing', False)
                 self.updatePVs()
@@ -598,6 +669,16 @@ class iocDriver(Driver):
                 self.Dark_thread.start()     
             else:
                 logging.warning('can not acquire Dark, when Camara is measuring.')
+                #print('can not acquire Dark when Camera not connected or measuring.') 
+                return False
+            
+        elif reason == 'CAM-acq_LEDCal': # can only be changed, when camera not measuring
+            if val == True and self.getParam('CAM-isGrabbing') == False:
+                # acquire LEDCal Thread
+                self.LEDCal_thread = threading.Thread(target = self.acq_LEDCal, daemon = True)
+                self.LEDCal_thread.start()     
+            else:
+                logging.warning('can not acquire LEDCal, when Camara is measuring.')
                 #print('can not acquire Dark when Camera not connected or measuring.') 
                 return False
             
@@ -704,8 +785,7 @@ class iocDriver(Driver):
         if reason == 'LEDA':
             val = [0,0,0,0,0,0,0,
                    0,0,0,0,0,0,0,
-                   0,0,0,0,0,
-                   0,0,0]
+                   0,0,0,0,0,0,0]
             i = 0
             for j in LED_all:
                 val[i] =  int(GPIO.input(j))
@@ -988,12 +1068,12 @@ class iocDriver(Driver):
             self.setParam('CalA'+str(i+1),self.CalA.flat[i])
         self.updatePVs()
     
-    def measurement(self, Nr_img = True):
+    def measurement(self, NR_img = True):
         self.StartGrabbing()
 
         i = 0
         t0 = time.time()
-        while Nr_img:
+        while NR_img:
             t1 = time.time()
             self.grabResult = self.camera.RetrieveResult(5000, pylon.TimeoutHandling_ThrowException) #pylon.TimeoutHandling_Return)
             if self.grabResult.GrabSucceeded():
@@ -1172,7 +1252,7 @@ class iocDriver(Driver):
         
         #calculate Saturation
         arr = f.split_sum(self.BitMask, splits)
-        val = arr.flatten()*4095 #Max Brigthness (Nr. Pixels * Mono12)
+        val = arr.flatten()*4095 #Max Brigthness (NR. Pixels * Mono12)
         
         #calculate new DarkA_BM
         self.DarkI_BM = self.DarkI*self.BitMask
@@ -1191,7 +1271,7 @@ class iocDriver(Driver):
         self.CalI = self.CalI*self.BitMask # with BitMask
         CalA = f.split_sum(self.CalI, splits) #Calculate CalA
         print('CalA with subtracted dark and Bitmask \n', CalA)
-        self.CalA = f.norm_A(CalA, self.ChlA) #CalA normalize connected channels
+        self.CalA = f.norm_A(CalA, self.ChlA) #CalA normalize connected channels whitout LED Calibration
         print('CalA: \n', self.CalA)
         
         
@@ -1284,7 +1364,6 @@ class iocDriver(Driver):
         while self.getParam('CAM-isGrabbing') == True:
                 time.sleep(0.4)
                 #print('cannot acq Dark, must wait until CAM-isGrabbing == False, current', self.getParam('CAM-isGrabbing'))
-                
         if self.getParam('CAM-measure') == False:#if measuring hasn't started
             self.StartGrabbing()
             notM = True
@@ -1387,6 +1466,182 @@ class iocDriver(Driver):
         #print('acqDarkA finished')
         logging.info('acqDark finished')
         return None #end of function
+    
+    def acq_LEDCal(self, j=100):
+
+        expt0 = self.getParam('CAM-EXPT') #get current exposure Time
+        self.write('CAM-EXPT',self.read('LEDCal-EXPT')) #set to value for BitMask and Calibration
+        self.write('LEDall', 0) #LED off
+        
+        #acq Dark with LED off
+        self.StartGrabbing()
+        width = self.getParam('CAM-WIDTH')
+        height = self.getParam('CAM-HEIGHT')
+        print('LED Calibration ready for Dark')
+        Isum = np.zeros(width*height).reshape(height, width)
+        print('LED Calibration ready for Dark2')
+        for i in range(j):
+            time.sleep(0.05)
+            self.grabResult = self.camera.RetrieveResult(5000,pylon.TimeoutHandling_Return)
+            if self.grabResult.GrabSucceeded():
+                img = self.grabResult.Array
+                # sum it up
+                Isum += img                    
+        DarkI = Isum/j
+        self.grabResult.Release()
+        print('LED Calibration Dark2 finished')
+        DarkIs = self.SliceIMG(DarkI) # Slice it
+        #Calculate DarkA with BitMask
+        DarkI_BM = DarkIs*self.BitMask
+        DarkA_BM = f.split_sum(DarkI_BM, splits)
+        print('DarkA_BM from acqCal \n', DarkA_BM)
+        
+        #save DarkI for LED Calibration
+        time_txt = time.strftime("%Y-%m-%d_%H-%M-%S_%Z", time.localtime())
+        expt_ms = str(self.getParam('CAM-EXPT')/1000) + 'ms'
+            #save with Time and Date -> Archiv
+        with open(PATH_LEDCal + time_txt + '_DarkI_' + expt_ms + '.npy', 'wb') as file:
+            np.save(file, DarkI)
+            #save as _last_ for reopening
+        with open(PATH_LEDCal+'_last_DarkI.npy', 'wb') as file:
+            np.save(file, DarkI)
+            
+            
+            
+        #init some Values
+        LEDCalI = np.zeros(width*height).reshape(height, width)
+        LEDCalI = self.SliceIMG(LEDCalI)
+        LEDCalI[:,:] = 2000 #grey
+        LEDCalA = np.zeros(splits[0]*splits[1]).reshape(splits[0], splits[1])
+        
+        #acq Flatfields for each LED
+        for i in range(splits[0]*splits[1]):
+            self.setParam('LEDCal-NR', i+1)
+            PATH_LED = os.path.join(PATH_LEDCal, '/LED_' + str(i+1))
+            f.newdir(PATH_LED)
+            #connect LED to channel...
+            
+            while self.getParam('LEDCal-Next') == 0:
+                #wait until Calbration Cable is connected
+                time.sleep(0.5)
+                print('wait until next LED is connected')
+            
+            led = np.zeros(21)
+            if self.getParam('LEDCal-NR')>21:
+                led[i-7] = 1
+            else:
+                led[i] = 1
+            
+            self.write('LEDA', led) #one LED on
+            if self.getParam('LEDA')[i] == 1: #check LED
+                print('LED Cal LED set successfully on')
+            else:
+                print('ERROR: BM Cal LED not set on')
+                
+            #acq Flatfield with one LED on
+            Isum = np.zeros(width*height).reshape(height, width)
+            for i in range(j):
+                time.sleep(0.05)
+                self.grabResult = self.camera.RetrieveResult(5000,pylon.TimeoutHandling_Return)
+                if self.grabResult.GrabSucceeded():
+                    img = self.grabResult.Array
+                    # sum it up
+                    Isum += img                    
+            Isum = Isum/j
+            self.grabResult.Release()
+            
+            #save LEDxxCalI
+            with open(PATH_LED +'CalI_' + expt_ms + '.npy', 'wb') as file:
+                np.save(file, Isum)                        
+            
+            #calculate LEDxxA
+            Isum = Isum-DarkI #DarkI correction
+            Isum = self.SliceIMG(Isum) # Slice it
+            #Isum = Isum*self.BitMask # with BitMask
+            LEDxxA = f.split_sum(Isum, splits) #Calculate CalA
+            print('LEDCalA with subtracted dark and Bitmask \n', LEDxxA)
+                                    
+            #save LEDxxCalA
+            with open(PATH_LED + 'CalA_' + expt_ms + '.npy', 'wb') as file:
+                np.save(file, LEDxxA)
+           
+           #update LEDCalA and LEDCalI
+            LEDCalA.flat[i] = LEDxxA.flat[i]
+            y, x = splits
+            ly = np.shape(LEDCalI)[0]//y
+            lx = np.shape(LEDCalI)[1]//x
+            LEDCalI[i//x*ly:i//x*ly+ly, i%x*lx:i%x*lx+lx] = Isum[i//x*ly:i//x*ly+ly, i%x*lx:i%x*lx+lx]
+           
+            #calculate LEDFAKTOR
+            self.LEDFAKTOR = f.norm_A(LEDCalA, channels=np.array(CalA > 0, dtype=int)) #CalA normalize the already measured LEDs
+            print('LEDCalA: \n', LEDCalA)
+                                    
+            #update PVs
+            self.setParam('LEDCalI', LEDCalI.flat)                         
+            for i in range(splits[0]*splits[1]):
+                self.setParam('LEDFAKTOR'+str(i+1), self.LEDFAKTOR.flat[i])
+            for i in range(splits[0]*splits[1]):
+                self.setParam('LEDCalA'+str(i+1), LEDCalA.flat[i])                       
+            self.setParam('LEDCal-Next', 0)
+            self.updatePVs()
+            
+                                    
+                                    
+
+        self.camera.StopGrabbing()
+        
+                                  
+        #save LEDCalI
+            #save with Time and Date -> Archiv
+        with open(PATH_LEDCal + time_txt + '_LEDCalI_' + expt_ms + '.npy', 'wb') as file:
+            np.save(file, LEDCalI)    
+        #save LEDCalA
+            #save with Time and Date -> Archiv
+        with open(PATH_LEDCal + time_txt + '_LEDCalA_' + expt_ms + '.npy', 'wb') as file:
+            np.save(file, LEDCalA)
+   
+        #save LEDFAKTOR
+        with open(PATH_LEDCal + time_txt + '_LED-FAKTOR_' + expt_ms + '.npy', 'wb') as file:
+            np.save(file, LEDFAKTOR)
+            #save as _last_ for reopening
+        with open(PATH_LEDCal+'_last_LED-FAKTOR.npy', 'wb') as file:
+            np.save(file, self.LEDFAKTOR)                            
+                                    
+        
+        
+        # save a Dictionary with all the Data to a .json file
+        self.LEDCal_json = {'Time': time_txt, 
+                     'Timestamp' : time.time(),
+                     'BitMask': '', 
+                     'Exposure Time': self.getParam('CAM-EXPT'), 
+                     'Sensor Bit Depth': self.getParam('CAM-SenBitD'), 
+                     'Pixelformat': self.getParam('CAM-Pformat'), 
+                     'Gain': self.getParam('CAM-GAIN'),
+                     'Img Size': (self.getParam('CAM-HEIGHT'), self.getParam('CAM-WIDTH')),
+                     'Slice Parameters(y_start,y_end, x_start, x_end):': (self.y_start,self.y_end,self.x_start,self.x_end),
+                     'LED_Calibration': '',
+                     'Shape of Arrays': tuple(np.array(CalA.shape, dtype='float')),}
+        #print('BM_Cal_json:', BM_Cal_json)        
+            #save with Time and Date -> Archiv    
+        with open(PATH_LEDCal + time_txt + '_BM_Cal_' + expt_ms + '.json', 'w') as file:
+            json.dump(self.LEDCal_json, file)
+            #save as _last_ for reopening
+        with open(PATH_BM_LEDCal+'_last_BM_Cal_parameters.json', 'w') as file:
+            json.dump(self.LEDCal_json, file)
+        
+        self.setParam('LEDCal-NR', 0)
+        self.setParam('LEDCal-EXPT', int(self.getParam('CAM-EXPT')))
+        self.write('CAM-EXPT', expt0)
+        self.write('LEDall', 0) #LED off 
+        self.setParam('LEDCal-Time', time_txt)
+        self.setParam('CAM-acq_LEDCal', False) #resets the value
+        self.setParam('CAM-isGrabbing', False)#resets the isGrabbing state of Camera
+        self.updatePVs()
+        
+        #print('acq_BM_Cal finished')
+        logging.info('acq_LEDCal finished')
+        return None #end of Function
+        
     
 
 if __name__ == '__main__': 
