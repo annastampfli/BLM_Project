@@ -180,5 +180,17 @@ def newdir(PATH):
     if not os.path.exists(PATH):
         os.makedirs(PATH)
     return None
+
+
+def save_img(PATH, img):
+    """This function saves img under PATH in the defined format
+    (supported formats: eps, jpeg, jpg, pdf, pgf, png, ps, raw, rgba, svg, svgz, tif, tiff)"""
+    fig, ax = plt.subplots()
+    pcm = ax.pcolormesh(img)
+    ax.set_aspect(1)
+    plt.title(os.path.basename(PATH))
+    fig.colorbar(pcm, ax=ax, shrink=0.7)
+    plt.savefig(PATH)
+    return None
         
     
