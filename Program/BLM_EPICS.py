@@ -480,6 +480,17 @@ pvdb.update(LEDFAKTORdir)
 
 class iocDriver(Driver):
 
+    """ __init__(), write(), and read() are the standart methods of the Driver.
+    All other functions are additionally. 
+    read() and write() define what happens when a PV gets asked (read)
+    or is changed externally (write). In this two methods no time consuming 
+    functions are allowed, otherwise the Drivers main thread is blocked and 
+    nothing else can happen.
+
+    Longer processes are additional functions, which are started as threads
+
+    The server is started at the end of the code."""
+
     def __init__(self):
         super(iocDriver, self).__init__()
     
@@ -487,6 +498,8 @@ class iocDriver(Driver):
         GPIO.setwarnings(False)
         GPIO.setmode(GPIO.BOARD)
         GPIO.setup(LED_all, GPIO.OUT)
+        
+        self.stop = False #global Variable to stop threads
         
         self.loadCdata()
            
@@ -623,15 +636,13 @@ class iocDriver(Driver):
             if val == True and self.getParam('CAM-isGrabbing') == False:
                 # Camera Measurement Thread
                 self.CAM_thread = threading.Thread(target = self.measurement, daemon = True)
-                #self.setParam('CAM-isGrabbing', True)
-                self.updatePVs()
+                self.stop = False
                 self.CAM_thread.start()
                 logging.info("\n______________________________________________________\n\nCamera started measuring with following Parameters: \n Exposure Time: %s \n Gain: %s \n Pixel Format: %s \n Sensor Bit Depth: %s \nImage Processing Parmaters: \n use BitMask: %s \n use Dark: %s \n use Calibration Faktor: %s \n______________________________________________________\n", self.getParam('CAM-EXPT'), self.getParam('CAM-GAIN'), self.getParam('CAM-Pformat'), self.getParam('CAM-SenBitD'), self.getParam('useBitMask'), self.getParam('useDark'), self.getParam('useCalA'))
                
             elif val == False and self.getParam('CAM-isGrabbing') == True:
-                self.setParam('CAM-isGrabbing', False)
-                self.updatePVs()
-                self.CAM_thread.join() #really waits until the thread is finished
+                self.stop = True
+                #self.CAM_thread.join() #really waits until the thread is finished
                 logging.info("\n______________________________________________________\n\nCamera stopped measuring \n______________________________________________________\n")
             else:
                 false_val = True
@@ -640,9 +651,12 @@ class iocDriver(Driver):
             if val == True and self.getParam('CAM-isGrabbing') == False:
                 #acquire BitMask Calibration Thread
                 self.BM_Cal_thread = threading.Thread(target = self.acq_BM_Cal, daemon = True)
-                #self.setParam('CAM-isGrabbing', True)
-                self.updatePVs()
-                self.BM_Cal_thread.start()     
+                self.stop = False
+                self.BM_Cal_thread.start()   
+            elif val == False and self.getParam('CAM-isGrabbing') == True:
+                self.stop = True
+                print('stopped Bitmask Calibration')
+                logging.info("\n______________________________________________________\n Bitmask and Calibration Acquition stopped \n______________________________________________________\n")
             else:
                 logging.warning('can not acquire BitMask and Calibration, when Camara is measuring.')
                 #print('can not acquire BitMask when Camera not connected or measuring.') 
@@ -652,7 +666,12 @@ class iocDriver(Driver):
             if val == True:
                 # acquire Dark Thread
                 self.Dark_thread = threading.Thread(target = self.acqDark, daemon = True)
-                self.Dark_thread.start()     
+                self.stop = False
+                self.Dark_thread.start() 
+            elif val == False and self.getParam('CAM-isGrabbing') == True:
+                self.stop = True
+                print('stopped Dark')
+                logging.info("\n______________________________________________________\n\n Dark is stopped \n______________________________________________________\n")
             else:
                 logging.warning('can not acquire Dark, when Camara is measuring.')
                 #print('can not acquire Dark when Camera not connected or measuring.') 
@@ -662,13 +681,12 @@ class iocDriver(Driver):
             if val == True and self.getParam('CAM-isGrabbing') == False:
                 # acquire LEDCal Thread, daemon means it will stop, when the main theread stops
                 self.LEDCal_thread = threading.Thread(target = self.acq_LEDCal, daemon = True)
-                self.LEDCal_thread.start()  
+                self.stop = False
+                self.LEDCal_thread.start()
             elif val == False and self.getParam('CAM-isGrabbing') == True:
-                self.setParam('CAM-isGrabbing', False)
-                self.updatePV('CAM-isGrabbing')
-                print('is Grabbing should  be false because stop was pressed')
-                self.LEDCal_thread.stop() #really waits until the thread is finished
-                print('LEDCal thread closed')
+                self.stop = True
+                #self.LEDCal_thread.join() #really waits until the thread is finished
+                #print('LEDCal thread closed')
                 logging.info("\n______________________________________________________\n\n LEDCal is stopped \n______________________________________________________\n")
             else:
                 logging.warning('can not acquire LEDCal, when Camara is measuring.')
@@ -849,32 +867,38 @@ class iocDriver(Driver):
             img_paint = f.paint_raster(img, (4,7), show = False)
             img_flip = np.fliplr(img_paint)
             
-            self.grabResult.Release()
-            self.camera.StopGrabbing()
-            
-            self.setParam('CAM-isGrabbing', False)
-            self.updatePVs()
+            self.StopGrabbing()
             return img_flip.flatten()
         
-        else:
+        else: #all the other PVs
             val = self.getParam(reason) #get current value
         return val
 
     
     def StartGrabbing(self):
+        self.setParam('CAM-isGrabbing', True)
+        self.updatePV('CAM-isGrabbing')
         self.camera.StartGrabbing(pylon.GrabStrategy_LatestImageOnly)#test other grabStrategies
         while True:
-            time.sleep(0.4) # in sec
+            time.sleep(0.1) # in sec
             if not self.camera.GetGrabResultWaitObject().Wait(0):
-                #print("Wait until a grab result is in the output queue")
+                print("Wait until a grab result is in the output queue")
                 logging.info("StartGrabbing: Wait until a grab result is in the output queue")
             else:
-                #print("A grab result waits in the output queue.")
+                print("A grab result waits in the output queue.")
                 logging.info("StartGrabbing: A grab result waits in the output queue.")
-                self.setParam('CAM-isGrabbing', True)
-                self.updatePV('CAM-isGrabbing')
                 break
-            
+     
+    def StopGrabbing(self):
+        try:
+            self.grabResult.Release() #after release grabResult.Array,grabResult.ID = error Nullpointer
+        except:
+            None
+        self.camera.StopGrabbing()
+        self.setParam('CAM-isGrabbing', False)
+        self.updatePV('CAM-isGrabbing')
+        return None #End of function
+        
                       
     def SliceIMG(self, img):#slice the image with the current slicing parameters
         return img[self.y_start:self.y_end,self.x_start:self.x_end]       
@@ -1160,17 +1184,18 @@ class iocDriver(Driver):
                 self.updatePVs()
        
                 #global stop_measurement
-                if self.getParam('CAM-isGrabbing') == False:
-                    self.grabResult.Release()
-                    self.camera.StopGrabbing()
+                if self.stop == True:
+                    
                     sav = np.zeros(splits[0]*splits[1]+1)
                     sav[:]=-1
                     self.setParam('LOSS', sav)#reset the LOSS Variabels to -1
                     
                     for j in range(splits[0]*splits[1]):
                         self.setParam('LOSS'+str(j+1), -1)
-                        self.updatePVs()
-                    break
+                    self.updatePVs()
+                    self.StopGrabbing()
+                    self.stop = False
+                    return
                 
                 elif self.getParam('CAM-acqDark') == True:
                     self.grabResult.Release()
@@ -1209,10 +1234,11 @@ class iocDriver(Driver):
             if self.grabResult.GrabSucceeded():
                 img = self.grabResult.Array
                 # sum it up
-                Isum += img                    
+                Isum += img 
+            if self.stop == True:
+                break
         DarkI = Isum/j
-        self.grabResult.Release()
-                            
+        self.grabResult.Release()   
         
         DarkIs = self.SliceIMG(DarkI) # Slice it
         #Calculate DarkA with BitMask
@@ -1226,6 +1252,11 @@ class iocDriver(Driver):
         else:
             print('ERROR: BM Cal LED not set on')
             
+        for i in range(5):
+            time.sleep(1)
+            if self.stop == True:
+                break
+            
         #,acq Flatfield and BitMask with LED on
         Isum = np.zeros(width*height).reshape(height, width)
         for i in range(j):
@@ -1235,11 +1266,19 @@ class iocDriver(Driver):
             if self.grabResult.GrabSucceeded():
                 img = self.grabResult.Array
                 # sum it up
-                Isum += img                    
+                Isum += img 
+            if self.stop == True:
+                break
         CalI = Isum/j
-        self.grabResult.Release()
         
-        self.camera.StopGrabbing()
+        # stop aqr BM_Cal
+        if self.stop == True:
+            self.write('CAM-EXPT', expt0)
+            self.write('LEDall', 0) #LED off
+            self.setParam('BM_Cal-NR', 0)
+            self.updatePVs
+            self.StopGrabbing()
+            return None #stop of function
         
         #calculate Bitmask
         threshhold = self.getParam('BitMask-TH')
@@ -1279,35 +1318,27 @@ class iocDriver(Driver):
         time_txt = time.strftime("%Y-%m-%d_%H-%M-%S_%Z", time.localtime())
         expt_ms = str(self.getParam('CAM-EXPT')/1000) + 'ms'
             #save with Time and Date -> Archiv
-        with open(PATH_Cal + time_txt + '_DarkI_' + expt_ms + '.npy', 'wb') as file:
-            np.save(file, DarkI)
+        f.save_img(PATH_Cal + time_txt + '_DarkI_' + expt_ms, DarkI)
             #save as _last_ for reopening
-        with open(PATH_Cal+'_last_DarkI.npy', 'wb') as file:
-            np.save(file, DarkI)
+        f.save_img(PATH_Cal+'_last_DarkI', DarkI)
                                   
         #save CalI
             #save with Time and Date -> Archiv
-        with open(PATH_Cal + time_txt + '_CalI_' + expt_ms + '.npy', 'wb') as file:
-            np.save(file, CalI)
+        f.save_img(PATH_Cal + time_txt + '_CalI_' + expt_ms, CalI)
             #save as _last_ for reopening
-        with open(PATH_Cal+'_last_CalI.npy', 'wb') as file:
-            np.save(file, CalI)
+        f.save_img(PATH_Cal+'_last_CalI', CalI)
             
         #save CalA
             #save with Time and Date -> Archiv
-        with open(PATH_Cal + time_txt + '_CalA_' + expt_ms + '.npy', 'wb') as file:
-            np.save(file, self.CalA)
+        f.save_arr(PATH_Cal + time_txt + '_CalA_' + expt_ms, self.CalA)
             #save as _last_ for reopening
-        with open(PATH_Cal+'_last_CalA.npy', 'wb') as file:
-            np.save(file, self.CalA)
+        f.save_arr(PATH_Cal+'_last_CalA', self.CalA)
         
         #save Bitmask
-            #save with Time and Date -> Archiv 
-        with open(PATH_BM + time_txt + '_bitmask_' + expt_ms + '.npy', 'wb') as file:
-            np.save(file, mask)
+            #save with Time and Date -> Archiv
+        f.save_img(PATH_BM + time_txt + '_bitmask_' + expt_ms, mask)
             #save as _last_ for reopening
-        with open(PATH_BM+'_last_bitmask.npy', 'wb') as file:
-            np.save(file, mask)
+        f.save_img(PATH_BM+'_last_bitmask', mask)
         
         # save a Dictionary with all the Data to a .json file
         self.BM_Cal_json = {'Time': time_txt, 
@@ -1352,8 +1383,9 @@ class iocDriver(Driver):
         self.setParam('BitMask', self.BitMask_view.flatten())
         self.setParam('BM_Cal-Time', time_txt)
         self.setParam('CAM-acq_BM_Cal', False) #resets the value
-        self.setParam('CAM-isGrabbing', False)#resets the isGrabbing state of Camera
+        self.setParam('BM_Cal-NR', 0)
         self.updatePVs()
+        self.StopGrabbing()
         
         #print('acq_BM_Cal finished')
         logging.info('acqBM_Cal finished')
@@ -1395,9 +1427,15 @@ class iocDriver(Driver):
             if self.grabResult.GrabSucceeded():
                 img = self.grabResult.Array
                 # sum it up
-                DarkIsum += img                    
+                DarkIsum += img    
+            # stop aqr dark
+            if self.stop == True:
+                self.StopGrabbing()
+                self.stop = False
+                return None #stop of function
+            
         DarkI = DarkIsum/j
-        self.grabResult.Release() #after release grabResult.Array,grabResult.ID = error Nullpointer
+        
         
         #EdgeLoss0
         try:
@@ -1426,11 +1464,9 @@ class iocDriver(Driver):
         time_txt = time.strftime("%Y-%m-%d_%H-%M-%S_%Z", time.localtime())
         expt_ms = str(self.getParam('CAM-EXPT')/1000) + 'ms'
             #save with Time and Date -> Archiv
-        with open(PATH_Dark + time_txt + '_DarkI_' + expt_ms + '.npy', 'wb') as file:
-            np.save(file, DarkI)
+        f.save_img(PATH_Dark + time_txt + '_DarkI_' + expt_ms, DarkI)
             #save as _last_ for reopening
-        with open(PATH_Dark+'_last_DarkI.npy', 'wb') as file:
-            np.save(file, DarkI)
+        f.save_img(PATH_Dark+'_last_DarkI', DarkI)
 
         # save a Dictionary with all the Data to a .json file
         dark_json = {'Time': time_txt, 
@@ -1457,11 +1493,11 @@ class iocDriver(Driver):
         self.setParam('Dark-EXPT', int(self.getParam('CAM-EXPT')))
         self.setParam('Dark-Time', time_txt)
         self.setParam('CAM-acqDark', False)
-        if notM:#if measuring hasn't started
-            self.camera.StopGrabbing()
-            self.setParam('CAM-isGrabbing', False)#resets the isGrabbing state of Camera
-        #else: CAM-isGrabbing still True for continuing Measurement
         self.updatePVs()
+        
+        if notM:#if measuring hasn't started
+            self.StopGrabbing()
+        #else: CAM-isGrabbing still True for continuing Measurement
         
         #print('acqDarkA finished')
         logging.info('acqDark finished')
@@ -1477,35 +1513,29 @@ class iocDriver(Driver):
         self.StartGrabbing()
         width = self.getParam('CAM-WIDTH')
         height = self.getParam('CAM-HEIGHT')
-        print('LED Calibration ready for Dark')
         Isum = np.zeros(width*height).reshape(height, width)
-        print('LED Calibration ready for Dark2')
         for i in range(j):
             #time.sleep(0.05)
             self.grabResult = self.camera.RetrieveResult(5000,pylon.TimeoutHandling_Return)
             if self.grabResult.GrabSucceeded():
                 img = self.grabResult.Array
                 # sum it up
-                Isum += img                    
+                Isum += img 
+            if self.stop == True:
+                print('break from Dark of LED Calibration')
+                break
         DarkI = Isum/j
         self.grabResult.Release()
-        print('LED Calibration Dark2 finished')
         DarkIs = self.SliceIMG(DarkI) # Slice it
         #Calculate DarkA with BitMask
         DarkI_BM = DarkIs*self.BitMask
         DarkA_BM = f.split_sum(DarkI_BM, splits)
-        print('DarkA_BM from acqCal \n', DarkA_BM)
-        
-        #save DarkI for LED Calibration
        
         time_txt = time.strftime("%Y-%m-%d_%H-%M-%S_%Z", time.localtime())
         f.newdir(PATH_LEDCal + time_txt + '_LED_Data/')
         expt_ms = str(self.getParam('CAM-EXPT')/1000) + 'ms'
-            #save with Time and Date -> Archiv
-        with open(PATH_LEDCal + time_txt + '_LED_Data/' + 'DarkI_' + expt_ms + '.txt', 'wb') as file:
-            np.save(file, DarkI)
-        with open(PATH_LEDCal + time_txt + '_LED_Data/' + 'DarkI_' + expt_ms + '.npy', 'wb') as file:
-            np.save(file, DarkI)     
+        #save DarkI for LED Calibration
+        f.save_img(PATH_LEDCal + time_txt + '_LED_Data/' + 'DarkI_' + expt_ms, DarkI)     
             
             
         #init some Values
@@ -1522,13 +1552,16 @@ class iocDriver(Driver):
             print(PATH_LED)
             f.newdir(PATH_LED)
 
-            led = np.zeros(21)
+            #led = np.zeros(21)
+            self.write('LEDall', 0) #LED off
             if lednr>20:
-                led[lednr-7] = 1
+                self.write('LED_'+str(lednr-7+1), 1)
+                #led[lednr-7] = 1
             else:
-                led[lednr] = 1
+                self.write('LED_'+str(lednr+1), 1)
+                #led[lednr] = 1
+            #self.write('LEDA', led) #one LED on
             
-            self.write('LEDA', led) #one LED on
             if lednr>20:
                 if self.getParam('LEDA')[lednr-7] == 1: #check LED
                     print('LED Cal LED set successfully on')
@@ -1540,17 +1573,15 @@ class iocDriver(Driver):
             
             while self.getParam('LEDCal-Next') == 0:
                 #wait until Calbration Cable is connected manually
-                time.sleep(0.1)
-                if self.getParam('CAM-isGrabbing') == False:
+                time.sleep(1.1)
+                if self.stop == True:
                     print('break from waiting loop')
-                    return
+                    break #break this while loop
                 print('wait until next LED is connected')
                 
             #global stop_LEDCal
-            if self.getParam('CAM-isGrabbing') == False:
+            if self.stop == True:
                 print('break from global stop')
-                self.grabResult.Release()
-                self.camera.StopGrabbing()
                 #reset all changed PV to before
                 for i in range(splits[0]*splits[1]):
                     self.setParam('LEDCalA'+str(i+1),self.LEDCalA.flat[i])
@@ -1560,8 +1591,11 @@ class iocDriver(Driver):
                 self.setParam('LEDCal-EXPT', int(self.getParam('CAM-EXPT')))
                 self.write('CAM-EXPT', expt0)
                 self.write('LEDall', 0) #LED off 
+                self.setParam('CAM-isGrabbing', False)
                 self.updatePVs 
-                return
+                self.StopGrabbing()
+                self.stop = False
+                return None#stops the thread
                 
                 
             #acq Flatfield with one LED on
@@ -1576,10 +1610,8 @@ class iocDriver(Driver):
             Isum = Isum/j
             self.grabResult.Release()
             
-            #save LEDxxCalI
-            with open(PATH_LED +'CalI_' + expt_ms + '.npy', 'wb') as file:
-                np.save(file, Isum) 
-            f.save_img(PATH_LED +'CalI_' + expt_ms + '.png', Isum)
+            #save LEDxxCalI 
+            f.save_img(PATH_LED +'CalI_' + expt_ms, Isum)
             
             #calculate LEDxxA
             Isum = Isum-DarkI #DarkI correction
@@ -1589,17 +1621,14 @@ class iocDriver(Driver):
             print('LEDxxA with subtracted dark and Bitmask \n', LEDxxA)
                                     
             #save LEDxxCalA
-            with open(PATH_LED + 'CalA_' + expt_ms + '.npy', 'wb') as file:
-                np.save(file, LEDxxA)
+            f.save_arr(PATH_LED + 'CalA_' + expt_ms, LEDxxA)
            
            #update LEDCalA and LEDCalI
             LEDCalA.flat[lednr] = LEDxxA.flat[lednr]
             y, x = splits
             ly = np.shape(LEDCalI)[0]//y
             lx = np.shape(LEDCalI)[1]//x
-            print('ly:' ,ly, 'and lx', lx, 'and y', y, 'and x', x, 'and lednr', lednr)
-            print('lednr//x*ly', lednr//x*ly, 'lednr//x*ly+ly', lednr//x*ly+ly, ', lednr%x*lx', lednr%x*lx, ':lednr%x*lx+lx')
-            LEDCalI[lednr//x*ly:lednr//x*ly+ly, lednr%x*lx:lednr%x*lx+lx] = Isum[lednr//x*ly:lednr//x*ly+ly, lednr%x*lx:lednr%x*lx+lx]
+            LEDCalI[lednr//x*ly:lednr//x*ly+ly, lednr%x*lx:lednr%x*lx+lx] = Isum[lednr//x*ly:lednr//x*ly+ly, lednr%x*lx:lednr%x*lx+lx]#replace LED square of LEDCalI with current LED
             #calculate LEDFAKTOR
             LEDFAKTOR = f.norm_A(LEDCalA, channels=np.array(LEDCalA > 0, dtype=int)) #CalA normalize the already measured LEDs
             print('LEDCalA: \n', LEDCalA)
@@ -1607,7 +1636,6 @@ class iocDriver(Driver):
             time.sleep(1.1)
             #update PVs 
             self.setParam('LEDCalI', LEDCalI.flatten())
-            f.save_img(PATH_LED +'LEDCalI_' + expt_ms + '.png', LEDCalI)
             self.updatePV('LEDCalI')
             for i in range(splits[0]*splits[1]):
                 self.setParam('LEDFAKTOR'+str(i+1), LEDFAKTOR.flat[i])
@@ -1615,29 +1643,16 @@ class iocDriver(Driver):
                 self.setParam('LEDCalA'+str(i+1), LEDCalA.flat[i])                       
             self.setParam('LEDCal-Next', 0)
             self.updatePVs()
-            
-                                    
-                                    
-        self.grabResult.Release()
-        self.camera.StopGrabbing()
         
-                                  
-        #save LEDCalI
-            #save with Time and Date -> Archiv
-        with open(PATH_LEDCal + time_txt + '_LEDCalI_' + expt_ms + '.npy', 'wb') as file:
-            np.save(file, LEDCalI)    
-        #save LEDCalA
-            #save with Time and Date -> Archiv
-        with open(PATH_LEDCal + time_txt + '_LEDCalA_' + expt_ms + '.npy', 'wb') as file:
-            np.save(file, LEDCalA)
+        #save LEDCalI and LEDCalA
+        f.save_img(PATH_LEDCal + time_txt + '_LEDCalI_' + expt_ms, LEDCalI)
+        f.save_arr(PATH_LEDCal + time_txt + '_LEDCalA_' + expt_ms, LEDCalA)
         self.LEDCalA=LEDCalA
    
-        #save LEDFAKTOR
-        with open(PATH_LEDCal + time_txt + '_LED-FAKTOR_' + expt_ms + '.npy', 'wb') as file:
-            np.save(file, LEDFAKTOR)
+        #save LEDFAKTOr
+        f.save_arr(PATH_LEDCal + time_txt + '_LED-FAKTOR_' + expt_ms, LEDFAKTOR)
             #save as _last_ for reopening
-        with open(PATH_LEDCal+'_last_LED-FAKTOR.npy', 'wb') as file:
-            np.save(file, LEDFAKTOR)                            
+        f.save_arr(PATH_LEDCal+'_last_LED-FAKTOR', LEDFAKTOR)                            
         self.LEDFAKTOR=LEDFAKTOR                           
         
         
@@ -1669,7 +1684,7 @@ class iocDriver(Driver):
         self.setParam('CAM-acq_LEDCal', False) #resets the value
         self.setParam('CAM-isGrabbing', False)#resets the isGrabbing state of Camera
         self.updatePVs()
-        
+        self.StopGrabbing()
         print('acq_LEDCal finished')
         logging.info('acq_LEDCal finished')
         return None #end of Function

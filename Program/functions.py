@@ -183,14 +183,22 @@ def newdir(PATH):
 
 
 def save_img(PATH, img):
-    """This function saves img under PATH in the defined format
-    (supported formats: eps, jpeg, jpg, pdf, pgf, png, ps, raw, rgba, svg, svgz, tif, tiff)"""
+    """This function saves img under PATH (without file ending)"""
     fig, ax = plt.subplots()
     pcm = ax.pcolormesh(img)
+    plt.gca().invert_yaxis()
     ax.set_aspect(1)
     plt.title(os.path.basename(PATH))
     fig.colorbar(pcm, ax=ax, shrink=0.7)
-    plt.savefig(PATH)
+    plt.savefig(PATH+'.png')
+    with open(PATH + '.npy', 'wb') as file:
+            np.save(file, img)
     return None
         
-    
+
+def save_arr(PATH, arr):
+    """This Function saves an array as floating numbers with 8 digits after comma 
+    and Enter for colums(2d array), under PATH (without ending)"""
+    with open(PATH + '.txt', 'w') as file:
+            np.savetxt(file, arr, fmt='%.8e' )
+    return None
