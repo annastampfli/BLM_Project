@@ -1,0 +1,78 @@
+#/lib/systemd/system/BLM_EPICS.service
+# created by Anna Stampfli 27.10.2021
+#last changed 26.01.22
+
+[Unit]
+Description=systemctl for BLM_EPICS server python
+After=network.target network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/slsop/BLM_Project/Program/
+User=slsop
+Restart=always
+ExecStart=/usr/local/bin/BLM_EPICS_startup.sh
+TimeoutStartSec=100
+ExecStartPost=/usr/local/bin/BLM_EPICS_init.sh
+ExecStop=/usr/local/bin/BLM_EPICS_shutdown.sh
+
+[Install]
+WantedBy=multi-user.target
+
+
+#!/bin/bash
+#/usr/local/bin/BLM_EPICS_startup.sh
+# created by Anna Stampfli 16.11.2021, last changed 28.01.22
+#/lib/systemd/system/BLM_EPICS.service runs this script to start the python server
+
+export EPICS_CA_MAX_ARRAY_BYTES=1000000000 #for cacamera widget
+FULLNAME=$(getent passwd $USER | cut -d ':' -f 5| cut -d ',' -f 1) 
+echo $FULLNAME
+read -p "Waiting 5 secs.. " -t 5
+echo "start now startup.sh"
+cd /home/slsop/BLM_Project/Program/
+#echo "output will be logget in stdout.log and error will be logged in ARIDI-BLMXX.log, real time"
+/home/slsop/c4aarch64_installer/bin/python -u BLM_EPICS.py >stdout.log 2>>${FULLNAME}.log
+cd $HOME
+
+
+#!/bin/bash
+#/usr/local/bin/BLM_EPICS_init.sh
+#created by Anna Stampfli 27.10.2021, last changed 27.01.22
+# /lib/systemd/system/BLM_EPICS.service runs this script to init the server, 
+#that the camera starts measuring with the correct settings of Dark, Bitmask and Calibration Faktor
+
+cd $HOME
+sleep 15
+echo "start now init.sh"
+#which caput
+FULLNAME=$(getent passwd $USER | cut -d ':' -f 5| cut -d ',' -f 1)
+echo fullname:  $FULLNAME
+/home/slsop/epics/epics-base/bin/linux-arm/caput $FULLNAME:connect 1
+sleep 1.5
+/home/slsop/epics/epics-base/bin/linux-arm/caput $FULLNAME:CAM-measure 1
+sleep 1.5
+/home/slsop/epics/epics-base/bin/linux-arm/caput $FULLNAME:CAM-measure 1 #repeat if camera is Grabbing
+sleep 0.5
+/home/slsop/epics/epics-base/bin/linux-arm/caput $FULLNAME:useBitMask 1
+/home/slsop/epics/epics-base/bin/linux-arm/caput $FULLNAME:useDark 1
+/home/slsop/epics/epics-base/bin/linux-arm/caput $FULLNAME:useCalA 1
+
+!/bin/bash
+#/usr/local/bin/shutdown.sh
+# created by Anna Stampfli 26.10.21
+# last changed 26.01.22
+# /lib/systemd/system/BLM_EPICS.service runs this script for stoping the python server
+
+cd /home/slsop/BLM_Project/Program/
+/usr/bin/pkill -f BLM_EPICS.py
+echo "done shutdown.sh"
+cd $HOME
+
+
+
+
+
+
+
+
