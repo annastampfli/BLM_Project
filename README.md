@@ -8,5 +8,4 @@ This repository is locally on following machines:
 
 
 Missing:
-- code to autostart python script
 - manual to put into SLS launcher
