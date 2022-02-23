@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>855</width>
+    <width>830</width>
     <height>669</height>
    </rect>
   </property>
@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>50</y>
+     <y>70</y>
      <width>161</width>
      <height>22</height>
     </rect>
@@ -69,7 +69,7 @@
     <rect>
      <x>530</x>
      <y>40</y>
-     <width>151</width>
+     <width>131</width>
      <height>611</height>
     </rect>
    </property>
@@ -187,7 +187,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>100</y>
+     <y>104</y>
      <width>251</width>
      <height>28</height>
     </rect>
@@ -195,8 +195,8 @@
    <property name="font">
     <font>
      <pointsize>12</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
+     <weight>50</weight>
+     <bold>false</bold>
     </font>
    </property>
    <property name="text">
@@ -238,7 +238,7 @@
   <widget class="caLabel" name="calabel_12">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>10</x>
      <y>20</y>
      <width>491</width>
      <height>28</height>
@@ -253,7 +253,7 @@
     </font>
    </property>
    <property name="text">
-    <string>run, when Camera connected, but not measuring</string>
+    <string>Run, when Camera is connected, during Measurement</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -268,9 +268,9 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>690</x>
+     <x>670</x>
      <y>40</y>
-     <width>151</width>
+     <width>131</width>
      <height>611</height>
     </rect>
    </property>
@@ -338,11 +338,11 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <pointsize>11</pointsize>
     </font>
    </property>
    <property name="text">
-    <string>DarkA</string>
+    <string>Dark value</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -354,19 +354,19 @@
   <widget class="caLabel" name="calabel_6">
    <property name="geometry">
     <rect>
-     <x>690</x>
+     <x>640</x>
      <y>10</y>
-     <width>171</width>
+     <width>181</width>
      <height>28</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <pointsize>11</pointsize>
     </font>
    </property>
    <property name="text">
-    <string>DarkA with BitMask</string>
+    <string>Dark value with BitMask</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -379,13 +379,50 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>45</y>
+     <y>65</y>
      <width>30</width>
      <height>30</height>
     </rect>
    </property>
    <property name="channel" stdset="0">
     <string notr="true">$(XX):CAM-acqDark</string>
+   </property>
+  </widget>
+  <widget class="caLineEdit" name="calineedit">
+   <property name="geometry">
+    <rect>
+     <x>319</x>
+     <y>73</y>
+     <width>41</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="channel" stdset="0">
+    <string notr="true">$(XX):Dark-NR</string>
+   </property>
+  </widget>
+  <widget class="caLabel" name="calabel_7">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>70</y>
+     <width>151</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>/100 Nr of Img</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="fontScaleMode">
+    <enum>ESimpleLabel::None</enum>
    </property>
   </widget>
  </widget>

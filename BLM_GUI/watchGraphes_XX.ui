@@ -1850,7 +1850,6 @@
     <zorder>castripplot_102</zorder>
     <zorder>castripplot_105</zorder>
     <zorder>castripplot_108</zorder>
-    <zorder>castripplot_111</zorder>
     <zorder>castripplot_113</zorder>
     <zorder>castripplot_114</zorder>
     <zorder>castripplot_119</zorder>
@@ -1863,20 +1862,21 @@
     <zorder>castripplot_117</zorder>
     <zorder>castripplot_106</zorder>
     <zorder>castripplot_101</zorder>
-    <zorder>castripplot_107</zorder>
     <zorder>castripplot_103</zorder>
-    <zorder>castripplot_123</zorder>
     <zorder>castripplot_127</zorder>
     <zorder>castripplot_110</zorder>
-    <zorder>castripplot_118</zorder>
     <zorder>castripplot_115</zorder>
     <zorder>castripplot_97</zorder>
     <zorder>castripplot_125</zorder>
-    <zorder>castripplot_112</zorder>
     <zorder>castripplot_104</zorder>
     <zorder>castripplot_122</zorder>
     <zorder>castripplot_116</zorder>
     <zorder>castripplot_129</zorder>
+    <zorder>castripplot_111</zorder>
+    <zorder>castripplot_107</zorder>
+    <zorder>castripplot_123</zorder>
+    <zorder>castripplot_118</zorder>
+    <zorder>castripplot_112</zorder>
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">

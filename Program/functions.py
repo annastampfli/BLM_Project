@@ -136,8 +136,69 @@ def reshape_allROI(allROI, splits, show = True): # Example: from (28, ly, lx) to
 def float_or_na(value): #to convert N/A (not available) to nan (not a number), nan <class 'float'>
     return float(value if value != '#N/A' and value != 'BadVal' else 'nan')
 
+arr = np.ones(28).reshape(4,7) #example to make the code running
+def norm_A(arr, channels=np.ones(arr.size).reshape(arr.shape)):
+    #arr = Array which needs to be normalized
+    #channels = channels which are used for Normalisation all the other get 1 as Faktor
+    #FAKTOR = normalized Array with unconnected channels as 1
+    
+    #for Array of LED Calibration or Calibration without LED_Faktor
+    #NOT for Calibration with LED_Faktor and Flatfield
+    arr = np.array(arr)
+    channels = np.array(channels)
+    FAKTOR = np.ones(arr.size).reshape(arr.shape)
+    if channels.any() == False: #no channel is connected
+        return FAKTOR
+    AVG = np.average(arr, weights=channels) #Average over connected channels
+    for i in range(arr.size):
+        if channels.flat[i]==True:
+            FAKTOR.flat[i] = arr.flat[i]/AVG #Normalization for connected channels
+        else:
+            #FAKTOR.flatten[i] = 1 as default
+            None
+    return FAKTOR
 
         
-        
-        
+def cal_CAL_FAKTOR(Aflatd, LED_FAKTOR, NR, sqrt=False):
+    #Aflatd Array of the Flatfield subtracted by the dark, Brightnesses of the channels with sensors
+    #LED_FAKTOR = normalized LED brightnesses
+    #NR = nr. of connected channels
+    #sqrt = square root, if you want to take the sqrt because of sensors are in the half of the section
     
+    AflatLED = (Aflatd/LED_FAKTOR).flatten()[0:NR]#1) normalize the Brightnesses to the different LEDs
+    AVG = np.average(AflatLED)#2) mean Brightness over all channels
+    CAL_FAKTOR = AflatLED/AVG#2) normalize Brightnesses of all channels
+    CAL_FAKTOR = np.concatenate([CAL_FAKTOR, np.ones(28-NR)])#2) add 1 to the not connected channels
+    if sqrt:
+        CAL_FAKTOR = np.sqrt(CAL_FAKTOR)#3) optional: take sqrt
+        
+    return CAL_FAKTOR
+
+
+def newdir(PATH):
+    #creates directories if they had not exsist
+    if not os.path.exists(PATH):
+        os.makedirs(PATH)
+    return None
+
+
+def save_img(PATH, img):
+    """This function saves img under PATH (without file ending)"""
+    fig, ax = plt.subplots()
+    pcm = ax.pcolormesh(img)
+    plt.gca().invert_yaxis()
+    ax.set_aspect(1)
+    plt.title(os.path.basename(PATH))
+    fig.colorbar(pcm, ax=ax, shrink=0.7)
+    plt.savefig(PATH+'.png')
+    with open(PATH + '.npy', 'wb') as file:
+            np.save(file, img)
+    return None
+        
+
+def save_arr(PATH, arr):
+    """This Function saves an array as floating numbers with 8 digits after comma 
+    and Enter for colums(2d array), under PATH (without ending)"""
+    with open(PATH + '.txt', 'w') as file:
+            np.savetxt(file, arr, fmt='%.8e' )
+    return None
