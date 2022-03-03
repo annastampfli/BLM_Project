@@ -214,19 +214,19 @@
     <rect>
      <x>10</x>
      <y>230</y>
-     <width>251</width>
+     <width>461</width>
      <height>28</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <pointsize>11</pointsize>
      <weight>50</weight>
      <bold>false</bold>
     </font>
    </property>
    <property name="text">
-    <string>sliced Dark Image </string>
+    <string>sliced mirrored Image (left Nr.1, right Nr.7)</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>

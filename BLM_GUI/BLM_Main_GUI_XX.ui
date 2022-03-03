@@ -163,7 +163,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>4</number>
    </property>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
@@ -1849,7 +1849,7 @@
     <widget class="caRelatedDisplay" name="carelateddisplay">
      <property name="geometry">
       <rect>
-       <x>219</x>
+       <x>240</x>
        <y>10</y>
        <width>281</width>
        <height>31</height>
@@ -1867,7 +1867,7 @@
       <string>acquire Bit Mask and Calibration</string>
      </property>
      <property name="files">
-      <string>BitMask_Calibration_XX.ui</string>
+      <string>BLM_BitMask_Calibration_XX.ui</string>
      </property>
      <property name="args">
       <string>XX=$(XX)</string>
@@ -1879,7 +1879,7 @@
     <widget class="caRelatedDisplay" name="carelateddisplay_2">
      <property name="geometry">
       <rect>
-       <x>330</x>
+       <x>350</x>
        <y>70</y>
        <width>170</width>
        <height>31</height>
@@ -1897,7 +1897,7 @@
       <string>acquire Dark</string>
      </property>
      <property name="files">
-      <string>Dark_XX.ui</string>
+      <string>BLM_Dark_XX.ui</string>
      </property>
      <property name="args">
       <string>XX=$(XX)</string>
@@ -1986,7 +1986,7 @@
       <string>set Position</string>
      </property>
      <property name="files">
-      <string>Position_XX.ui</string>
+      <string>BLM_Position_XX.ui</string>
      </property>
      <property name="args">
       <string>XX=$(XX)</string>
@@ -2016,7 +2016,7 @@
       <string>acquire LED Calibration</string>
      </property>
      <property name="files">
-      <string>LED_Calibration_XX.ui</string>
+      <string>BLM_LED_Calibration_XX.ui</string>
      </property>
      <property name="args">
       <string>XX=$(XX)</string>
@@ -2576,7 +2576,7 @@
     <string>individual graphs</string>
    </property>
    <property name="files">
-    <string>watchGraphes_XX.ui</string>
+    <string>BLM_watchGraphes_XX.ui</string>
    </property>
    <property name="args">
     <string>XX=$(XX)</string>
@@ -2603,7 +2603,7 @@
     <enum>Qt::RightToLeft</enum>
    </property>
    <property name="text">
-    <string>GUI last changed: 21.02.22</string>
+    <string>GUI last changed: 23.02.22</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -142,7 +142,7 @@
     <widget class="caStripPlot" name="castripplot_99">
      <property name="geometry">
       <rect>
-       <x>290</x>
+       <x>280</x>
        <y>600</y>
        <width>261</width>
        <height>141</height>
@@ -967,7 +967,7 @@
     <widget class="caStripPlot" name="castripplot_114">
      <property name="geometry">
       <rect>
-       <x>570</x>
+       <x>550</x>
        <y>600</y>
        <width>261</width>
        <height>141</height>
@@ -1352,7 +1352,7 @@
     <widget class="caStripPlot" name="castripplot_121">
      <property name="geometry">
       <rect>
-       <x>850</x>
+       <x>820</x>
        <y>600</y>
        <width>261</width>
        <height>141</height>
@@ -1792,7 +1792,7 @@
     <widget class="caStripPlot" name="castripplot_129">
      <property name="geometry">
       <rect>
-       <x>1130</x>
+       <x>1090</x>
        <y>600</y>
        <width>261</width>
        <height>141</height>
@@ -1800,6 +1800,61 @@
      </property>
      <property name="channels" stdset="0">
       <string>X04SA-ID-GAP:READ</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Second</enum>
+     </property>
+     <property name="period">
+      <double>30.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_132">
+     <property name="geometry">
+      <rect>
+       <x>1360</x>
+       <y>600</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):CAM-Temp</string>
      </property>
      <property name="units">
       <enum>caStripPlot::Second</enum>
@@ -1877,6 +1932,7 @@
     <zorder>castripplot_123</zorder>
     <zorder>castripplot_118</zorder>
     <zorder>castripplot_112</zorder>
+    <zorder>castripplot_132</zorder>
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
@@ -1995,7 +2051,7 @@
     <widget class="caStripPlot" name="castripplot_67">
      <property name="geometry">
       <rect>
-       <x>290</x>
+       <x>280</x>
        <y>600</y>
        <width>261</width>
        <height>141</height>
@@ -2820,7 +2876,7 @@
     <widget class="caStripPlot" name="castripplot_82">
      <property name="geometry">
       <rect>
-       <x>570</x>
+       <x>550</x>
        <y>600</y>
        <width>261</width>
        <height>141</height>
@@ -3205,7 +3261,7 @@
     <widget class="caStripPlot" name="castripplot_89">
      <property name="geometry">
       <rect>
-       <x>850</x>
+       <x>820</x>
        <y>600</y>
        <width>261</width>
        <height>141</height>
@@ -3645,7 +3701,7 @@
     <widget class="caStripPlot" name="castripplot_130">
      <property name="geometry">
       <rect>
-       <x>1130</x>
+       <x>1090</x>
        <y>600</y>
        <width>261</width>
        <height>141</height>
@@ -3653,6 +3709,61 @@
      </property>
      <property name="channels" stdset="0">
       <string>X04SA-ID-GAP:READ</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>5.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_133">
+     <property name="geometry">
+      <rect>
+       <x>1360</x>
+       <y>600</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):CAM-Temp</string>
      </property>
      <property name="units">
       <enum>caStripPlot::Minute</enum>
@@ -3730,6 +3841,7 @@
     <zorder>castripplot_80</zorder>
     <zorder>castripplot_84</zorder>
     <zorder>castripplot_130</zorder>
+    <zorder>castripplot_133</zorder>
    </widget>
    <widget class="QWidget" name="tab_3">
     <attribute name="title">
@@ -3848,7 +3960,7 @@
     <widget class="caStripPlot" name="castripplot_36">
      <property name="geometry">
       <rect>
-       <x>290</x>
+       <x>280</x>
        <y>600</y>
        <width>261</width>
        <height>141</height>
@@ -4673,7 +4785,7 @@
     <widget class="caStripPlot" name="castripplot_50">
      <property name="geometry">
       <rect>
-       <x>570</x>
+       <x>550</x>
        <y>600</y>
        <width>261</width>
        <height>141</height>
@@ -5058,7 +5170,7 @@
     <widget class="caStripPlot" name="castripplot_57">
      <property name="geometry">
       <rect>
-       <x>850</x>
+       <x>820</x>
        <y>600</y>
        <width>261</width>
        <height>141</height>
@@ -5498,7 +5610,7 @@
     <widget class="caStripPlot" name="castripplot_131">
      <property name="geometry">
       <rect>
-       <x>1130</x>
+       <x>1090</x>
        <y>600</y>
        <width>261</width>
        <height>141</height>
@@ -5506,6 +5618,61 @@
      </property>
      <property name="channels" stdset="0">
       <string>X04SA-ID-GAP:READ</string>
+     </property>
+     <property name="units">
+      <enum>caStripPlot::Minute</enum>
+     </property>
+     <property name="period">
+      <double>60.000000000000000</double>
+     </property>
+     <property name="refreshRate" stdset="0">
+      <enum>caStripPlot::High</enum>
+     </property>
+     <property name="XaxisType">
+      <enum>caStripPlot::TimeScale</enum>
+     </property>
+     <property name="numberOfXticks" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="YAxisScaling" stdset="0">
+      <enum>caStripPlot::autoScale</enum>
+     </property>
+     <property name="color_1">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color>
+       <red>255</red>
+       <green>255</green>
+       <blue>255</blue>
+      </color>
+     </property>
+     <property name="scaleColor">
+      <color>
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </property>
+     <property name="LegendEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="caStripPlot" name="castripplot_134">
+     <property name="geometry">
+      <rect>
+       <x>1360</x>
+       <y>600</y>
+       <width>261</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="channels" stdset="0">
+      <string>$(XX):CAM-Temp</string>
      </property>
      <property name="units">
       <enum>caStripPlot::Minute</enum>
@@ -5583,6 +5750,7 @@
     <zorder>castripplot_54</zorder>
     <zorder>castripplot_48</zorder>
     <zorder>castripplot_131</zorder>
+    <zorder>castripplot_134</zorder>
    </widget>
   </widget>
  </widget>
