@@ -640,13 +640,13 @@ class iocDriver(Driver):
                 false_val = True       
                                                 
         elif reason == 'CAM-EXPT':
-            if 20 <= val <= 10000000 : #limits in pylon viewer, 19us-10s
+            if 20 <= val <= 1000000 : #limits in pylon viewer, 19us-10s, not longer than 1s
                 self.camera.ExposureTime = val
             else:
                 false_val = True
                   
         elif reason == 'BM_Cal-EXPT' or reason == 'LEDCal-EXPT':
-            if 20 <= val <= 10000000 : #limits in pylon viewer, 19us-10s
+            if 20 <= val <= 1000000 : #limits in pylon viewer, 19us-10s, not longer than 1s
                 status = True
             else:
                 false_val = True
