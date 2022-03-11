@@ -947,7 +947,7 @@ class iocDriver(Driver):
     
     def default_settings(self):
         self.camera.PixelFormat = "Mono12p"
-        #self.camera.ExposureTime =32000
+        self.camera.ExposureTime = self.dark_json['Exposure Time']
         self.camera.BinningHorizontalMode = "Sum"
         self.camera.BinningVerticalMode = "Sum"
         self.camera.BinningHorizontal = 4
@@ -1091,7 +1091,7 @@ class iocDriver(Driver):
         except:
             # default values, which are PVs
             self.dark_json = {'Time': 'None Dark yet', 
-                             'Exposure Time': 0,}
+                             'Exposure Time': 5000,}
 
         #DarkA = np.ones(splits[0]*splits[1]).reshape(splits[0], splits[1])#zeros
         #DarkI = np.zeros(Lx*Ly).reshape(Ly,Lx)
@@ -1146,6 +1146,7 @@ class iocDriver(Driver):
         self.setParam('LEDCal-useBitMask', self.LEDCal_json['BitMask'])
         self.setParam('LEDCal-EXPT', self.LEDCal_json['Exposure Time'])
         self.setParam('LEDCal-Time', self.LEDCal_json['Time'])
+        
         for i in range(splits[0]*splits[1]):
             self.setParam('DarkA'+str(i+1), self.DarkA.flat[i])
         for i in range(splits[0]*splits[1]):
@@ -1159,8 +1160,9 @@ class iocDriver(Driver):
         for i in range(splits[0]*splits[1]):
             self.setParam('LEDCalA'+str(i+1),self.LEDCalA.flat[i])
         for i in range(splits[0]*splits[1]):
-            self.setParam('LEDFAKTOR'+str(i+1),self.LEDFAKTOR.flat[i])
+            self.setParam('LEDFAKTOR'+str(i+1),self.LEDFAKTOR.flat[i])   
         self.updatePVs()
+        
     
     def measurement(self, NR_img = True):
         self.StartGrabbing()
